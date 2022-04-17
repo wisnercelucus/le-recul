@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <ng-container *ngFor="let show of shows; let i = index">
+    <div class="my-card"
+  >
+    <vn-show-card [show]="show"></vn-show-card>
+  </div>
+  </ng-container>
+
+</div>
+
+<!--<div class="latest-shows">
+  <div class="container">
+    <div class="u-margin-top-bottom-big"><h2 class="heading-secondary">ÉMISSIONS RÉCENTES</h2></div>
+    <div class="wrapper">
+        <div class="my-card" *ngFor="let show of shows"><vn-show-card [show]="show"></vn-show-card></div>
+    </div>
+  </div>
+</div>-->

@@ -1,0 +1,32 @@
+@import "../../../settings/sass/abstracts/variables";
+@import "../../../settings/sass/abstracts/mixins";
+
+.wrapper{
+    padding: 6rem 0;
+    padding-top: 15rem;
+    background-color: rgba($color-accent, .2);
+    overflow: hidden;
+
+    clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
+
+    .container{
+        @include respond(tab-land){
+            padding: 0 2rem;
+        }
+    }
+
+    @include respond(tab-port){
+        padding-top: 18rem;
+        clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 100%);
+        -webkit-clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .heading-secondary{
+        color: rgba($color-accent, 1);
+    }
+
+    .paragraph{
+        margin-bottom: 4rem;
+    }
+}

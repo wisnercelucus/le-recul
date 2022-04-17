@@ -1,0 +1,123 @@
+@import './../../../settings/sass/abstracts/mixins';
+
+.carousel-conatainer{
+    position: relative;
+    margin: auto;
+    text-align: center;
+    //border-radius: 1.5rem;
+    //box-shadow: 0 8px 16px #dce1e1;
+
+    /*@include respond(tab-port){
+        width: 85%;
+    }
+
+    @include respond(phone){
+        width: 95%;
+    }*/
+
+    img{
+        display: none;
+        //border-radius: 1.5rem;
+        object-fit: cover;
+
+        &.image-active{
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .carousel-dot-container{
+       position: absolute; 
+       left: 0;
+       bottom: 0;
+       right: 0;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       margin-bottom: 1rem;
+
+       .dot{
+           cursor: pointer;
+           height: 13px;
+           width: 13px;
+           margin: 0 5px;
+           display: inline-block;
+           transition: opacity 0.6s ease;
+           opacity: 0.5;
+           background-color: #fff;
+           border-radius: 50%;
+
+           &:hover{
+            opacity: 1;
+        }
+       }
+
+    }
+}
+
+.active{
+    opacity: 1 !important;
+}
+
+.fade{
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade{
+    from{
+        opacity: 0.7;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+.btn-carousel{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    color: #fff;
+    padding: 0;
+    text-align: center;
+    background: 0 0;
+    border: 0;
+    cursor: pointer;
+
+}
+
+.btn-prev{
+    left: 0;
+}
+
+.btn-next{
+    right: 0;
+}
+
+.icon-carousel{
+    color: #fff;
+    opacity: 0.5;
+    transition: all .15s ease;
+}
+
+
+.icon-carousel:hover{
+    opacity: .9;
+}
+
+.icon-carousel:hover{
+    opacity: .5;
+}
+
+.icon-next,
+.icon-prev{
+    font-size: 3.5rem;
+}
+
+
+

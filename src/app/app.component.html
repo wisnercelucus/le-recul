@@ -1,0 +1,7 @@
+<mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+<vn-main-nav [hotel]="hotel" [cinema]="cinema">
+  <main class="main">
+    <router-outlet></router-outlet>
+    <vn-footer></vn-footer>
+  </main>
+</vn-main-nav>

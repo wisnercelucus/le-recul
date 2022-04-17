@@ -1,0 +1,116 @@
+//Colors
+$color-white:#fff;
+$color-black:#000;
+
+$color-global-bg:#f1f5f9;
+$color-primary:#0072EF;
+
+$color-section-bg: rgba($color-black, 0.88);//#2C3E50;
+$color-section-bg-dark: $color-black; //#293A4A;
+
+$color-section-bg: rgb(44, 62, 80);
+$color-section-bg-dark: rgb(41, 58, 74);
+
+$color-primary-light: #505358;
+$color-primary-dark:#161616;
+
+$color-accent:#FFBE00;
+$color-warn:#F1C40F; 
+
+$color-danger:#b22222;
+$color-success:#57eb1d;
+$color-anchor: $color-primary;
+$color-secondary-light:#3590b4;
+$color-secondary-dark:$color-primary;
+
+$color-tertiary-light:#2998ff;
+$color-tertiary-dark:#5643f3;
+
+$color-grey-dark-1:#625e5e;
+$color-grey-dark-2:#999; 
+$color-grey-dark-3:#333;
+
+
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+//FONT
+$default-font-size:2rem;
+
+//Grid
+ 
+$grid-width:114rem;
+$container-width: $grid-width;
+$gutter-vertical:8rem;
+$gutter-vertical-small:6rem;
+$gutter-horizontal:6rem;
+
+$mat-blue-palette: (
+    50 : #e0eefd,
+    100 : #b3d5fa,
+    200 : #80b9f7,
+    300 : #4d9cf4,
+    400 : #2687f1,
+    500 : #0072ef,
+    600 : #006aed,
+    700 : #005feb,
+    800 : #0055e8,
+    900 : #0042e4,
+    A100 : #ffffff,
+    A200 : #d8e1ff,
+    A400 : #a5b9ff,
+    A700 : #8ba5ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+/* For use in src/lib/core/theming/_palette.scss */
+$mat-yellow-palette: (
+    50 : #fdf8e2,
+    100 : #fbedb7,
+    200 : #f8e287,
+    300 : #f5d657,
+    400 : #f3cd33,
+    500 : #f1c40f,
+    600 : #efbe0d,
+    700 : #edb60b,
+    800 : #ebaf08,
+    900 : #e7a204,
+    A100 : #ffffff,
+    A200 : #fff3da,
+    A400 : #ffe1a7,
+    A700 : #ffd98e,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+

@@ -1,0 +1,108 @@
+@import "../../../../settings/sass/abstracts/variables";
+@import "../../../../settings/sass/abstracts/mixins";
+
+.footer{
+    padding: 10rem;
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+
+    .u-center-text{
+        display: flex;
+    }
+
+    .spacer{
+        flex: 1 1 auto;
+    }
+
+    @include respond(tab-port){
+        padding: 6rem;
+        padding-top: 10rem;
+    }
+
+    .color-primary{
+        color: $color-primary;
+        font-size: 2.5rem;
+    }
+
+    .col-1-of-3{
+        &:not(:last-child){
+            @include respond(tab-port){
+                margin-bottom: 8rem;
+            }
+        }
+
+    }
+
+    .social-links{
+        list-style: none;
+
+        .social-link{
+            padding: 2rem 0;
+            display: inline-block;
+
+            &:not(:last-child){
+                margin-right: 5rem;
+            }
+
+            .social-anchor{
+                font-size: 4rem;
+                text-decoration: none;
+
+                &,
+                &:link,
+                &:visited{
+                    color:$color-white;
+                }
+
+                @include respond(tab-land){
+                    font-size: 3rem;
+                }
+            }
+        }
+
+
+    }
+
+    .col-1-of-3{
+        &:is(:last-child){
+            padding-left: 2rem;
+
+            @include respond(tab-port){
+                padding-left: 0rem;
+
+            }
+        }
+    }
+
+    mat-label{
+        color:$color-white;
+    }
+
+    .paragraph{
+        color:$color-white;
+        margin-top: 1.5rem;
+        text-align: left;
+    }
+
+
+
+    .u-divider{
+        margin-top: -2rem;
+    }
+
+    .footer-rights{
+        color:$color-grey-light-2;
+        text-align: left;
+    }
+
+    .builder{
+        color: $color-accent;
+    }
+
+    .footer-logo{
+        height: 17rem;
+        display: inline-block;
+    }
+
+
+}

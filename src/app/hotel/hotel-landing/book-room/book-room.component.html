@@ -1,0 +1,119 @@
+
+    <section class="section-book">
+        <div class="row">
+            <div class="book">
+                <div class="book__form">
+                    <form action="#" class="form">
+                        <div class="u-margin-bottom-medium">
+                            <h2 class="heading-secondary">
+                                Réserver une chambre
+                            </h2>
+                        </div>
+
+                        <div class="form__group">
+                            <mat-form-field class="full-width" color="accent" appearance="outline">
+                                <mat-label>Email</mat-label>
+                                <input type="email" matInput placeholder="someuser@dom.ext">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form__group">
+                            <mat-form-field color="accent" appearance="outline">
+                                <mat-label>Date d'arrivée</mat-label>
+                                <input class="picker" matInput [matDatepicker]="picker1">
+                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form__group">
+                            <mat-form-field color="accent" appearance="outline">
+                                <mat-label>Date de départ</mat-label>
+                                <input matInput class="picker" [matDatepicker]="picker2">
+                                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                <mat-datepicker #picker2></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form__group">
+                            <mat-form-field color="accent" appearance="outline">
+                                <mat-label>Chambres</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let room of rooms" [value]="room">
+                                    {{room}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="form__group">
+                            <mat-form-field color="accent" appearance="outline">
+                                <mat-label># de personnes</mat-label>
+                                    <mat-select>
+                                      <mat-option *ngFor="let mate of roomates" [value]="mate">
+                                        {{mate}}
+                                      </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                        </div>
+
+                        <div class="form__group">
+                            <button type="button" class="btn btn--accent">Réserver &rarr;</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--<flip-card>
+        <flip-card-front>
+            Front
+        </flip-card-front>
+        <flip-card-back>
+            Back
+        </flip-card-back>
+    </flip-card>-->
+    <!--<vn-drawer [(visible)]="visible" [position]="position" [header]="'Drawer Header'"
+    (onHide)="onDrawerHide()"
+    [showCloseIcon]="true"
+    >
+    <ul class="app-list">
+        <li class="app-list-item">
+            <fa-icon [icon]="faHome" class="app-list-icons"></fa-icon>
+            Home
+        </li>
+
+        <li class="app-list-item">
+            <fa-icon [icon]="faSmile" class="app-list-icons"></fa-icon>
+            Some content
+        </li>
+
+        <li class="app-list-item">
+            <fa-icon [icon]="faSmile" class="app-list-icons"></fa-icon>
+            Some other content
+        </li>
+    </ul>
+    </vn-drawer>
+
+    <div>
+        <button class="app-button mr-5" (click)="setVisibility('left')">Left</button>
+        <button class="app-button mr-5" (click)="setVisibility('right')">Right</button>
+        <button class="app-button mr-5" (click)="setVisibility('top')">Top</button>
+        <button class="app-button mr-5" (click)="setVisibility('bottom')">Bottom</button>
+    </div>
+
+    <div>
+        <button class="app-button mr-5" (click)="toggleVisibility('left')">Toggle Left</button>
+        <button class="app-button mr-5" (click)="toggleVisibility('right')">Toggle Right</button>
+        <button class="app-button mr-5" (click)="toggleVisibility('top')">Toggle Top</button>
+        <button class="app-button mr-5" (click)="toggleVisibility('bottom')">Toggle Bottom</button>
+    </div>
+
+    <app-accordion>
+        <app-accordion-item title="Title">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam ducimus labore accusamus quasi harum aliquid non quaerat minima tempora laborum ad possimus sed esse pariatur expedita eius, deleniti architecto nesciunt.
+        </app-accordion-item>
+    </app-accordion>-->
+
+

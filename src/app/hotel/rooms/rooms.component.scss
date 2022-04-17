@@ -1,0 +1,71 @@
+@import "../../../settings/sass/abstracts/variables";
+
+.wrapper{
+    padding: 6rem 0;
+}
+/*.container{
+    overflow: hidden;
+}*/
+
+.my-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3rem;
+    background: rgba($color-accent, 0.1);
+    margin-bottom: 3rem;
+    overflow: hidden;
+    height: 38rem;
+  }
+  
+  .my-card h3 {
+    margin-bottom: 2rem;
+  }
+  
+  .my-card img {
+    height: 38rem;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .my-card > div {
+    padding: 2rem;
+  }
+  
+  .my-card:nth-child(even) img {
+    order: 2;
+
+
+    
+  }
+  
+  
+  .btn {
+    margin-top: 2rem;
+  }
+  
+  /*.btn:hover {
+    opacity: 0.8;
+  }*/
+
+  .room-services-icon{
+    mat-icon{
+        &:not(:last-child){
+            margin-right: 2rem;
+        }
+        
+    }
+  }
+  
+  @media(max-width:600px) {
+    .my-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .my-card:nth-child(even) {
+        flex-direction: column-reverse;
+    }
+      
+  }
+  

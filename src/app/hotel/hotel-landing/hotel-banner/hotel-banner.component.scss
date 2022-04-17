@@ -1,0 +1,43 @@
+@import "../../../../settings/sass/abstracts/variables";
+
+.wrapper{
+    background-color: $color-white;
+    position: relative;
+    
+
+    .container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .heading-primary{
+        text-align: center;
+    }
+
+    .heading-primary--sub{
+        color: $color-white;
+        letter-spacing: 0.5rem;
+        text-transform: capitalize;
+        font-weight: 700;
+        font-size: 3rem;
+    }
+
+    .heading-primary--main{
+        font-weight: 900;
+        font-size: 5rem;
+        line-height: 6rem;
+        margin-bottom: 3rem;
+        letter-spacing: 0.5rem;
+        text-transform: capitalize;
+    }
+
+    .btn-book-room{
+        font-weight: 600;
+    }
+}

@@ -1,0 +1,13 @@
+@import "../../../../settings/sass/abstracts/variables";
+@import "../../../../settings/sass/abstracts/mixins";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    .heading-secondary {
+      text-align: center;
+      color: $color-accent;
+    }
+}

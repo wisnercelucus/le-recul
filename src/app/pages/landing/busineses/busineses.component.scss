@@ -1,0 +1,57 @@
+@import "../../../../settings/sass/abstracts/variables";
+@import "../../../../settings/sass/abstracts/mixins";
+
+.container{
+    padding-bottom: 6rem;
+
+    @include respond(tab-land){
+        width: 98%;
+    }
+
+    @include respond(phone){
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    .section-features{
+        //overflow-x: hidden;
+
+        &-items{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+
+            .feature-box{
+                width: 22rem;
+                margin-bottom: 4rem;
+
+                @include respond(tab-port){
+                    width: 30rem;
+                }
+            }
+        }
+    }
+
+    .heading-tertiary{
+        &-1{
+            color:$color-white !important;
+        }
+    }
+
+    .paragraph{
+        color: rgba($color-white, .8);
+    }
+
+    .feature-box__text{
+        height: 100px;
+        //overflow-y: hidden;
+    }
+
+    /*.feature-box__text:hover{
+        //overflow-y:auto;
+    }*/
+
+    
+
+}

@@ -1,0 +1,61 @@
+@import "../../../settings/sass/abstracts/variables";
+
+
+.heading-secondary{
+    color:$color-white;
+}
+
+mat-icon{
+    color: $color-white;
+    margin-right: 1rem;
+}
+
+.main-logo {
+    cursor: pointer;
+    width: 14rem;
+    border-radius: 8px;
+  }
+
+  .hotel-logo{
+    width: 14rem;
+  }
+
+.nav-title{
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.nav-caption{
+    color:  $color-white;
+}
+
+
+.nav-link{
+    text-transform: uppercase;
+    &:not(:last-child){
+        margin-bottom: 3rem;
+    }
+}
+
+.sidenav__logo-box{
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+}
+
+.sidenav-logo{
+    height: 8rem;
+
+    display: inline-block;
+}
+
+.signup-link{
+    mat-icon{
+        color: $color-primary !important;
+    }
+    span{
+        text-transform: uppercase;
+        color: $color-primary !important;
+    }
+    
+}

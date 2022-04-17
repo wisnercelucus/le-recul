@@ -1,0 +1,118 @@
+<mat-nav-list>
+  <div class="sidenav__logo-box">
+    <!--<a routerLink="/" (click)="onCloseSideNav()">
+      <img
+        src="assets/g"
+        alt="Logo transparan kreyolopedi a"
+        class="sidenav-logo"
+    /></a>-->
+
+    
+    <img
+    class="main-logo"
+    *ngIf="!hotel"
+    (click)="onNavigateHome('')"
+    src="assets/logo/logo-vn-remove-no-text.png"
+    />
+
+  <img
+    class="main-logo hotel-logo"
+    *ngIf="hotel"
+    (click)="onNavigateHome('/hotel')"
+    src="assets/logo/lerecul-hotel.png"
+  />
+  </div>
+
+  <div class="nav-title u-center-text">
+    <h2 class="heading-secondary">Menu</h2>
+  </div>
+
+  <a
+  *ngIf="hotel || cinema"
+    routerLink="/"
+    (click)="onCloseSideNav()"
+    class="nav-link"
+    mat-list-item
+  >
+    <mat-icon>home</mat-icon>
+    <span class="nav-caption">Accueil</span>
+  </a>
+
+  <a
+  *ngIf="!hotel && !cinema"
+    routerLink="/hotel"
+    (click)="onCloseSideNav()"
+    class="nav-link"
+    mat-list-item
+  >
+    <mat-icon>hotel</mat-icon>
+    <span class="nav-caption">Le recul</span>
+  </a>
+
+  <a *ngIf="hotel && !cinema" class="nav-link" (click)="navigateTo('about', '/hotel/gallery')" mat-list-item>
+    <mat-icon>collections</mat-icon>
+    <span class="nav-caption">Gallerie</span>
+  </a>
+
+  <a *ngIf="!hotel && !cinema" class="nav-link" (click)="navigateTo('contact', '/blog')" mat-list-item>
+    <mat-icon>rss_feed</mat-icon>
+    <span class="nav-caption">Blog</span>
+  </a>
+
+
+  <a
+  *ngIf="!hotel && !cinema"
+    routerLink="/cinema"
+    (click)="onCloseSideNav()"
+    class="nav-link"
+    mat-list-item
+  >
+    <mat-icon>theaters</mat-icon>
+    <span class="nav-caption">Cinema</span>
+  </a>
+
+  <a class="nav-link" *ngIf="!hotel && cinema" (click)="navigateTo('about', '/cinema/movies')" mat-list-item>
+    <mat-icon>movie_filter</mat-icon>
+    <span class="nav-caption">Films</span>
+  </a>
+
+  <div class="u-divider"></div>
+
+  <a
+    routerLink="/admin"
+    (click)="onCloseSideNav()"
+    class="nav-link"
+    mat-list-item
+  >
+    <mat-icon>admin_panel_settings</mat-icon>
+    <span class="nav-caption">Admin</span>
+  </a>
+
+  <div class="u-divider"></div>
+
+  <a
+
+    routerLink="/auth/login"
+    (click)="onCloseSideNav()"
+    class="signup-link"
+    mat-list-item
+  >
+    <mat-icon>login</mat-icon>
+    <span class="nav-caption">Connexion</span>
+  </a>
+
+  <a
+    routerLink="/auth/register"
+    (click)="onCloseSideNav()"
+    class="signup-link"
+    mat-list-item
+  >
+    <mat-icon>no_accounts</mat-icon>
+    <span class="nav-caption">S'inscrire</span>
+  </a>
+
+  <a (click)="onLogout()" class="signup-link" mat-list-item>
+    <mat-icon>logout</mat-icon>
+    <span class="nav-caption">Deconnexion</span>
+  </a>
+</mat-nav-list>

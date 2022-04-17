@@ -1,0 +1,31 @@
+<div class="wrapper">
+    <div class="u-center-text u-margin-bottom-medium">
+        <h2 class="heading-secondary">Nos services</h2>
+    </div>
+    <div class="container">
+
+        <owl-carousel-o [options]="customOptions">
+      
+          <ng-container *ngFor="let slide of  images">
+            <ng-template class="slide" carouselSlide [id]="slide.id">
+                <div class="service-card">
+                    <div class="img-container">
+                        <img [src]="slide.url" [alt]="slide.alt" [title]="slide.id" [title]="slide.name">
+                    </div>
+
+                    <div class="service-title">
+                        <h5 class="heading-fifth"><mat-icon>{{slide.icon}}</mat-icon> {{slide.name}}</h5>
+                    </div>
+                    <p class="paragraph">
+                        {{slide.desc}}
+                    </p>
+                    
+                </div>
+            </ng-template>
+          </ng-container>
+      
+        </owl-carousel-o>  
+    </div>
+</div>
+
+

@@ -1,0 +1,107 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: $default-font-size;
+    line-height: 1.7;
+    color: $color-grey-dark-1;
+}
+
+.heading-primary{
+    color: $color-white;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+
+    
+    
+    &--main{
+        display: block;
+        font-size: 6rem;
+        letter-spacing: 1.5rem;
+        font-weight: 400;
+        animation-name: moveInBottom;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-out;
+
+        @include respond(phone){
+            font-size: 3.5rem;
+            letter-spacing: .7rem;
+
+        }
+    }
+    
+    &--sub{
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1rem;
+        animation: moveInTop 1s ease-out;
+        color:$color-primary;
+
+        @include respond(phone){
+            font-size: 1.5rem;
+            letter-spacing: .5rem;
+
+        }
+    
+    }
+}
+
+
+.heading-secondary{
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    background-image: linear-gradient(to right bottom, rgba($color-primary, 0.8), rgba($color-primary, .6));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: all .2s;
+    letter-spacing: .2rem;
+
+    @include respond(tab-port){
+        font-size: 3rem;
+
+    }
+
+    @include respond(phone){
+        font-size: 2.5rem;
+
+    }
+
+    &:hover{
+        transform: translateY(-.5rem) scale(1.1);//skewY(-2deg) skewX(-15deg) scale(1.1);
+        text-shadow: .5rem 1rem 2rem rgba($color-black, 0.2);
+    }
+}
+
+.heading-tertiary{
+    font-size: $default-font-size;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.heading-fourth{
+    font-size: $default-font-size;
+    font-weight: 700;
+}
+
+.paragraph{
+    font-size: $default-font-size;
+    text-align: justify;
+
+    &:not(:last-child){
+        margin-bottom: 3rem;
+    }
+
+}
+
+.anchor{
+    &, &:link,
+    &:visited{
+        text-decoration: none;
+        color: $color-tertiary-light;
+    }
+
+}

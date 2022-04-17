@@ -1,0 +1,9 @@
+.container{
+    width: $container-width;
+    max-width: $container-width;
+    margin: 0 auto;
+
+    @include respond(tab-land){
+        width: 100%;
+    }
+}

@@ -1,0 +1,35 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>{{blog.title}}</mat-card-title>
+      <mat-card-subtitle
+        >Sport &middot; {{ blog.published_at | date }} &middot;
+        <mat-icon>visibility</mat-icon><span> 234</span>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <div class="img"
+    style="background-image: url({{blog.img}})"
+      ></div>
+    <mat-card-content>
+     {{blog.content}}
+    </mat-card-content>
+
+    <mat-card-actions>
+      <img src="assets/images/valery-mike-stand.png" alt="" />
+
+      <div class="publisher-detail">
+        <h4 class="heading-fourth">Wisner Celucus</h4>
+        <h5 class="heading-fifth">Journalist</h5>
+      </div>
+      <span class="spacer"></span>
+      <button mat-icon-button>
+        <mat-icon>grade</mat-icon> <span matBadge="8"></span>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>speaker_notes</mat-icon>
+        <span matBadge="8"></span>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>share</mat-icon> <span></span>
+      </button>
+    </mat-card-actions>
+  </mat-card>

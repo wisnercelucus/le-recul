@@ -1,0 +1,22 @@
+@import "../../../../settings/sass/abstracts/variables";
+@import "../../../../settings/sass/abstracts/mixins";
+
+.row{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    //background-color: rgba($color-white, .3);
+}
+
+.btn-text{
+    color: $color-accent;
+    border-bottom: 1px solid $color-accent;
+    &:hover{
+        color: $color-white;
+        background-color: $color-accent;
+    }
+}
+
+.heading-secondary{
+    color: $color-accent;
+}
+

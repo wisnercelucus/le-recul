@@ -1,0 +1,114 @@
+@import "../../../../settings/sass/abstracts/variables";
+
+
+.heading-secondary{
+  color: $color-accent;
+}
+
+
+mat-form-field{
+  width: 100%;
+}
+
+.picker{
+  font-size: 1.9rem;
+  color: rgba(0, 0, 0, .5) !important;
+}
+
+::ng-deep{
+  .mat-select-value{
+    font-size: 1.9rem;
+    color: rgba(0, 0, 0, .5) !important;
+  }
+}
+
+ mat-label{
+  font-size: 1.9rem;
+  color: rgba(0, 0, 0, .5);
+}
+
+/*
+.wrapper{
+    background-image: linear-gradient(to right bottom, rgba($color-accent, 0.75), rgba($color-accent, 1));
+    
+    .heading-secondary{
+      color: $color-accent;
+      text-align: center;
+    }
+
+    .form{
+      display: flex;
+      //flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 2.5rem;
+      //flex-wrap: wrap;
+
+      input{
+        font-size: 1.6rem;
+      }
+
+      mat-form-field{
+        flex: 1;
+        margin-right:  3rem;
+      }
+
+    }
+
+
+  }*/
+
+
+
+
+/*
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #edf1f7;
+  }
+  
+  .app-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .app-list-item {
+    border-bottom: 1px solid #edf1f7;
+    color: #222b45;
+    font-size: 0.9375rem;
+    line-height: 1.25rem;
+    padding: 8px;
+  }
+  
+  .app-list-item:last-child {
+    border-bottom: none;
+  }
+  
+  .app-list-icons {
+    padding-right: 5px;
+  }
+  
+  .app-button {
+    line-height: 1.2;
+    padding: 7px 10px;
+    border-radius: 8px;
+    border-color: transparent;
+    font-size: 16px;
+    background-color: #3182ce;
+    color: #ffffff;
+    cursor: pointer;
+    outline: 0;
+  }
+  
+  .mr-5 {
+    margin-right: 5px;
+  }
+  
+  .mb-10 {
+    margin-bottom: 10px;
+  }*/

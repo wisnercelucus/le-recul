@@ -1,0 +1,8 @@
+<div class="section" [style]="customStyle">
+    <div class="container">
+      <div *ngIf="sectionTitle" class="u-margin-top-bottom-big u-center-text">
+        <h2 class="heading-secondary">{{sectionTitle}}</h2>
+      </div>
+      <ng-content></ng-content>
+    </div>
+</div>

@@ -1,0 +1,112 @@
+.u-center-text{
+    text-align: center !important;
+}
+
+.u-text-left{
+    text-align: left !important;
+}
+
+.u-margin-bottom-very-small{
+    margin-bottom: 1rem !important;
+}
+
+.u-margin-bottom-small{
+    margin-bottom: 1.5rem !important;
+}
+
+.u-margin-bottom-medium{
+    margin-bottom: 4rem !important;
+}
+
+.u-margin-bottom-big{
+    margin-bottom: 8rem !important;
+}
+
+.u-margin-top-big{
+    margin-top: 8rem !important;
+}
+
+.u-margin-top-huge{
+    margin-top: 10rem !important;
+}
+
+.u-margin-top-medium{
+    margin-top: 4rem !important;
+}
+
+
+.u-margin-top-bottom-big{
+    margin: 6rem 0;
+}
+
+.u-margin-top-bottom-medium{
+    margin: 4rem 0;
+}
+.u-margin-top-small{
+    margin-top: 2rem;
+}
+.u-margin-top-bottom-small{
+    margin: 2rem 0;
+}
+
+.u-divider{
+    width: 100%;
+    margin: 0 auto;
+    border-top: 1px solid $color-grey-dark-2;
+    height: 0;
+    margin-bottom: 1.2rem;
+}
+
+.title-success{
+    color: $color-success;
+}
+
+.btn-success{
+    background-color: $color-success;
+    color:$color-white;
+}
+
+.title-warn{
+    color: $color-warn;
+}
+
+.btn-warn{
+    background-color: $color-warn;
+    color:$color-white;
+}
+
+.title-danger{
+    color: $color-danger;
+}
+
+.btn-danger{
+    background-color: $color-danger;
+    color:$color-white;
+}
+
+.avatar {
+    display: inline-block;
+    border-radius: 50%;
+}
+.avatar-xs{
+    width: 2.5rem;
+}
+
+.text-white{
+    color: white;
+}
+
+.text-primary{
+    color: $color-primary;
+}
+
+.text-accent{
+    color: $color-accent;
+}
+
+.text-upercase{
+    text-transform: uppercase;
+}
+.spacer {
+    flex: 1 1 auto;
+  }

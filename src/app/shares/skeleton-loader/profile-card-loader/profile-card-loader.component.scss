@@ -1,0 +1,28 @@
+:host {
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.card {
+    width: 300px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.card-head,.info {
+    display: flex;
+}
+
+.info {
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+}
+
+.card-body {
+    margin-top: 20px;
+}

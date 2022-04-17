@@ -1,0 +1,26 @@
+@import "../../../../settings/sass/abstracts/variables";
+@import "../../../../settings/sass/abstracts/mixins";
+.container{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    //background-color: blue;
+
+    @include respond(tab-land){
+       // background-color: red; 
+        width: 100vw;
+    }
+
+    .img-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 10rem;
+        height: 10rem;
+        object-fit: cover;
+        margin: 0 auto;
+
+
+    }
+}
+

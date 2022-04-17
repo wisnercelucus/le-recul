@@ -1,0 +1,13 @@
+.actuality-card{
+    text-align: left;
+    padding: 1.2rem;
+    background-color: rgba($color-white, 0.9);
+    box-shadow: 0 1rem 3rem rgba($color-primary, 0.15);
+    border-radius: .3rem;
+    transition: .3s;
+    backface-visibility: hidden;
+
+    &:hover{
+        transform: translateX(1.5rem);
+    }
+}

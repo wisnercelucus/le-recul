@@ -1,0 +1,37 @@
+@import "../../../../settings/sass/abstracts/variables";
+@import "../../../../settings/sass/abstracts/mixins";
+
+.about-box{
+  border-top: .2rem solid $color-primary;
+  position: relative;
+  margin-bottom: 6rem;
+  
+
+  @include respond(tab-port){
+    width: 90%;
+    margin: 0 auto;
+  }
+
+
+  img{
+    position: absolute;
+    top: -4.8rem;
+    left: 50%;
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+    border-radius: 50%;
+    //border-bottom: 2px solid $color-primary;
+    transform: translateX(-50%);
+  }
+
+  .content{
+    padding: 4rem 2rem;
+  }
+
+
+  //Controling AOS
+  /*.paragraph{
+    overflow-x: hidden;
+  }*/
+}

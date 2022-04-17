@@ -1,0 +1,14 @@
+
+  
+<form autocomplete="off" action="#" class="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="form__group-1">
+        <input autocomplete="" type="email" 
+          class="form__input form__input--rounded" id="email"
+          ngModel
+          required
+          name="email"
+          placeholder="Saisissez votre addresse e-mail" required #searchQuery="ngModel">
+        <label for="email" class="form__label">Saisissez votre addresse e-mail</label>
+        <button class="form__submit"[disabled]="f.invalid || isLoading" ><mat-icon>send</mat-icon></button>
+    </div>  
+</form>
