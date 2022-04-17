@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'vn-blog-card',
@@ -7,9 +9,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BlogCardComponent implements OnInit {
   @Input() blog: any;
-  constructor() { }
+  constructor(private _router: Router) { }
  
   ngOnInit(): void {
+  }
+
+  onLoadArticle(article_id: string): void{
+    this._router.navigate(['/blog', article_id])
   }
  
 }

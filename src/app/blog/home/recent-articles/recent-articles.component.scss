@@ -45,13 +45,22 @@
   }*/
 
   .room-services-icon{
-    mat-icon{
+
+    button
+    
+    {
+      color: rgba($color-black, .5);
+
+      mat-icon{
+        margin-right: .3rem;
+
+      }
         &:not(:last-child){
             margin-right: 2rem;
         }
-        
     }
   }
+
   
   @media(max-width:600px) {
     .my-card {

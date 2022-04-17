@@ -1,5 +1,5 @@
 <mat-card>
-    <mat-card-header>
+    <mat-card-header (click)="onLoadArticle('article_id')">
       <mat-card-title>{{blog.title}}</mat-card-title>
       <mat-card-subtitle
         >Sport &middot; {{ blog.published_at | date }} &middot;
@@ -7,6 +7,7 @@
       </mat-card-subtitle>
     </mat-card-header>
     <div class="img"
+    (click)="onLoadArticle('article_id')"
     style="background-image: url({{blog.img}})"
       ></div>
     <mat-card-content>

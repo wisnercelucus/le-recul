@@ -12,6 +12,9 @@ import { CategoriesComponent } from './categories/categories.component';
 import {MatTreeModule} from '@angular/material/tree';
 
 import {MatButtonModule} from '@angular/material/button';
+import {MatBadgeModule} from '@angular/material/badge';
+import { ArticleDetailComponent } from './article-detail/article-detail.component';
+import { ArticleContentComponent } from './article-content/article-content.component';
 
 
 @NgModule({
@@ -20,7 +23,9 @@ import {MatButtonModule} from '@angular/material/button';
     HomeComponent,
     BlogBannerComponent,
     RecentArticlesComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    ArticleDetailComponent,
+    ArticleContentComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +34,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatIconModule,
     MatPaginatorModule,
     MatTreeModule,
-    MatButtonModule
+    MatButtonModule,
+    MatBadgeModule
   ]
 })
 export class BlogModule { }
