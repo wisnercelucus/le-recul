@@ -9,6 +9,8 @@ import { ReusableComponentsModule } from '../reusable-components/reusable-compon
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { MoviesListComponent } from './movies/movies-list/movies-list.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { AboutComponent } from './home/about/about.component';
 
 
 @NgModule({
@@ -17,14 +19,16 @@ import { MoviesListComponent } from './movies/movies-list/movies-list.component'
     HomeComponent,
     CinemaBannerComponent,
     MoviesComponent,
-    MoviesListComponent
+    MoviesListComponent,
+    AboutComponent
   ],
   imports: [
     CommonModule,
     CinemaRoutingModule,
     ReusableComponentsModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    CarouselModule
   ]
 })
 export class CinemaModule { }

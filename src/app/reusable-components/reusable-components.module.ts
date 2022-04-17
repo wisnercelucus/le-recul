@@ -6,6 +6,7 @@ import { ImgCarousalComponent } from './img-carousal/img-carousal.component';
 import { AccordionModule } from './accordion/accordion.module';
 import { DrawerComponent } from './drawer/drawer.component';
 import { FlipCardModule } from './flip-card/flip-card.module';
+import { CountTimerComponent } from './count-timer/count-timer.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { FlipCardModule } from './flip-card/flip-card.module';
     ImgGaleryComponent,
     ImgCarousalComponent,
     DrawerComponent,
+    CountTimerComponent,
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { FlipCardModule } from './flip-card/flip-card.module';
     ImgCarousalComponent,
     AccordionModule,
     FlipCardModule,
-    DrawerComponent
+    DrawerComponent,
+    CountTimerComponent,
   ]
 })
 export class ReusableComponentsModule { }
