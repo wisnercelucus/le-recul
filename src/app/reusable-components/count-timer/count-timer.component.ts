@@ -1,4 +1,5 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, ElementRef, Inject, Input, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'vn-count-timer',
@@ -14,10 +15,12 @@ export class CountTimerComponent implements OnInit {
 
   @Input() date!: Date;
 
-  constructor() {}
+  constructor(@Inject(PLATFORM_ID) private _plateformId: Object) {}
 
   ngOnInit(): void {
-    this.startCounting(this.date);
+    if(isPlatformBrowser(this._plateformId)){
+      this.startCounting(this.date);
+    }
   }
 
   startCounting(date: Date): void {
