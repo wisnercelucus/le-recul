@@ -1,4 +1,5 @@
-@import "../../../../settings/sass/abstracts/variables";
+@import "../../../settings/sass/abstracts/variables";
+
 
 
 .container{
@@ -12,7 +13,7 @@
     background: rgba($color-section-bg, 0.1);
     margin-bottom: 3rem;
     overflow: hidden;
-    height: 40rem;
+    height: 35rem;
   }
   
   .my-card h3 {
@@ -20,7 +21,7 @@
   }
   
   .my-card img {
-    height: 40rem;
+    height: 35rem;
     width: 100%;
     object-fit: cover;
   }

@@ -1,0 +1,16 @@
+@import "../../../settings/sass/abstracts/variables";
+
+.category-wrapper{
+    padding: 2rem;
+    background: rgba($color-section-bg, 0.1);
+
+
+    ul li{
+        list-style: none;
+    }
+
+    mat-tree {
+        background: rgba($color-section-bg, 0.1);
+        border-radius: .3rem;
+    }
+}

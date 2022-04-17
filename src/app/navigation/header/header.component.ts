@@ -21,6 +21,10 @@ export class HeaderComponent implements OnInit {
     this._router.navigate([path])
   }
 
+  onNavigate(path: string){
+    this._router.navigate([path])
+  }
+
   onToggleSideNave(){
     this.toggleSideNav.emit();
   }

@@ -241,6 +241,9 @@ C362.6,323.611,323.611,362.6,275.517,362.6z"
           <span class="spacer"></span>
 
           <a class="nav-link hide-tab-port" *ngIf="hotel || cinema" routerLink="/">Accueil</a>
+          <a class="nav-link hide-tab-port" *ngIf="!hotel && !cinema" routerLink="/feed"
+          >Émissions</a
+          >
           <a class="nav-link hide-tab-port" *ngIf="!hotel && !cinema" routerLink="/blog"
             >Blog</a
           >
@@ -263,12 +266,18 @@ C362.6,323.611,323.611,362.6,275.517,362.6z"
             >Gallerie</a
           >
 
+          <a
+          class="nav-link hide-tab-port"
+          routerLink="/admin"
+          >Admin</a
+        >
+
           <button
             *ngIf="!hotel"
             class="btn btn--light-primary text-upercase"
             aria-label="icon-button with heart icon"
+            (click)="onNavigate('/auth')"
           >
-            <!--<mat-icon>favorite</mat-icon>-->
             Connexion
           </button>
 

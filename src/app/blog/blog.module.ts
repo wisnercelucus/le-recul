@@ -6,13 +6,15 @@ import { BlogRoutingModule } from './blog-routing.module';
 import { BlogBannerComponent } from './home/blog-banner/blog-banner.component';
 import { ReusableComponentsModule } from '../reusable-components/reusable-components.module';
 import { RecentArticlesComponent } from './home/recent-articles/recent-articles.component';
+
+import { CategoriesComponent } from './categories/categories.component';
+
+import {MatTreeModule} from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { CategoriesComponent } from './categories/categories.component';
-import {MatTreeModule} from '@angular/material/tree';
-
 import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
+
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
 import { ArticleContentComponent } from './article-content/article-content.component';
 

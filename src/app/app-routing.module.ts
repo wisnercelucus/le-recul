@@ -7,6 +7,9 @@ const routes: Routes = [
   {path: 'hotel', loadChildren: () => import('./hotel/hotel.module').then(m => m.HotelModule)},
   {path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule)},
   {path: 'cinema', loadChildren: () => import('./cinema/cinema.module').then(m => m.CinemaModule)},
+  {path: 'feed', loadChildren: () => import('./feed/feed.module').then(m => m.FeedModule)},
+  {path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
+  {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
 ];
 
 @NgModule({

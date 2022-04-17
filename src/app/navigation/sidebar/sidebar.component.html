@@ -38,6 +38,16 @@
     <span class="nav-caption">Accueil</span>
   </a>
 
+  <a *ngIf="!hotel && !cinema" class="nav-link" (click)="navigateTo('contact', '/feed')" mat-list-item>
+    <mat-icon>rss_feed</mat-icon>
+    <span class="nav-caption">Émissions</span>
+  </a>
+  
+  <a *ngIf="!hotel && !cinema" class="nav-link" (click)="navigateTo('contact', '/blog')" mat-list-item>
+    <mat-icon>rss_feed</mat-icon>
+    <span class="nav-caption">Blog</span>
+  </a>
+
   <a
   *ngIf="!hotel && !cinema"
     routerLink="/hotel"
@@ -54,10 +64,6 @@
     <span class="nav-caption">Gallerie</span>
   </a>
 
-  <a *ngIf="!hotel && !cinema" class="nav-link" (click)="navigateTo('contact', '/blog')" mat-list-item>
-    <mat-icon>rss_feed</mat-icon>
-    <span class="nav-caption">Blog</span>
-  </a>
 
 
   <a
@@ -92,7 +98,7 @@
 
   <a
 
-    routerLink="/auth/login"
+    routerLink="/auth"
     (click)="onCloseSideNav()"
     class="signup-link"
     mat-list-item
@@ -102,7 +108,7 @@
   </a>
 
   <a
-    routerLink="/auth/register"
+    routerLink="/auth"
     (click)="onCloseSideNav()"
     class="signup-link"
     mat-list-item
