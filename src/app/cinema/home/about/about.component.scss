@@ -1,8 +1,16 @@
 @import '../../../../settings/sass/abstracts/variables';
+@import '../../../../settings/sass/abstracts/mixins';
+
 
 .wrapper{
     background-color: $color-section-bg;
     padding: 6rem 0;
+
+    .container{
+        @include respond(tab-land){
+            width: 95%;
+        }
+    }
 
     .heading-secondary{
         color: $color-white;

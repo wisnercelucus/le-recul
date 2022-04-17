@@ -1,6 +1,14 @@
 <div class="wrapper">
-    <div class="my-card" *ngFor="let blog of blogs">
+    <div class="container">
+    <ng-container *ngFor="let blog of blogs">
+      <div class="my-card" >
         <vn-blog-card [blog]="blog">
         </vn-blog-card>
     </div>
-</div>
+      </ng-container>
+    </div>
+  
+    <div class="u-center-text u-margin-top-bottom-medium">
+      <a routerLink="/blog" class="btn-text">Voir tous les shows &rarr;</a>
+    </div>
+  </div>
