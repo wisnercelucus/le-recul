@@ -28,6 +28,11 @@ export class SidebarComponent implements OnInit {
     this.onCloseSideNav();
   }
 
+  onMakeReservation(){
+    //this.authServive.logout();
+    this.onCloseSideNav();
+  }
+
   onNavigateHome(path: string){
     this._router.navigate([path])
   }
