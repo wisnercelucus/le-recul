@@ -10,7 +10,7 @@ const routes: Routes = [
     component: HotelComponent,
     children: [
       { path: '', component: HotelLandingComponent },
-      { path: 'gallery', component: GalleryComponent },
+      { path: 'gallery', loadChildren: ()=> import('./gallery/gallery.module').then(m=>m.GalleryModule) },
     ],
   },
 ];

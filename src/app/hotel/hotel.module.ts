@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GalleryComponent } from './gallery/gallery.component';
 import { ReusableComponentsModule } from '../reusable-components/reusable-components.module';
 import { HotelRoutingModule } from './hotel-routing.module';
 import { HotelLandingComponent } from './hotel-landing/hotel-landing.component';
@@ -25,7 +24,6 @@ import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
-    GalleryComponent,
     HotelLandingComponent,
     HotelBannerComponent,
     HotelComponent,

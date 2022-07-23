@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BusinesesComponent } from './busineses.component';
+import { SpacialPackagesComponent } from './spacial-packages.component';
 
-describe('BusinesesComponent', () => {
-  let component: BusinesesComponent;
-  let fixture: ComponentFixture<BusinesesComponent>;
+describe('SpacialPackagesComponent', () => {
+  let component: SpacialPackagesComponent;
+  let fixture: ComponentFixture<SpacialPackagesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BusinesesComponent ]
+      declarations: [ SpacialPackagesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BusinesesComponent);
+    fixture = TestBed.createComponent(SpacialPackagesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
