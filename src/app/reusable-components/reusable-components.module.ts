@@ -7,6 +7,7 @@ import { AccordionModule } from './accordion/accordion.module';
 import { DrawerComponent } from './drawer/drawer.component';
 import { FlipCardModule } from './flip-card/flip-card.module';
 import { CountTimerComponent } from './count-timer/count-timer.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { CountTimerComponent } from './count-timer/count-timer.component';
     FontAwesomeModule,
     AccordionModule,
     FlipCardModule,
+    MatIconModule
    
   ],
   exports: [ImgGaleryComponent, 

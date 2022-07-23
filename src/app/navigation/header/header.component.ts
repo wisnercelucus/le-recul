@@ -8,6 +8,7 @@ import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router'
 })
 export class HeaderComponent implements OnInit {
   @Output() toggleSideNav = new EventEmitter();
+  offerClosed = false
   
   @Input() hotel = false;
   @Input() cinema = false;
@@ -27,6 +28,10 @@ export class HeaderComponent implements OnInit {
 
   onToggleSideNave(){
     this.toggleSideNav.emit();
+  }
+
+  onCloseSpecialOffer($event: any){
+    this.offerClosed = true
   }
 
 }

@@ -39,7 +39,7 @@ import { SpacialPackagesModule } from './spacial-packages/spacial-packages.modul
     MatSidenavModule,
     MatProgressBarModule,
     MatListModule,
-    SpacialPackagesModule
+    SpacialPackagesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

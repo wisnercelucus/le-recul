@@ -1,19 +1,37 @@
-.timer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    span{
-        font-size: 4rem;
-        font-weight: 700;
-        letter-spacing: .4rem;
-        color: white;
+@import '../../../settings/sass/abstracts/variables';
+@import '../../../settings/sass/abstracts/mixins';
 
+.timer{
+    p{
+        display: flex;
+        font-weight: 550;
     }
     #timer{
         color: white;
-        letter-spacing: .4rem;
-        font-weight: 600;
+        letter-spacing: .2rem;
+        font-weight: 550;
+        background-color: $color-section-bg-dark;
+        padding: .3rem;
+        border-radius: .5rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 1.5rem;
+        mat-con{
+            font-size: 1.5rem;
+        }
+    }
+
+    .front-text{
+        color: white;
+        margin-right: .6rem;
+        
+        @include respond(phone){
+            display: none;
+        }
     }
 }
+
+
 
 

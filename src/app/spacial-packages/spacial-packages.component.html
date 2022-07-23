@@ -1,5 +1,9 @@
 <div class="wrapper">
     <div class="container-fluid">
-        <p>Forfait special</p>
+        <p class="forfat-text">Payez 2 chambres et obtenez une gratuite!</p>
+        <P><vn-count-timer [date]="date" [frontText]="'Expire dans'"></vn-count-timer></P>
     </div>
+    <button class="close-btn" mat-mini-fab aria-label="Close the spacial offer" (click)="onCloseNav()">
+        <mat-icon>close</mat-icon>
+    </button>
 </div>

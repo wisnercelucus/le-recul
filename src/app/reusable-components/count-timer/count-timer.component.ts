@@ -4,13 +4,16 @@ import { Component, ElementRef, Inject, Input, OnInit, PLATFORM_ID, ViewChild } 
 @Component({
   selector: 'vn-count-timer',
   template: `<div class="timer">
-              <span>{{date | date}}</span>
-              <p id="timer" #timer></p>
+              <p><span *ngIf="frontText" class="front-text">{{frontText + ': '}}</span> <small id="timer" #timer>{{durationText}}<mat-icon>arrow_right</mat-icon></small></p>
              </div>
              `,
   styleUrls: ['./count-timer.component.scss'],
 })
 export class CountTimerComponent implements OnInit {
+  @Input() frontText = ''
+  durationText = ''
+
+  
   @ViewChild('timer') timerElement!: ElementRef;
 
   @Input() date!: Date;
@@ -41,8 +44,9 @@ export class CountTimerComponent implements OnInit {
       let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       let seconds = Math.floor((distance % (1000 * 60)) / 1000);
       // Display the result in the element with id="demo"
-      this.timerElement.nativeElement.innerHTML =  days + 'd : ' + hours + 'h : ' + minutes + 'm : ' + seconds + 's ';
+      this.durationText = days + 'd : ' + hours + 'h : ' + minutes + 'm : ' + seconds + 's ';
       // If the count down is finished, write some text
+      //Forfait expire dans: 
       if (distance < 0) {
         clearInterval(x);
         this.timerElement.nativeElement.innerHTML = 'EXPIRED';
