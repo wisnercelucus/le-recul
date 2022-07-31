@@ -1,4 +1,7 @@
-<vn-spacial-packages *ngIf="!offerClosed" (closeSpacialPackage)="onCloseSpecialOffer($event)"></vn-spacial-packages>
+<div class="spacial-packages" *ngIf="!offerClosed">
+  <vn-spacial-packages (closeSpacialPackage)="onCloseSpecialOffer($event)"></vn-spacial-packages>
+</div>
+
 <mat-toolbar class="toolbar-huge">
   <mat-toolbar-row>
     <div class="nav-top">

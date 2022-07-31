@@ -1,5 +1,9 @@
 <div class="wrapper">
-    <vn-img-carousal [images]="images" heightRem="50" [autoSlide]="true" [controls]="false"></vn-img-carousal>
+    <vn-img-carousal [images]="sliderImages" 
+    heightRem="50" 
+    [autoSlide]="true" 
+    [slideInterval]="8000"
+    [controls]="false"></vn-img-carousal>
     <div class="banner__box">
         <div class="banner__box-left">
             <h1 class="heading-primary">
@@ -12,10 +16,10 @@
         </div>
         <div class="banner__box-right">
             <div>
-                Nos activites
+                <vn-flash-slide [images]="images" [slideTitle]="'Nos activités'"></vn-flash-slide>
             </div>
             <div>
-                Nos points forts
+                <vn-flash-slide [images]="imagesPointForm" [slideTitle]="'Nos points forts'"></vn-flash-slide>
             </div>
         </div>
     </div>

@@ -1,14 +1,22 @@
 @import "../../../settings/sass/abstracts/variables";
 @import "../../../settings/sass/abstracts/mixins";
 
+
+.spacial-packages{
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+}
+
+
 .toolbar-huge {
   position: relative;
   color: $color-white;
   background: rgba($color-white, 1);
   height: 16rem;
-
-
-
 
   .container {
     display: flex;

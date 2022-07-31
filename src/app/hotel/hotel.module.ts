@@ -19,6 +19,7 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
 import { ServicesComponent } from './services/services.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { MatIconModule } from '@angular/material/icon';
+import { FlashSlideModule } from '../flash-slide/flash-slide.module';
 
 
 
@@ -45,7 +46,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatNativeDateModule,
     MatSelectModule,
     CarouselModule,
-    MatIconModule
+    MatIconModule,
+    FlashSlideModule
   ],
 })
 export class HotelModule {}

@@ -1,0 +1,87 @@
+@import "../../settings/sass/abstracts/variables";
+@import "../../settings/sass/abstracts/mixins";
+
+.wrapper{
+    padding: 2rem 0;
+    
+    .heading-secondary{
+        color: $color-accent;
+    }
+}
+
+.heading-fifth{
+    text-align: left;
+}
+
+
+.carousel-container{
+    width: 50rem;
+    max-width: 100%;
+    //background-color: blue;
+
+    .carousel-title{
+        background-color: $color-section-bg;
+        padding-left: 1rem;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+        font-size: 2rem;
+        font-weight: 550;
+
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .img-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 100%;
+        height: 15rem;
+        object-fit: cover;
+        margin: 0 auto;
+    }
+
+    .service-card{
+        background-color: rgba($color-accent, .1);
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+
+        .service-title{
+            position: absolute;
+            color: $color-accent;
+            left: 0;
+            margin-bottom: 1rem;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: .4rem 1rem;
+            border-radius: .3rem;
+            margin-left: .5rem;
+
+            mat-icon{
+                transform: translateY(.5rem);
+            }
+        }
+    }
+
+    .paragraph{
+        padding: 0 2rem;
+        text-align: left;
+        overflow: hidden;
+        height: 13rem;
+        font-size: 1.6rem;
+        margin-top: 2rem;
+
+        &:hover{
+            overflow-y: auto;
+        }
+    }
+
+
+}
+
