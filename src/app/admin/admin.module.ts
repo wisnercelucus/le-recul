@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { AdminComponent } from './admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { AnimatedSideBarModule } from '../shares/animated-side-bar/animated-side-bar.module';
+import { CustomTopbarModule } from '../shares/custom-topbar/custom-topbar.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -13,7 +15,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    RouterModule,
+    AnimatedSideBarModule,
+    CustomTopbarModule
   ]
 })
 export class AdminModule { }

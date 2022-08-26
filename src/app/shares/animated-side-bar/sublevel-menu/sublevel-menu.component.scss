@@ -1,0 +1,50 @@
+.sublevel-nav{
+    list-style: none;
+    margin-left: 10px;
+
+    .sublevel-nav-item{
+        margin-bottom: .7rem;
+
+        .sublevel-nav-link{
+            display: flex;
+            align-items: center;
+            height: 3rem;
+            flex-direction: row;
+            
+            color: #ebe3e3;
+            text-decoration: none;
+            border-radius: 0.625rem;
+            transition: all .5s ease;
+            &:hover{
+                color: white;
+            }
+            .sublevel-nav-link-icon{
+                font-size: 4px; 
+                width: 2rem;  
+                height: 2rem; 
+                margin: 0 0.5rem;
+                display: flex;
+                align-items: center;
+                
+            }
+            
+            .sublevel-nav-link-text{
+                margin-left: 0.8rem;
+                font-size: 1.6rem;
+                font-weight: 600;
+            }
+        }
+
+    }
+}
+
+
+
+.menu-collapse-icon{
+    font-size: 25px;
+    width: 2rem;
+    min-width: 2rem;
+    margin: auto 0.5rem auto auto;
+    text-align: center;
+    color: #f3f3f3;
+}
