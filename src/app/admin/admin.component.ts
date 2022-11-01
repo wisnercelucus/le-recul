@@ -10,7 +10,7 @@ export class AdminComponent implements OnInit {
 
   @Input() screenWidth = 0;
   @Input() collapsed = false;
-  title = 'MEALSmartly'
+  title = 'Le Recul Hotel'
 
   constructor() { }
 
