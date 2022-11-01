@@ -4,8 +4,6 @@ import { CustomTopbarComponent } from './custom-topbar.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
 
-
-
 @NgModule({
   declarations: [
     CustomTopbarComponent

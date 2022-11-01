@@ -10,6 +10,7 @@ import { existsSync } from 'fs';
 
 const domino = require('domino');
 
+
 function setDomTypes(){
   Object.assign(global, domino['impl']);
   (global as any)['KeyboardEvent'] = domino.impl.Event;
