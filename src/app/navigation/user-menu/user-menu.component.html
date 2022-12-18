@@ -1,0 +1,43 @@
+<div class="account-menu">
+    <div class="account-menu__header">
+       <div class="account-menu__header-box">
+           <img [src]="getCompleteUrl(loginUser.avatar!)" class="avatar avatar-xs">
+
+           <h3 class="heading-tertiary">
+            <a class="anchor1">
+               {{loginUser!.user!.name}}
+            </a>
+            </h3>
+           <a class="anchor">
+                <span class="username">@{{loginUser!.user.username ?  loginUser!.user!.username : ''}}</span>
+           </a>
+            <br>
+            <span class="role">{{loginUser!.position?.name}}</span>
+       </div>
+    </div>
+    <mat-list>
+        <!--<a [routerLink]="['/accounts', 'profile',  loginUser?.username, 'contributions']" class="anchor">
+            <mat-list-item>
+                <mat-icon mat-list-icon>folder</mat-icon>
+                <mat-icon mat-list-icon>workspaces</mat-icon>
+                <div mat-line>Kontribisyon</div>
+            </mat-list-item>
+        </a>
+
+        <mat-divider></mat-divider>-->
+
+        <a *ngIf="loginUser" class="anchor">
+            <mat-list-item>
+                <!--<mat-icon mat-list-icon>folder</mat-icon>-->
+                <mat-icon mat-list-icon>settings</mat-icon>
+                <div mat-line>Settings</div>
+            </mat-list-item>
+        </a>
+        <a (click)="onLogout()" class="anchor">
+            <mat-list-item>
+                <mat-icon mat-list-icon>logout</mat-icon>
+                <div mat-line>Deconnexion</div> 
+            </mat-list-item>
+        </a>
+    </mat-list>
+</div>

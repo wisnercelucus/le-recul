@@ -1,7 +1,7 @@
-<app-dynamic-side-nav [title]="title" (toggleSideNav)="onToggleSideNav($event)"></app-dynamic-side-nav>
-<app-custom-topbar [collapsed]="collapsed"
+<app-dynamic-side-nav [navData]="navdata" [title]="title" (toggleSideNav)="onToggleSideNav($event)"></app-dynamic-side-nav>
+<!--<app-custom-topbar [collapsed]="collapsed"
                     [screenWidth]="screenWidth"
-></app-custom-topbar>
+></app-custom-topbar>-->
 <div class="home" [ngClass]="getHomeClass()">
     <router-outlet></router-outlet>
 </div>

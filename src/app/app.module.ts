@@ -15,22 +15,24 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatListModule} from '@angular/material/list';
 import { MainNavComponent } from './main-nav/main-nav.component';
-import { HeaderComponent } from './navigation/header/header.component';
-import { SidebarComponent } from './navigation/sidebar/sidebar.component';
+//import { HeaderComponent } from './navigation/header/header.component';
+//import { SidebarComponent } from './navigation/sidebar/sidebar.component';
 import { SpacialPackagesModule } from './spacial-packages/spacial-packages.module';
+import { NavigationModule } from './navigation/navigation.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
-    HeaderComponent,
-    SidebarComponent
+    //HeaderComponent,
+    //SidebarComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialsModule,
+    NavigationModule,
     DumyComponentsModule,
     CarouselModule,
     HttpClientModule,

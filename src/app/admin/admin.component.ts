@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SideNavToggle } from '../shares/animated-side-bar/dynamic-side-nav/dynamic-side-nav.component';
+import { INavData } from '../shares/animated-side-bar/dynamic-side-nav/side-nav-data';
 
 @Component({
   selector: 'vn-admin',
@@ -10,7 +11,55 @@ export class AdminComponent implements OnInit {
 
   @Input() screenWidth = 0;
   @Input() collapsed = false;
-  title = 'Le Recul Hotel'
+  title = 'Le Recul'
+
+
+
+  navdata: INavData[] = [
+    {
+        routerLink: "/admin",
+        icon: "fal fa-home",
+        label: "Dashboard"
+    },
+
+    {
+      routerLink: "/admin/rooms",
+      icon: "fas fa-clipboard-list-check",
+      label: "Rooms",
+    },
+    {
+      routerLink: "/admin/customers",
+      icon: "fas fa-clipboard-list-check",
+      label: "Customers",
+    },
+
+    {
+      routerLink: "/admin/roomservices",
+      icon: "fas fa-clipboard-list-check",
+      label: "Room Services",
+    },
+
+
+    {
+      routerLink: "/admin/coupons",
+      icon: "fas fa-clipboard-list-check",
+      label: "Coupons",
+    },
+
+    {
+      routerLink: "/admin/specialoffers",
+      icon: "fas fa-clipboard-list-check",
+      label: "Special Offers",
+    },
+
+    {
+      routerLink: "/admin/bookings",
+      icon: "fas fa-clipboard-list-check",
+      label: "Bookings",
+    }
+
+    
+]
 
   constructor() { }
 
@@ -34,5 +83,8 @@ export class AdminComponent implements OnInit {
     this.screenWidth = data.screenWidth;
     this.collapsed=data.collapsed;
   }
+
+
+
 
 }

@@ -6,7 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./spacial-packages.component.scss']
 })
 export class SpacialPackagesComponent implements OnInit {
-  date = new Date("Dec 5, 2022 15:37:25")
+  date = new Date("Dec 22, 2022 15:37:25")
   @Output() closeSpacialPackage = new EventEmitter()
   constructor() { }
 

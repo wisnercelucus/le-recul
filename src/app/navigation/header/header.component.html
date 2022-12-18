@@ -1,280 +1,36 @@
-<div class="spacial-packages" *ngIf="!offerClosed">
+<div class="spacial-packages" *ngIf="!offerClosed && !isAdminPath(['admin'])">
   <vn-spacial-packages (closeSpacialPackage)="onCloseSpecialOffer($event)"></vn-spacial-packages>
 </div>
 
-<mat-toolbar class="toolbar-huge">
-  <!--<mat-toolbar-row>
-    <div class="nav-top">
-      <div class="container">
-        <img
-          class="main-logo hotel-logo"
-          (click)="onNavigateHome('/')"
-          src="assets/logo/lerecul-hotel.png"
-        />
-        <span class="spacer"></span>
-        <div class="icon-wrap">
-
-          <button
-            mat-icon-button
-            class="icon favorite-icon"
-            aria-label="icon-button with heart icon"
-          >
-          <a href="https://web.facebook.com/HotelLeRecul/" target="_blank">
-
-            <svg
-              version="1.1"
-              id="Layer_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 227.656 227.656"
-              style="enable-background: new 0 0 227.656 227.656"
-              xml:space="preserve"
-            >
-              <g>
-                <path
-                  style="fill: #0071bc"
-                  d="M172.52,4.759c1.467,0.321,2.704,1.375,2.613,3.392c-0.504,10.084-1.054,20.213-3.575,30.022
-            c0.321,2.75-1.375,5.958-4.538,5.546c-22.551-2.979-30.755,17.326-33.689,40.197c10.725,0.642,21.359,1.467,31.718,2.383
-            c1.925,0.183,2.979,1.513,3.208,2.979c0.55,0.367,1.054,0.917,1.283,1.742c1.833,5.959,1.879,12.65,2.017,18.884
-            c0.092,4.904,0.688,10.45-2.613,14.346c0.413,2.292-0.825,4.95-3.896,5.042c-11,0.137-22.138,0.321-33.322,0.413
-            c0,1.1,0,2.2-0.046,3.208c-0.779,29.93,0.504,59.768,0.183,89.652c-0.046,2.338-1.925,3.208-3.621,2.888
-            c-0.229,0.137-0.458,0.321-0.733,0.412c-5.638,1.788-12.009,1.513-17.875,1.696c-5.821,0.137-11.55,0.275-17.326-0.733
-            c-1.421,0.458-3.163,0-3.483-1.879c-5.179-29.609-4.308-60.868-4.171-90.844c0-1.879,0-3.758,0-5.638
-            c-9.121-0.596-18.196-1.513-27.134-2.796c-1.375-0.229-2.063-1.146-2.154-2.2c-3.3-2.2-2.521-7.975-2.567-11.596
-            c-0.138-7.792-1.008-16.821,1.237-24.338c0.229-0.779,0.779-1.283,1.467-1.65c0.412-0.458,1.008-0.779,1.833-0.871
-            c9.121-1.1,18.517-1.742,28.005-2.063c0.458-8.617,1.238-17.234,2.567-25.667c6.279-40.243,40.793-64.673,81.54-55.277
-            C171.145,2.421,172.107,3.521,172.52,4.759z"
-                />
-              </g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-            </svg>
-          </a>
-          </button>
-
-          <button
-            mat-icon-button
-            class="icon"
-            aria-label="icon-button with share icon"
-          >
-          <a href="https://twitter.com/LeReculHotel" target="_blank">
-            <svg
-              version="1.1"
-              id="Capa_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 455.731 455.731"
-              style="enable-background: new 0 0 455.731 455.731"
-              xml:space="preserve"
-            >
-              <g>
-                <rect
-                  x="0"
-                  y="0"
-                  style="fill: transparent"
-                  width="455.731"
-                  height="455.731"
-                />
-                <path
-                  style="fill: #50abf1"
-                  d="M60.377,337.822c30.33,19.236,66.308,30.368,104.875,30.368c108.349,0,196.18-87.841,196.18-196.18
-  c0-2.705-0.057-5.39-0.161-8.067c3.919-3.084,28.157-22.511,34.098-35c0,0-19.683,8.18-38.947,10.107
-  c-0.038,0-0.085,0.009-0.123,0.009c0,0,0.038-0.019,0.104-0.066c1.775-1.186,26.591-18.079,29.951-38.207
-  c0,0-13.922,7.431-33.415,13.932c-3.227,1.072-6.605,2.126-10.088,3.103c-12.565-13.41-30.425-21.78-50.25-21.78
-  c-38.027,0-68.841,30.805-68.841,68.803c0,5.362,0.617,10.581,1.784,15.592c-5.314-0.218-86.237-4.755-141.289-71.423
-  c0,0-32.902,44.917,19.607,91.105c0,0-15.962-0.636-29.733-8.864c0,0-5.058,54.416,54.407,68.329c0,0-11.701,4.432-30.368,1.272
-  c0,0,10.439,43.968,63.271,48.077c0,0-41.777,37.74-101.081,28.885L60.377,337.822z"
-                />
-              </g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-            </svg>
-          </a>
-          </button>
-          <button
-            mat-icon-button
-            class="icon"
-            aria-label="icon-button with share icon"
-          >
-        <a href="https://www.instagram.com/explore/locations/264732312/le-recul-hotel/?hl=ur">
-            <svg
-              version="1.1"
-              id="Layer_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 551.034 551.034"
-              style="enable-background: new 0 0 551.034 551.034"
-              xml:space="preserve"
-            >
-              <g id="XMLID_13_">
-                <linearGradient
-                  id="XMLID_2_"
-                  gradientUnits="userSpaceOnUse"
-                  x1="275.517"
-                  y1="4.5714"
-                  x2="275.517"
-                  y2="549.7202"
-                  gradientTransform="matrix(1 0 0 -1 0 554)"
-                >
-                  <stop offset="0" style="stop-color: #e09b3d" />
-                  <stop offset="0.3" style="stop-color: #c74c4d" />
-                  <stop offset="0.6" style="stop-color: #c21975" />
-                  <stop offset="1" style="stop-color: #7024c4" />
-                </linearGradient>
-                <path
-                  id="XMLID_17_"
-                  style="fill: url(#XMLID_2_)"
-                  d="M386.878,0H164.156C73.64,0,0,73.64,0,164.156v222.722
-c0,90.516,73.64,164.156,164.156,164.156h222.722c90.516,0,164.156-73.64,164.156-164.156V164.156
-C551.033,73.64,477.393,0,386.878,0z M495.6,386.878c0,60.045-48.677,108.722-108.722,108.722H164.156
-c-60.045,0-108.722-48.677-108.722-108.722V164.156c0-60.046,48.677-108.722,108.722-108.722h222.722
-c60.045,0,108.722,48.676,108.722,108.722L495.6,386.878L495.6,386.878z"
-                />
-
-                <linearGradient
-                  id="XMLID_3_"
-                  gradientUnits="userSpaceOnUse"
-                  x1="275.517"
-                  y1="4.5714"
-                  x2="275.517"
-                  y2="549.7202"
-                  gradientTransform="matrix(1 0 0 -1 0 554)"
-                >
-                  <stop offset="0" style="stop-color: #e09b3d" />
-                  <stop offset="0.3" style="stop-color: #c74c4d" />
-                  <stop offset="0.6" style="stop-color: #c21975" />
-                  <stop offset="1" style="stop-color: #7024c4" />
-                </linearGradient>
-                <path
-                  id="XMLID_81_"
-                  style="fill: url(#XMLID_3_)"
-                  d="M275.517,133C196.933,133,133,196.933,133,275.516
-s63.933,142.517,142.517,142.517S418.034,354.1,418.034,275.516S354.101,133,275.517,133z M275.517,362.6
-c-48.095,0-87.083-38.988-87.083-87.083s38.989-87.083,87.083-87.083c48.095,0,87.083,38.988,87.083,87.083
-C362.6,323.611,323.611,362.6,275.517,362.6z"
-                />
-
-                <linearGradient
-                  id="XMLID_4_"
-                  gradientUnits="userSpaceOnUse"
-                  x1="418.306"
-                  y1="4.5714"
-                  x2="418.306"
-                  y2="549.7202"
-                  gradientTransform="matrix(1 0 0 -1 0 554)"
-                >
-                  <stop offset="0" style="stop-color: #e09b3d" />
-                  <stop offset="0.3" style="stop-color: #c74c4d" />
-                  <stop offset="0.6" style="stop-color: #c21975" />
-                  <stop offset="1" style="stop-color: #7024c4" />
-                </linearGradient>
-                <circle
-                  id="XMLID_83_"
-                  style="fill: url(#XMLID_4_)"
-                  cx="418.306"
-                  cy="134.072"
-                  r="34.149"
-                />
-              </g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-            </svg>
-          </a>
-          </button>
-        </div>
-      </div>
-    </div>
-  </mat-toolbar-row>-->
-
-
-    <div class="main-toolbar">
-      <div class="container">
-        <nav>
-          <a class="nav-link"routerLink="/"
-            >
-            <img
-            class="main-logo hotel-logo"
-            src="assets/logo/lerecul-hotel.png"
-            />
-            </a
-          >
-          <span class="spacer"></span>
-          <a
-            class="nav-link hide-tab-port"
-            routerLink="/gallery"
-            >Gallerie</a
-          >
-
-          <a
-          class="nav-link hide-tab-port"
-          routerLink="/admin"
-          >Admin</a
-        >
-
-          <button
-            class="btn btn--light-accent text-upercase"
-            aria-label="icon-button with heart icon"
-          >
-            <!--<mat-icon>favorite</mat-icon>-->
-            Réserver
-          </button>
-        </nav>
-
-        <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="onToggleSideNave()"
-        class="nav-brand__btn-nav-close toggle-menu"
+<mat-toolbar class="toolbar">
+  <div class="nav-brand">
+      <button
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="onToggleSideNave()"
+      class="nav-brand__btn-nav-close"
       >
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      </div>
-    </div>
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <a class="site-logo" routerLink="/"><img src="assets/logo/lerecul-hotel.png" alt="logo-transparent" class="logo"></a>
+  </div>
 
+  <div class="nav-actions">
+    <a routerLink="/gallery" class="nav-link"><fa-icon [icon]="faBuilding"></fa-icon> <span class="hide-tab-port"> Gallery</span></a>
+      <a *ngIf="isAuthenticated" routerLink="/admin" class="nav-link"><fa-icon [icon]="faBuilding"></fa-icon> <span class="hide-tab-port"> Admin</span></a>
+      <a *ngIf="isAuthenticated" [matMenuTriggerFor]="menu2" class="nav-link">
+        <span class="avatar-holder">
+          <img class="user-avatar" [src]="getCompleteUrl(userProfile.avatar!)" >
+          <span class="hide-tab-port"> {{userProfile?.user?.name}}</span>
+        </span>
+        <mat-menu #menu2="matMenu">
+          <app-user-menu *ngIf="userProfile" [loginUser]="userProfile" (userLogout)="onLogout()"></app-user-menu>       
+      </mat-menu>
+    </a>
+
+    <a *ngIf="!isAuthenticated" (click)="onNavigate('/auth')" class="btn btn--white"><fa-icon [icon]="faUser"></fa-icon> <span> Login</span> 
+    </a>
+
+  </div>
 </mat-toolbar>

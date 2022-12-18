@@ -1,7 +1,6 @@
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 import { isPlatformBrowser } from '@angular/common';
 import { Component, EventEmitter, HostListener, Inject, Input, OnInit, Output, PLATFORM_ID } from '@angular/core';
-import { navData } from './nav-data';
 import { INavData } from './side-nav-data';
 
 export interface SideNavToggle{
@@ -43,7 +42,7 @@ export interface SideNavToggle{
 })
 export class DynamicSideNavComponent implements OnInit {
   collapsed= false;
-  navData = navData;
+  @Input() navData!:INavData[];
   screenWidth=0;
   @Input() title = ''
   multiple: boolean = false;

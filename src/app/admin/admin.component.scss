@@ -1,13 +1,13 @@
 .home{
     width: calc(100% - 6rem);
-    //height: 100vh;
-    margin-top: 6.75rem;
+    height: 100vh;
+    //margin-top: 6.75rem;
     margin-left: 6rem;
     z-index: 0;
     position: relative;
     transition: all 0.5s ease;
     background: #f4f7f3;
-    padding: 3rem;
+    padding: 2rem 3rem 3rem 3rem;
   }
   
   .home-trimed{

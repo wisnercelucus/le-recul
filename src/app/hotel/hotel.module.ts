@@ -20,6 +20,7 @@ import { ServicesComponent } from './services/services.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { MatIconModule } from '@angular/material/icon';
 import { FlashSlideModule } from '../flash-slide/flash-slide.module';
+import { SharedGlobalModule } from '../shares/shared-global/shared-global.module';
 
 
 
@@ -47,6 +48,7 @@ import { FlashSlideModule } from '../flash-slide/flash-slide.module';
     MatSelectModule,
     CarouselModule,
     MatIconModule,
+    SharedGlobalModule,
     FlashSlideModule
   ],
 })
