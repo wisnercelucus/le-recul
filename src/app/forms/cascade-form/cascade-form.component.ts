@@ -7,9 +7,10 @@ import { RoutingService } from 'src/app/routing.service';
 import { SubSink } from 'subsink';
 import { ModelDataService } from '../services/model-data.service';
 import { ModelMetaField, ModelMetaService } from '../services/model-meta.service';
-import { AccountsService } from 'src/app/accounts/services/accounts.services';
 import { getModelToQuery, normalizeTitle } from 'src/settings/utilities/functions';
 import { ErrorHandlerService } from 'src/app/error-handler.service';
+import { AccountsService } from 'src/app/accounts/services/accounts.service';
+import { DATA_ENTRY_PATH_PREFIX } from 'src/settings/utilities/config';
 
 @Component({
   selector: 'app-cascade-form',
@@ -30,7 +31,7 @@ export class CascadeFormComponent implements OnInit {
   getModelToQuery = getModelToQuery
   subs= new SubSink();
   uuid!: string;
-
+  DATA_ENTRY_PREFIX_PATH = DATA_ENTRY_PATH_PREFIX
   constructor(private _modelMetaService: ModelMetaService,
     public dialogRef: MatDialogRef<CascadeFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -183,7 +184,7 @@ export class CascadeFormComponent implements OnInit {
 
   onNavigateRecordDetails(uuid: string): void{
     const model = this.model;
-    this._routingService.onNavigateRecordDetails(model, uuid);
+    this._routingService.onNavigateRecordDetails(DATA_ENTRY_PATH_PREFIX, model, uuid);
   }
 
   has_permission(action: string, model: string){

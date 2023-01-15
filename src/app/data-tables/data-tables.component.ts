@@ -13,6 +13,7 @@ import { UtilitiesService } from '../services/utilities.service';
 import { RoutingService } from '../routing.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { DATA_ENTRY_PATH_PREFIX } from 'src/settings/utilities/config';
 
 
 export interface TableDesc{
@@ -38,6 +39,7 @@ export class DataTablesComponent implements OnInit {
   paginationData: any;
   data: any;
   pageNo=0;
+  ADMIN_PREFIX_PATH = DATA_ENTRY_PATH_PREFIX
 
   isLoading:boolean = false;
 
@@ -287,7 +289,7 @@ export class DataTablesComponent implements OnInit {
 
   onEditRecord(uuid: any): void{
     const model = this.model;
-    this._routingService.onEditRecord(model, uuid);
+    this._routingService.onEditRecord(this.ADMIN_PREFIX_PATH, model, uuid);
   }
 
   onCollectData(uuid: any): void{
@@ -297,7 +299,7 @@ export class DataTablesComponent implements OnInit {
 
   onNavigateRecordDetails(uuid: string): void{
     const model = this.model;
-    this._routingService.onNavigateRecordDetails(model, uuid);
+    this._routingService.onNavigateRecordDetails(DATA_ENTRY_PATH_PREFIX, model, uuid);
   }
 
 

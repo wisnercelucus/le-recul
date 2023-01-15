@@ -56,10 +56,6 @@
                 <mat-icon>more_vert</mat-icon>
               </button>
               <mat-menu #menu="matMenu">
-                <button *ngIf="model === 'forms' " mat-menu-item (click)="onCollectData(element._id)">
-                  <mat-icon>dataset</mat-icon>
-                  <span>Collect</span>
-                </button>
 
                 <button *ngIf="has_permission('view', model)" mat-menu-item (click)="onNavigateRecordDetails(element._id)">
                   <mat-icon>visibility</mat-icon>

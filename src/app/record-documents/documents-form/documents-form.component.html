@@ -1,0 +1,113 @@
+<section class="wrapper">
+    <div class="container-fluid" *ngIf="hasPermissionViewDocuments">
+        <mat-list *ngFor="let group of documentsGroups; let l = last">
+            <div mat-subheader><mat-icon class="folder" mat-list-icon>folder</mat-icon> {{group.name}}</div>
+            <mat-list-item *ngFor="let doc of group.documents">
+              <mat-icon mat-list-icon>description</mat-icon>
+              <div class="doc_head" mat-line (click)="ondownloadFile(getCompleteUrl(doc.url))">{{doc.name}}</div>
+              <div mat-line> {{doc.created_at | date}} </div>
+              <mat-icon *ngIf="hasPermissionDeleteDocuments" class="file-icon" (click)="openDialog(group._id, doc._id)">delete</mat-icon>
+            </mat-list-item>
+            <mat-divider *ngIf="!l"></mat-divider>
+          </mat-list>
+    </div>
+
+    <mat-divider *ngIf="hasPermissionViewDocuments"></mat-divider>
+
+    <section class="container-fluid" *ngIf="hasPermissionAddDocuments">
+        <!--<p class="waring">The page is not yet ready. Please be patient!</p>-->
+        <form
+            (ngSubmit)="onSubmit(f)"
+            #f = "ngForm"
+            class="form-box"
+        >
+        <h3 class="form-title">{{ 'Add files' }}</h3>
+        
+        <div class="fields-wraper">
+        <mat-form-field>
+        <mat-label>{{ 'Document name' }}</mat-label>
+        <input
+            type="text"
+            matInput
+            placeholder="Ex. Financial reports"
+            name="name"
+            ngModel>
+        <mat-hint>{{ 'Enter the document\'s name' }}</mat-hint>
+        </mat-form-field>
+
+            <input
+            type="hidden"
+            name="content_type"
+            [ngModel]="meta_data.content_type"
+            required>
+
+            <input
+            type="hidden"
+            name="object_id"
+            [ngModel]="meta_data.object_id"
+            required>
+
+            <input
+            type="hidden"
+            name="app_label"
+            [ngModel]="meta_data.app_label"
+            required>
+
+        <div class="center">
+            <ngx-file-drop [multiple]="true" (onFileDrop)="dropped($event)" 
+            (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                    <button mat-button class="pic-file" type="button" (click)="openFileSelector()">
+                        {{ 'Choose files'}}
+                    </button>
+                    <!--{{ 'Drag and drop files' }}-->
+                </ng-template>
+            </ngx-file-drop>
+            <br>
+
+            <div class="live-file-selected">
+                <mat-list class="file-list-wrapper">
+                  <div mat-subheader>{{imagesBlobed.length +  ' files selected'}}</div>
+                  <mat-list-item *ngFor="let file of imagesBlobed; let last = last;">
+                      <mat-icon mat-list-icon>note</mat-icon>
+                      <div mat-line title="Click to view it in a new tab." class="doc_head filename" (click)="debugBase64(file.dataUrl)">{{file.name}}</div>
+                      <mat-icon class="file-icon" (click)="deleteFileLocally(file.name)">delete</mat-icon>
+                  </mat-list-item>
+                </mat-list>
+              </div>
+
+
+
+            <!--<div class="upload-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>{{ 'Selected files' }}</th>
+                        </tr>
+                    </thead>
+                    <tbody class="upload-name-style">
+                        <tr *ngFor="let item of files; let i=index">
+                            <td>{{ item.relativePath }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>-->
+        </div>
+        </div>
+
+        <!--<button class="subscrib-btn" type="submit" mat-raised-button>Subscribe</button> -->
+        <div class="card-actions">
+        <button type="submit" [disabled] ="!f.valid || isLoading" mat-raised-button class="btn-send-message">
+        <span *ngIf="isLoading" class="loading-spinner"></span>
+        <span *ngIf="isLoading">{{ 'Loading...'}}</span>
+        <span *ngIf="!isLoading" >{{ 'Save' }}</span></button>
+        <mat-error id="card-errors" role="alert" *ngIf="cardError">
+            <mat-icon style="color: #f44336">cancel</mat-icon>
+                &nbsp;{{ cardError }}
+        </mat-error>
+    </div>
+
+    </form>
+
+    </section>
+</section>

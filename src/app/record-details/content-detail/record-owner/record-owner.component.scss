@@ -1,0 +1,28 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+
+    .field-row-wrapper{
+        display: flex;
+        flex-direction: column;
+
+        .field-row{
+            display: flex;
+            flex-direction: row;
+            
+            &:not(:first-child){
+                margin-top: 2.5rem;
+            }
+
+            &>span{
+                margin-right: .8rem;
+            }
+            
+        }
+    }
+
+}
+
+.anchor{
+    cursor: pointer;
+}

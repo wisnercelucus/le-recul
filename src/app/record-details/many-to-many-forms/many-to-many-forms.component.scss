@@ -1,0 +1,21 @@
+.wrapper{
+    padding-top: 4rem;
+    .chip-list {
+        width: 100%;
+      }
+
+    .title{
+        padding: 2rem 0;
+        text-align: center;
+    }
+
+    .submit-btn{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}
+
+mat-expansion-panel{
+    margin-bottom: 3rem;
+}

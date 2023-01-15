@@ -1,0 +1,88 @@
+@import '../../../settings/sass/abstracts/mixins';
+@import '../../../settings/sass/abstracts/variables';
+
+
+.wrapper{
+    .container-fluid{
+        display: flex;
+        flex-direction: column;
+
+        .record-content{
+            display: flex;
+            padding: 2rem 0;
+            
+            .flex-detail{
+                width: 55%;
+
+                @include respond(tab-port){
+                     width: 100%;
+                }
+            }
+
+            @include respond(tab-port){
+                flex-direction: column;
+            }
+        }
+
+        .record-extras{
+            width: 45%;
+
+            @include respond(tab-port){
+                width: 100%;
+                margin-top: 3rem;
+           }
+        }
+
+        .record-approval{
+            margin-top: 2rem;
+            margin-bottom: 6rem;
+
+
+            @include respond(tab-port){
+                margin-top: 3rem;
+           }
+        }
+    }
+}
+
+.record-lookups{
+    padding: 2rem 0;
+}
+
+.lookup-wrapper{
+    display: flex;
+    flex-direction: column !important;
+    width: 100%;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.lookup-item{
+    flex: 1;
+   
+    &:not(:last-child){
+        margin-bottom: 2rem;
+    }
+}
+
+.view-all{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.data-item{
+    padding: .2rem 0;
+}
+
+.anchor{
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.heading-fifth{
+    background: $color-primary;
+    padding: .3rem;
+    color: $color-white;
+    text-transform: capitalize;
+}

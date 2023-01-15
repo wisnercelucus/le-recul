@@ -1,0 +1,54 @@
+@import '../../settings/sass/abstracts/variables';
+
+
+.mat-elevation-z8{
+    box-shadow: none;
+    overflow-x: auto;
+}
+
+table{
+    width: 100%;
+    background: transparent;
+    min-width: 30rem;
+    th{
+        background: $color-primary;
+        color: $color-white;
+        font-size: 1.7rem;
+        font-weight: 600;
+    }
+
+    th, td{
+        min-width: 14rem;
+      }
+}
+
+.menu-trigger{
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.status{
+    padding: .5rem 1.5rem;
+    border-radius: 40px;
+    font-weight: 550;
+    color: $color-white;
+
+}
+
+.submitted{
+    background: rgba($color-primary, 0.7);
+}
+
+.success{
+    background: $color-success;
+}
+
+.danger{
+    background: $color-danger;
+}
+
+.td-thin{
+    width: 14rem;
+    min-width: 10px !important;
+  }

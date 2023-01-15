@@ -1,0 +1,130 @@
+<section class="entity-form">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <h1 class="heading"> {{ task? "Update" : "New" }} </h1>
+  
+      <div class="group-column-field">
+        <input type="hidden" name="id" [ngModel]="task?.id" />
+        <input type="hidden" name="_id" [ngModel]="task?._id" />
+        <input type="hidden" required name="content_type" [ngModel]="content_type" />
+        <input type="hidden" required name="app_label" [ngModel]="app_label" />
+        <input type="hidden" required name="object_id" [ngModel]="object_id" />
+        
+        <div class="group-row-field">
+          <mat-form-field>
+            <mat-label>{{ 'Subject' }}</mat-label>
+            <input
+              class="input-text"
+              type="text"
+              matInput
+              placeholder="{{ 'Ex. Update the field ...' }}"
+              [ngModel]="task?.subject"
+              name="subject"
+              required
+            />
+          </mat-form-field>
+          <div class="space"></div>
+  
+          <mat-form-field>
+            <mat-label>{{ 'Priority' }}</mat-label>
+            <mat-select class="input-text" [ngModel]="task?.priority" name="priority" required>
+              <mat-option *ngFor="let p of priorities" [value]="p">{{
+                p
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="group-row-field">
+          <mat-form-field>
+            <mat-label>{{ 'Start date' }}</mat-label>
+            <input [ngModel]="task?.start_date" name="start_date" matInput [matDatepicker]="picker1">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+          <div class="space"></div>
+          <mat-form-field>
+            <mat-label>Due date</mat-label>
+            <input [ngModel]="task?.due_date" name="due_date" matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="group-row-field">
+          <mat-form-field>
+            <mat-label>{{ 'Reminder frequency' }}</mat-label>
+            <mat-select class="input-text" [ngModel]="task?.reminder_frequency" name="reminder_frequency" required>
+                <mat-option *ngFor="let s of reminder_frequencies" [value]="s.value">{{
+                  s.name
+                }}</mat-option>
+              </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="group-row-field">
+          <mat-form-field>
+            <mat-label>{{ 'Status' }}</mat-label>
+            <mat-select class="input-text" [ngModel]="task?.status" name="status" required>
+              <mat-option *ngFor="let s of statuses" [value]="s.value">{{
+                s.name
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="group-row-field">
+          <mat-form-field *ngIf="assign_to_users_list">
+            <mat-label>{{ 'Assign to' }}</mat-label>
+            <mat-select
+              [formControl]="assign_to_users"
+              name="assigned_to"
+              multiple
+              required
+            >
+              <mat-select-trigger>
+                {{ assign_to_users.value ? assign_to_users.value[0] : "" }}
+                <span
+                  *ngIf="assign_to_users.value?.length > 1"
+                  class="additional-selection"
+                >
+                  (+{{ assign_to_users.value.length - 1 }}
+                  {{ assign_to_users.value?.length === 2 ? "other" : "others" }})
+                </span>
+              </mat-select-trigger>
+              <mat-option
+                *ngFor="let user of assign_to_users_list"
+                [value]="user.id"
+                >{{ user.name }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="group-row-field">
+          <mat-form-field>
+            <mat-label>{{ 'Detail' }}</mat-label>
+            <textarea
+              class="input-text"
+              matInput
+              placeholder="{{ 'Ex. the field need to be' }}"
+              [ngModel]="task?.detail"
+              name="detail"
+            ></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+ 
+      <div class="form-actions">
+        <button type="button" mat-raised-button (click)="close()">
+          {{ 'Cancel' }}
+        </button>
+        <button
+          type="submit"
+          mat-raised-button
+          class="save-button"
+          [disabled]="f.invalid"
+        >
+        {{ 'Save' }}
+        </button>
+      </div>
+    </form>
+  

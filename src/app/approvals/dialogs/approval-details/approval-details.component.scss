@@ -1,0 +1,20 @@
+.container-fluid{
+    overflow: hidden;
+}
+
+.content{
+    height: 20rem;
+    max-height: 20rem;
+    overflow: hidden;
+}
+
+.content:hover{
+    overflow-y: auto;
+}
+
+.actions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0;
+}

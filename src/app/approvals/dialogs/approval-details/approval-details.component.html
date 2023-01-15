@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="u-margin-bottom-small">
+        <h3 class="heading-tertiary">Approval Request</h3>
+        <small>Submitted by: {{approval?.submitted_by?.name}}</small>
+    </div>
+    <mat-divider *ngIf="approval?.submission_note"></mat-divider>
+    <section *ngIf="approval?.submission_note" class="content">
+        <p class="paragraph">
+            {{approval?.submission_note}}
+        </p>
+    </section>
+
+    <mat-divider *ngIf="approval?.rejection_note"></mat-divider>
+    <section *ngIf="approval?.rejection_note" class="content">
+        <p class="paragraph">
+            {{approval?.rejection_note}}
+        </p>
+    </section>
+
+    <mat-divider></mat-divider>
+    <div class="u-margin-top-small actions">
+        <mat-chip-list aria-label="Status">
+            <mat-chip>{{approval?.status}}</mat-chip>
+        </mat-chip-list>
+        <button mat-raised-button (click)="onNoClick()" color="primary">Close</button>
+    </div>
+</div>

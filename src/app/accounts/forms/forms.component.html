@@ -1,0 +1,250 @@
+
+<section class="wrapper">
+    <div class="center-content">
+        <h1 class="text-center">{{isEditMode() ? "Update" : "New"}}</h1>
+        <br>
+
+    <form #f="ngForm"  (ngSubmit)="onSubmit(f)" class="form">
+        <input type="hidden" name="uuid" [ngModel]="record?.user?.uuid">
+
+        <section class="u-margin-top-bottom-small">
+            <h4 class="heading-fourth">User details</h4>
+          </section>
+      <ng-container>
+        <mat-form-field >
+          <mat-label>First Name</mat-label>
+          <input required name="first_name" [ngModel]="record?.first_name" matInput type="text">
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Last Name</mat-label>
+          <input matInput required [ngModel]="record?.last_name" type="text" name="last_name">
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Sex</mat-label>
+          <mat-select required name="sex" [ngModel]="record?.sex">
+            <mat-option *ngFor="let sex of sexes" [value]="sex">
+              {{sex}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container>
+        <mat-form-field class="example-full-width">
+            <mat-label>Birth date</mat-label>
+            <input [ngModel]="record?.birth_date" name="birth_date" matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+      </ng-container>
+
+      <section class="u-margin-top-bottom-small">
+        <h4 class="heading-fourth">Address</h4>
+      </section>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Apartment number</mat-label>
+          <input name="apt_number" [ngModel]="record?.apt_number" matInput type="text">
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Street</mat-label>
+          <input name="street" [ngModel]="record?.street" matInput type="text">
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>City</mat-label>
+          <input name="city" [ngModel]="record?.city" matInput type="text">
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Zip code</mat-label>
+          <input name="zip_code" [ngModel]="record?.zip_code" matInput type="text">
+        </mat-form-field>
+      </ng-container>
+
+    <ng-container *ngIf="!editByUsername()">
+      <section class="u-margin-top-bottom-small">
+        <h4 class="heading-fourth">Contact information</h4>
+      </section>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Email</mat-label>
+          <input required [ngModel]="record?.user?.email" name="email" matInput type="email">
+        </mat-form-field>
+      </ng-container>
+
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Username</mat-label>
+          <input required [ngModel]="record?.user?.username" matInput type="text" name="username">
+        </mat-form-field>
+      </ng-container>
+
+    </ng-container>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Phone - work</mat-label>
+          <input [ngModel]="record?.phone_work" matInput type="text" name="phone_work">
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Phone - mobile</mat-label>
+          <input [ngModel]="record?.phone_mobile" matInput type="text" name="phone_mobile">
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Phone - home</mat-label>
+          <input [ngModel]="record?.phone_home" matInput type="text" name="phone_home">
+        </mat-form-field>
+      </ng-container>
+
+      <section class="u-margin-top-bottom-small">
+        <h4 class="heading-fourth">Hiring datails</h4>
+      </section>
+      <ng-container>
+        <mat-form-field class="example-full-width">
+            <mat-label>Joined on</mat-label>
+            <input [ngModel]="record?.joined_on" name="joined_on" matInput [matDatepicker]="picker1">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+      </ng-container>
+
+      <ng-container *ngIf="partners && !editByUsername()">
+      <section class="u-margin-top-bottom-small">
+        <h4 class="heading-fourth">Partner selection</h4>
+      </section>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Partner</mat-label>
+          <mat-select name="partner" [ngModel]="record?.partner?._id">
+            <mat-option *ngFor="let partner of partners" [value]="partner._id">
+              {{partner.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </ng-container>
+    </ng-container>
+
+    <section class="u-margin-top-bottom-small">
+        <h4 class="heading-fourth">About details</h4>
+      </section>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Favorite quote</mat-label>
+          <textarea [ngModel]="record?.quote" matInput name="quote"></textarea>
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Quote author</mat-label>
+          <input [ngModel]="record?.quote_author" matInput type="text" name="quote_author">
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Moto</mat-label>
+          <input [ngModel]="record?.moto" matInput type="text" name="moto">
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Bio</mat-label>
+          <textarea [ngModel]="record?.bio" matInput name="bio"></textarea>
+        </mat-form-field>
+      </ng-container>
+
+
+      <section class="u-margin-top-bottom-small">
+        <h4 class="heading-fourth">Social media links</h4>
+      </section>
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Linkedin profile link</mat-label>
+          <input [ngModel]="record?.linkedin_profile_link" matInput type="text" name="linkedin_profile_link">
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Facebook profile link</mat-label>
+          <input [ngModel]="record?.facebook_profile_link" matInput type="text" name="facebook_profile_link">
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Twitter profile link</mat-label>
+          <input [ngModel]="record?.twitter_profile_link" matInput type="text" name="twitter_profile_link">
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Instagram profile link</mat-label>
+          <input [ngModel]="record?.instagram_profile_link" matInput type="text" name="instagram_profile_link">
+        </mat-form-field>
+      </ng-container>
+
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Quora profile link</mat-label>
+          <input [ngModel]="record?.quora_profile_link" matInput type="text" name="quora_profile_link">
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Github profile link</mat-label>
+          <input [ngModel]="record?.github_profile_link" matInput type="text" name="github_profile_link">
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Reddit profile link</mat-label>
+          <input [ngModel]="record?.reddit_profile_link" matInput type="text" name="reddit_profile_link">
+        </mat-form-field>
+      </ng-container>
+
+    <div class="actions">
+        <button class="discuss-lesson-btn" [disabled]="f.invalid" mat-button type="submit">{{'Save'}}</button>
+    </div>
+    </form>
+
+    </div>
+    
+</section>
+
+
+
+

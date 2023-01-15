@@ -8,8 +8,10 @@ import { SubSink } from 'subsink';
 import { ModelDataService } from '../services/model-data.service';
 import { ModelMetaField, ModelMetaService } from '../services/model-meta.service';
 import { getModelToQuery, normalizeTitle } from 'src/settings/utilities/functions';
-import { AccountsService } from 'src/app/accounts/services/accounts.services';
+
 import { ErrorHandlerService } from 'src/app/error-handler.service';
+import { AccountsService } from 'src/app/accounts/services/accounts.service';
+import { DATA_ENTRY_PATH_PREFIX } from 'src/settings/utilities/config';
 
 @Component({
   selector: 'app-related-record-forms',
@@ -137,7 +139,7 @@ export class RelatedRecordFormsComponent implements OnInit {
             this.isSaving = false
             //const value = data.id + '|' + data.name + '|' + data._id
               this.dialogRef.close()
-              this._routingService.onNavigateRecordDetails(modelPost, data._id)
+              this._routingService.onNavigateRecordDetails(DATA_ENTRY_PATH_PREFIX, modelPost, data._id)
           },
           error: (err: HttpErrorResponse) => {
             this.isSaving = false
@@ -199,7 +201,7 @@ export class RelatedRecordFormsComponent implements OnInit {
 
   onNavigateRecordDetails(uuid: string): void{
     const model = this.model;
-    this._routingService.onNavigateRecordDetails(model, uuid);
+    this._routingService.onNavigateRecordDetails(DATA_ENTRY_PATH_PREFIX, model, uuid);
   }
 
   has_permission(action: string, model: string){

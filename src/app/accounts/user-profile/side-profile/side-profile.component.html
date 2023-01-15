@@ -1,0 +1,39 @@
+<div class="side-profile">
+    <div class="profile_img" *ngIf="profile">
+        <img class="image" src="{{getCompleteUrl(profile.avatar!)}}">
+
+        <input style="display: none;" type="file" #imageChooser (change)="onImagePicked($event)">
+        <button *ngIf="hasPermission" class="image-chooser" (click)="imageChooser.click()">
+            <mat-icon>photo_camera</mat-icon>
+        </button>
+        
+    </div>
+
+    <div class="u-center-text" *ngIf="profile?.user">
+        <h4 class="heading-fourth">{{profile.user.name}}</h4>
+    </div>
+
+    <div class="u-center-text u-margin-bottom-small" *ngIf="profile.user">
+        <a class="anchor" [routerLink]="['/accounts', profile.user.username]">
+            <span class="username">@{{profile.user.username?  profile.user.username : 'username'}}</span>
+       </a>
+    </div>
+
+    <mat-divider></mat-divider>
+
+
+    <div class="desc">
+        
+        <h3 class="heading-fourth">Moto</h3>
+        <p class="paragraph">
+            {{profile.moto}}
+        </p>
+        <mat-divider></mat-divider>
+        <br>
+        <h3 class="heading-fourth">Bio</h3>
+        <p class="paragraph">
+            {{profile.bio}}
+        </p>
+    </div>
+   
+</div>

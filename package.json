@@ -40,6 +40,7 @@
     "domino": "^2.1.6",
     "express": "^4.15.2",
     "ngx-cookie": "^6.0.1",
+    "ngx-cookie-backend": "^6.0.1",
     "ngx-file-drop": "^14.0.2",
     "ngx-owl-carousel-o": "^7.0.2",
     "ngx-quill": "^17.1.1",

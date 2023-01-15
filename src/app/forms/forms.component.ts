@@ -1,10 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ModelMetaService } from './services/model-meta.service';
+import { ModelDataService } from './services/model-data.service'
 import { SubSink } from 'subsink';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { getModelToQuery, normalizeTitle } from 'src/settings/utilities/functions';
 import { NgForm } from '@angular/forms';
+import { ErrorHandlerService, OpenConfirmDialog } from '../error-handler.service';
+import { MatDialog } from '@angular/material/dialog';
+import { GeneralConfirmComponent } from '../my-dialogs/dialogs/general-confirm/general-confirm.component';
+import { RoutingService } from '../routing.service';
+import { DATA_ENTRY_PATH_PREFIX } from 'src/settings/utilities/config';
 
 export interface LookupModel{
   id: number;
@@ -28,7 +34,7 @@ export interface ModelMetaField{
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.scss']
 })
-export class FormsComponent implements OnInit, OnDestroy {
+export class FormsComponent implements OnInit, OnDestroy, OpenConfirmDialog {
   subs = new SubSink()
   getModelToQuery = getModelToQuery
   editMode = false
@@ -42,11 +48,22 @@ export class FormsComponent implements OnInit, OnDestroy {
   fileSelected: any;
   normalizeTitle = normalizeTitle
   record: any;
+  uuid: string = ''
 
-  constructor(private _modelMetaService: ModelMetaService, private _router: Router, private _route: ActivatedRoute) { }
+  constructor(private _modelMetaService: ModelMetaService,
+    private _errorHandler:ErrorHandlerService,
+    private _modelDataService: ModelDataService,
+    private _routingService: RoutingService,
+    private dialog: MatDialog, 
+    private _router: Router, private _route: ActivatedRoute) { }
 
   ngOnDestroy(): void {
     this.subs.unsubscribe()
+  }
+
+  openDialog(success:boolean, context: any){
+    this.dialog.open(GeneralConfirmComponent,
+      {data: this._errorHandler.getDialogContext(success, context)});
   }
 
   ngOnInit(): void {
@@ -56,6 +73,12 @@ export class FormsComponent implements OnInit, OnDestroy {
 
 
     this.model = this.getModelFromRoot()!;
+    this.uuid = this._route.snapshot.paramMap.get('model_uuid')!
+
+    if(this.uuid){
+      this.editMode = true
+      this.getObjectToUpdate(this.uuid)
+    }
 
     if(this.model){
       const modelToQuery = this.getModelToQuery(this.model)
@@ -73,7 +96,6 @@ export class FormsComponent implements OnInit, OnDestroy {
     this.subs.add(
       this._modelMetaService.getModelFields(model).subscribe({
         next: (data: any)=>{
-          console.log(data)
           this.fields = data.fields
         },
         error: (err: HttpErrorResponse)=>{
@@ -85,7 +107,7 @@ export class FormsComponent implements OnInit, OnDestroy {
 
 
   onSubmit(f: NgForm){
-    /*
+    
     let data = {...f.value};
     //console.log(data)
 
@@ -138,9 +160,12 @@ export class FormsComponent implements OnInit, OnDestroy {
       this._modelDataService.doPost(this.model, data).subscribe(
         {
           next: (data:any) =>{
+            this.isSaving = false
               this.onNavigateRecordDetails(data['uuid'])
           },
           error: (err: HttpErrorResponse) => {
+            this.isSaving = false
+           // console.log(err)
             const detail = this._errorHandler.getErrorMessage(err)
             context.errorMessage = detail
             this.openDialog(false, context);
@@ -150,14 +175,14 @@ export class FormsComponent implements OnInit, OnDestroy {
       )
     }
 
-    */
+    
 
   }
 
   getObjectToUpdate(uuid: string): void{
-    /*this.subs.add(
+    this.subs.add(
       this._modelDataService.getObjectToUpdate(this.model, uuid).subscribe(record=> this.record = record)
-    )*/
+    )
   }
 
 
@@ -207,7 +232,7 @@ export class FormsComponent implements OnInit, OnDestroy {
 
   onNavigateRecordDetails(uuid: string): void{
     const model = this.model;
-    //this._routingService.onNavigateRecordDetails(model, uuid);
+    this._routingService.onNavigateRecordDetails(DATA_ENTRY_PATH_PREFIX, model, uuid);
   }
 
 

@@ -1,0 +1,22 @@
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <input type="hidden" name="object_id" [ngModel]="record?.id">
+        <input type="hidden" name="content_type" [ngModel]="record?.content_type">
+        <input type="hidden" name="app_label" [ngModel]="record?.app_label">
+        <input type="hidden" name="front_root_path" [ngModel]="front_root_path">
+
+        <mat-form-field class="example-form-field" *ngIf="submission_mode">
+            <mat-label>Note to approving</mat-label>
+            <textarea matInput name="submission_note" ngModel></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="example-form-field" *ngIf="!submission_mode">
+            <mat-label>Rejection note</mat-label>
+            <textarea matInput name="rejection_note" ngModel></textarea>
+        </mat-form-field>
+
+        <div class="actions">
+            <button color="primary" mat-raised-button>Submit</button>
+        </div>
+    </form>
+</div>      

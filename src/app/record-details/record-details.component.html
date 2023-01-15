@@ -1,0 +1,69 @@
+<mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="tab-icon">notes</mat-icon>
+        Details
+      </ng-template>
+      <app-content-detail *ngIf="record" 
+          [record]="record" 
+          [model]="model" 
+          [hasDeletePermission]="has_permission('delete', model)" 
+          [hasEditPermission]="has_permission('change', model)"
+          [hasPermissionViewTask]="has_permission('view', 'tasks')"
+          [hasPermissionAddTask]="has_permission('add', 'tasks')"
+          [hasPermissionEditTask]="has_permission('change', 'tasks')"
+          [hasPermissionDeleteTask]="has_permission('delete', 'tasks')"
+          [hasPermissionApproveApproval]="has_permission('approve', 'approvals')"
+          [hasPermissionApproveRecord]="has_permission('approve', model)"
+          [hasPermissionViewApprovalRequests]="has_permission('view', 'approvals')"
+          [hasPermissionRejectApprovalRequests]="has_permission('reject', 'approvals')"
+          [hasPermissionSubmitApprovalRequests]="has_permission('submit', 'approvals')"
+          [hasPermissionRecallApprovalRequests]="has_permission('recall', 'approvals')"
+          [hasPermissionDeleteApprovalRequests]="has_permission('delete', 'approvals')"
+          [hasPermissionAddApprovalRequests]="has_permission('add', 'approvals')"
+          [hasPermissionEditApprovalRequests]="has_permission('change', 'approvals')"
+          [hasPermissionReviewApprovalRequests]="has_permission('review', 'approvals')"
+          ></app-content-detail>
+    </mat-tab>
+
+    <ng-container *ngIf="modelManyToManyFields">
+      <ng-container>
+        <mat-tab *ngFor="let field of modelManyToManyFields">
+          <ng-template mat-tab-label>
+            <mat-icon class="tab-icon">local_activity</mat-icon>
+            {{formatFieldName(field.name)}}
+          </ng-template>
+          <section class="container-fluid">
+            <div class="u-margin-bottom-small">
+              <app-many-to-many-forms [record]="record" [meta_data]="meta_data" [field]="field.name"></app-many-to-many-forms>
+            </div>
+            <div>
+              <app-many-to-many-data [meta_data]="meta_data" [field]="field.name"></app-many-to-many-data>
+            </div>
+          </section>
+        </mat-tab>
+      </ng-container>
+    </ng-container>
+
+  
+    <mat-tab *ngIf="has_permission('add', 'documents') || has_permission('view', 'documents') || has_permission('delete', 'documents')">
+      <ng-template mat-tab-label>
+        <mat-icon class="tab-icon">file_present</mat-icon>
+        Documents
+      </ng-template>
+      <app-record-documents 
+                *ngIf="meta_data" 
+                [meta_data]="meta_data"
+
+                [hasPermissionViewDocuments]="has_permission('view', 'documents')"
+                [hasPermissionAddDocuments]="has_permission('add', 'documents')"
+                [hasPermissionDeleteDocuments]="has_permission('delete', 'documents')"
+
+                ></app-record-documents>
+    </mat-tab>
+  </mat-tab-group>
+  
+<div class="loading-shade"
+  *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+</div>

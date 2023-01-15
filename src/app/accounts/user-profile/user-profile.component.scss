@@ -1,0 +1,74 @@
+@import '../../../settings/sass/abstracts/mixins';
+@import '../../../settings/sass/abstracts/variables';
+
+.user-profile{
+    padding-top: 6rem;
+    padding-bottom: 16rem;
+    background-color: $color-global-bg;
+
+    &__body{
+        box-shadow: 0rem .2rem .3rem rgba($color-black, .15);
+        border-radius: .3rem;
+        background-color: $color-white;
+    }
+
+    @include respond(tab-port){
+        padding-left: 8rem;
+        padding-right: 8rem;
+    }
+
+    @include respond(phone){
+        width: 100%;
+        padding-left: 4rem;
+        padding-right: 4rem;
+
+    }
+
+
+    &__header{
+      height: 20rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;  
+      background-color: $color-white;
+      color:$color-grey-dark-3;
+      border-radius: .3rem;
+      box-shadow: 0rem .2rem .3rem rgba($color-black, .15);
+
+      .u-center-text{
+          color:$color-primary;
+          font-weight: 700;
+      }
+
+
+      @include respond(phone){
+        height: 100%;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+
+      }
+
+      .author{
+          text-align: right;
+          padding-right:2rem;
+          margin-top: -2rem;
+
+          @include respond(phone){
+              text-align: center;
+          }
+      }
+    }
+
+    .paragraph{
+        text-align: center;
+        color:$color-grey-dark-3;
+        padding-right:2rem;
+        padding-left: 2rem;
+    }
+
+    mat-icon{
+        color:$color-primary; 
+        margin-right: 1rem;
+    }
+}

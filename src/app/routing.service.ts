@@ -8,8 +8,8 @@ export class RoutingService {
 
   constructor(private _router: Router) { }
 
-  onEditRecord(model: string, uuid: any): void{
-    const path = `/${model}/edit/${uuid}`;
+  onEditRecord(prefix: string, model: string, uuid: any): void{
+    const path = `/${prefix}/${model}/edit/${uuid}`;
     this._router.navigate([path]);
   }
 
@@ -28,12 +28,12 @@ export class RoutingService {
     this._router.navigate([path]);
   }
 
-  onNavigateRecordDetails(model: string, uuid: string): void{
-    const path = `/${model}/${uuid}/details`
+  onNavigateRecordDetails(prefix: string, model: string, uuid: string): void{
+    const path = `/${prefix}/${model}/${uuid}/details`
     this._router.navigate([path])
   }
 
-  onNavigateRecordLooups(model: string, _id: string, lookup_name: string): void{
+  onNavigateRecordLooups(prefix: string, model: string, _id: string, lookup_name: string): void{
     const path = `/${model}/${_id}/associated/${lookup_name}`
     this._router.navigate([path])
   }
@@ -45,13 +45,13 @@ export class RoutingService {
     this._router.navigate([path])
   }
 
-  onNavigateRecordAdminDetails(model: string, uuid: string): void{
-    const path = `/admin/${model}/${uuid}/details`
+  onNavigateRecordAdminDetails(prefix: string, model: string, uuid: string): void{
+    const path = `/${prefix}/${model}/${uuid}/details`
     this._router.navigate([path])
   }
 
-  onNavigateRecordAccountDetails(model: string, uuid: string): void{
-    const path = `/${model}/${uuid}/details`
+  onNavigateRecordAccountDetails(prefix:string, model: string, uuid: string): void{
+    const path = `/${prefix}/${model}/${uuid}/details`
     this._router.navigate([path])
   }
 

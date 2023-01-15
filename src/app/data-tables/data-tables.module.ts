@@ -36,6 +36,7 @@ import { MatInputModule } from '@angular/material/input';
     MatCheckboxModule,
     MatFormFieldModule,
     RelatedRecordFormsModule
-  ]
+  ],
+  exports: [DataTableHeaderComponent,]
 })
 export class DataTablesModule { }

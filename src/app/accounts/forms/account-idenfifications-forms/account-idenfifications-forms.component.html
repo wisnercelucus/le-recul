@@ -1,0 +1,42 @@
+
+<section class="wrapper">
+    <div class="center-content">
+        <h1 class="text-center">{{"Update"}}</h1>
+        <br>
+    <form #f="ngForm"  (ngSubmit)="onSubmit(f)" class="form">
+        <input type="hidden" name="uuid" [ngModel]="record?.user?.uuid">
+
+
+    <ng-container>
+      <section class="u-margin-top-bottom-small">
+        <h4 class="heading-fourth">Contact information</h4>
+      </section>
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Email</mat-label>
+          <input required [ngModel]="record?.user?.email" name="email" matInput type="email">
+        </mat-form-field>
+      </ng-container>
+
+
+      <ng-container>
+        <mat-form-field >
+          <mat-label>Username</mat-label>
+          <input required [ngModel]="record?.user?.username" matInput type="text" name="username">
+        </mat-form-field>
+      </ng-container>
+
+    </ng-container>
+
+    <div class="actions">
+        <button class="discuss-lesson-btn" [disabled]="f.invalid" mat-button type="submit">{{'Save'}}</button>
+    </div>
+    </form>
+    </div>
+    
+</section>
+
+
+
+

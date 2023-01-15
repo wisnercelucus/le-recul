@@ -1,0 +1,107 @@
+<div class="wrapper">
+   <div class="container-fluid">
+    <section class="record-actions">
+        <app-detail-actions (rejectRecord)="onReject($event)" 
+        (approveRecord)="onApprove($event)" 
+        [record]="record" 
+        [model]="model" 
+        [record_id]="record!._id"
+        [hasEditPermission]="hasEditPermission"
+        [hasDeletePermission]="hasDeletePermission"
+
+        [hasPermissionApproveApproval]="hasPermissionApproveApproval"
+        [hasPermissionApproveRecord]="hasPermissionApproveRecord"
+        [hasPermissionViewApprovalRequests]="hasPermissionViewApprovalRequests"
+        [hasPermissionRejectApprovalRequests]="hasPermissionRejectApprovalRequests"
+        [hasPermissionSubmitApprovalRequests]="hasPermissionSubmitApprovalRequests"
+        [hasPermissionRecallApprovalRequests]="hasPermissionRecallApprovalRequests"
+        [hasPermissionDeleteApprovalRequests]="hasPermissionDeleteApprovalRequests"
+        [hasPermissionAddApprovalRequests]="hasPermissionAddApprovalRequests"
+        [hasPermissionEditApprovalRequests]="hasPermissionEditApprovalRequests"
+
+        ></app-detail-actions>
+    </section>
+    <mat-divider></mat-divider>
+    <section class="record-content">
+        <section class="flex-detail">
+            <app-flex-detail [model]="model" [record]="record"></app-flex-detail>
+        </section>
+        <section class="record-extras">
+            <section class="record-owner">
+                <app-record-owner [record_meta]="record_meta"></app-record-owner>
+            </section>
+
+            <mat-divider *ngIf="supportApprovalProcess(model) && hasPermissionViewApprovalRequests"></mat-divider>
+
+            <div *ngIf="record && record.lookups" class="record-lookups">
+                <div *ngFor="let lookup of record.lookups; let last = last" class="lookup-item">
+                    <div>
+                        <h5 class="heading-fifth">{{getLookupsNormalName(lookup.model.name)}}</h5>
+                        <div *ngFor="let d of lookup.data" class="data-item">
+                            <a (click)="navigateLookupDetails(lookup, d._id)" class="anchor">{{d.name}}</a>
+                        </div>
+                        
+                        <div class="view-all">
+                            <a class="anchor" (click)="navigateTo(model, record._id, lookup.model.name)">View all</a>
+                        </div>
+                    </div>
+                    <mat-divider *ngIf="!last"></mat-divider>
+                </div> 
+            </div>
+
+            <section class="record-approval" *ngIf="supportApprovalProcess(model) && hasPermissionViewApprovalRequests">
+                <app-approvals [model]="model" [record]="record"
+                [hasPermissionApproveApproval]="hasPermissionApproveApproval"
+                [hasPermissionApproveRecord]="hasPermissionApproveRecord"
+                [hasPermissionViewApprovalRequests]="hasPermissionViewApprovalRequests"
+                [hasPermissionRejectApprovalRequests]="hasPermissionRejectApprovalRequests"
+                [hasPermissionSubmitApprovalRequests]="hasPermissionSubmitApprovalRequests"
+                [hasPermissionRecallApprovalRequests]="hasPermissionRecallApprovalRequests"
+                [hasPermissionDeleteApprovalRequests]="hasPermissionDeleteApprovalRequests"
+                [hasPermissionAddApprovalRequests]="hasPermissionAddApprovalRequests"
+                [hasPermissionEditApprovalRequests]="hasPermissionEditApprovalRequests"
+                
+                ></app-approvals>
+            </section>
+
+            <mat-divider *ngIf="canFetchTasks(model) && hasPermissionViewTask"></mat-divider>
+
+            <section class="record-approval" *ngIf="canFetchTasks(model) && hasPermissionViewTask">
+                <app-tasks
+                [hasPermissionAddTask]="hasPermissionAddTask"
+                [hasPermissionViewTask]="hasPermissionViewTask"
+                [hasPermissionEditTask]="hasPermissionEditTask"
+                [hasPermissionDeleteTask]="hasPermissionDeleteTask"
+                 [model]="model" [record]="record"></app-tasks>
+            </section>
+
+        </section>
+
+    </section>
+    <mat-divider></mat-divider>
+    <section class="record-actions">
+        <app-detail-actions 
+        (rejectRecord)="onReject($event)" 
+        (approveRecord)="onApprove($event)" 
+        [record]="record" [model]="model" 
+        [hasEditPermission]="hasEditPermission"
+        [hasDeletePermission]="hasDeletePermission"
+        [record_id]="record!._id"
+
+        [hasPermissionApproveApproval]="hasPermissionApproveApproval"
+        [hasPermissionApproveRecord]="hasPermissionApproveRecord"
+        [hasPermissionViewApprovalRequests]="hasPermissionViewApprovalRequests"
+        [hasPermissionRejectApprovalRequests]="hasPermissionRejectApprovalRequests"
+        [hasPermissionSubmitApprovalRequests]="hasPermissionSubmitApprovalRequests"
+        [hasPermissionRecallApprovalRequests]="hasPermissionRecallApprovalRequests"
+        [hasPermissionDeleteApprovalRequests]="hasPermissionDeleteApprovalRequests"
+        [hasPermissionAddApprovalRequests]="hasPermissionAddApprovalRequests"
+        [hasPermissionEditApprovalRequests]="hasPermissionEditApprovalRequests"
+        ></app-detail-actions>
+    </section>
+   </div> 
+</div>
+
+
+
+

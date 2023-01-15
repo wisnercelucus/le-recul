@@ -1,0 +1,103 @@
+<section>
+    <div class="wrapper">
+        <div class="title">
+            <h3 class="heading-tertiary">Add {{field}}</h3>
+        </div>
+
+        <mat-form-field class="chip-list" appearance="fill" *ngIf="!canEditPermission(field) && !canEditFrontEndViews(field)">
+            <mat-label>Select {{field}}</mat-label>
+            <mat-chip-list #chipList aria-label="Sector selection">
+              <mat-chip
+                *ngFor="let record of records"
+                (removed)="remove(record)">
+                {{record}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input
+                placeholder="{{ 'New ' +  field + '...'}}"
+                #recordInput
+                [formControl]="recordCtrl"
+                [matAutocomplete]="auto"
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+              <mat-option *ngFor="let record of filteredRecords | async" [value]="record">
+                {{record}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>  
+
+          <div class="submit-btn" *ngIf="!canEditPermission(field) && !canEditFrontEndViews(field)">
+            <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+          </div> 
+
+
+          <form #f="ngForm" (ngSubmit)="onSubmitPermission(f)" *ngIf="canEditPermission(field) && permissions">
+          <ng-container >
+
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let permission of permissions">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      {{permission.app_label}}
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+    
+                  <section class="section" *ngFor="let model of permission.models; let last=last">
+                    <ng-container *ngIf="model.name">
+                        <label>{{model.name}}</label>
+                        <mat-selection-list [name]="model.name" ngModel>
+                            <mat-list-option *ngFor="let perm of model.permissions" [value]="perm.id" [selected]="getSelectedOption(record?.permissions, perm.id)">
+                              {{perm.name}}
+                            </mat-list-option>
+                          </mat-selection-list>
+                          <mat-divider *ngIf="!last"></mat-divider>
+                    </ng-container>
+                </section>
+                </mat-expansion-panel>
+    
+              </mat-accordion>
+        </ng-container>
+        <div class="submit-btn" *ngIf="canEditPermission(field)">
+          <button type="submit" mat-raised-button color="primary">Submit</button>
+        </div> 
+          </form>
+
+          <form #f="ngForm" (ngSubmit)="onSubmitFrontEndViews(f)" *ngIf="canEditFrontEndViews(field) && frontend_views">
+            <ng-container>
+  
+              <mat-accordion>
+                  <mat-expansion-panel *ngFor="let view of frontend_views">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        {{view.tab}}
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+      
+                    <section class="section" *ngFor="let link of view.links; let last=last">
+                      <ng-container *ngIf="link.name">
+                          <label>{{link.name}}</label>
+                          <mat-selection-list [name]="link.codename" ngModel>
+                              <mat-list-option [value]="link.id" [selected]="getSelectedOption(record?.frontend_views, link.id)">
+                                {{link.name}}
+                              </mat-list-option>
+                            </mat-selection-list>
+                            <mat-divider *ngIf="!last"></mat-divider>
+                      </ng-container>
+                  </section>
+                  </mat-expansion-panel>
+      
+                </mat-accordion>
+          </ng-container>
+          <div class="submit-btn" *ngIf="canEditFrontEndViews(field)">
+            <button type="submit" mat-raised-button color="primary">Submit</button>
+          </div> 
+            </form>
+    
+    </div>
+     
+    </section>

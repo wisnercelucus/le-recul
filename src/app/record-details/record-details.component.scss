@@ -1,0 +1,13 @@
+@import '../../settings/sass/abstracts/variables';
+
+.tab-icon {
+    margin-right: 8px;
+    color: $color-primary;
+  }
+
+  .loading-shade{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem;
+  }

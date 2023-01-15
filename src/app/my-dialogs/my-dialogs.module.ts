@@ -10,11 +10,13 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { GeneralConfirmComponent } from './dialogs/general-confirm/general-confirm.component';
+import { ApprovalFormDialogComponent } from './dialogs/approval-form-dialog/approval-form-dialog.component';
 
 @NgModule({
   declarations: [
     DeleteConfirmComponent,
-    GeneralConfirmComponent
+    GeneralConfirmComponent,
+    ApprovalFormDialogComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,9 @@ import { GeneralConfirmComponent } from './dialogs/general-confirm/general-confi
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    
   ],
   exports: [DeleteConfirmComponent
 

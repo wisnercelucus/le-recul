@@ -1,0 +1,119 @@
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.bug-report{
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: #f1f5f9;
+}
+
+.form-box{
+    margin: 0 auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.folder{
+    margin-right: 1rem;
+}
+
+
+.table th{
+    margin-bottom: 20px;
+    color:rgb(27, 27, 27);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.table th, .table td{
+    text-align: left;
+}
+.pic-file{
+    margin-left: 20px;
+    background-color: dodgerblue;
+    color: white;
+}
+
+.table td{
+    font-weight: 200;
+}
+
+.form-box .fields-wraper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-box .fields-wraper mat-form-field{
+    width: 98%;
+    margin-bottom: 50px;
+}
+
+.form-box .fields-wraper .center{
+    width: 98%;
+}
+
+
+
+.form-box .fields-wraper mat-form-field:last-child{
+    margin-bottom: 10px;
+}
+
+
+.waring{
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    background-color: firebrick;
+    width: 800px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.5;
+    display: none;
+}
+
+.send-btn{
+    width: 100% !important;
+    background-color: dodgerblue;
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.form-title{
+    font-size: 1.6rem;
+    margin-top: 2rem;
+    color: rgba(0, 0, 0, .54);
+}
+
+@media screen and (max-width:805px){
+    .form-box{
+        width: 100%;
+    }
+
+    .waring{
+        width: 98%;
+        display: none;
+    }
+    
+}
+
+/* Documents list */
+
+.mat-list-icon {
+    color: rgba(0, 0, 0, 0.54);
+  }
+
+.file-icon{
+    color: firebrick;
+    cursor: pointer;
+}
+
+.doc_head{
+    cursor: pointer;
+}

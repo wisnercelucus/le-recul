@@ -1,0 +1,124 @@
+.entity-form{
+    height: 80vh;
+
+    overflow: hidden;
+    &:hover{
+        overflow-y: auto;
+    }
+}
+
+
+
+form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: white;
+    padding: 12px;
+}
+
+.input-text{
+    color: black;
+}
+
+.save-button{
+    background-color: dodgerblue;
+    color:white;
+}
+
+.heading{
+    color: rgb(80, 73, 73);
+    font-size: 16px;
+}
+
+.group-field-section-heading{
+    text-align: center;
+    padding: 8px;
+    background-color:#474b7a;
+    border-radius: 4px;
+    color: white;
+    font-size: 18px;
+}
+
+
+.group-column-field{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.group-row-field{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.group-row-field mat-form-field{
+    flex: 1;
+}
+
+.group-row-field .space{
+    content:"";
+    width: 20px;
+}
+
+.group-row-field .gap{
+    content:"";
+    flex:1;
+}
+
+
+.form-actions button{
+    margin-right: 8px;
+}
+
+.form-actions button:last-child{
+    margin-right: 0px;
+}
+
+.date-piker{
+    background-color: rgb(80, 73, 73) !important;
+}
+
+mat-label{
+    color: rgb(80, 73, 73);
+    font-size: 16px;
+}
+
+
+.additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+}
+
+@media screen and (max-width:600px){
+    form{
+        flex-direction: column;
+        flex-wrap: wrap;
+        flex: 1;
+    }
+
+    .heading{
+        margin-bottom: 40px;
+    }
+    .group-field-section-heading{
+        margin-bottom: 40px;
+    }
+    .instruction{
+        display: none;
+    }
+    .group-row-field{
+        flex-direction: column;
+        margin-top: 0px;
+    }
+    .group-row-field mat-form-field{
+       margin-bottom: 30px;
+    }
+    
+    .group-row-field .space{
+        display: none;
+    }
+
+}

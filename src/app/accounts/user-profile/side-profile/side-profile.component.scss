@@ -1,0 +1,75 @@
+@import "../../../../settings/sass/abstracts/variables";
+@import "../../../../settings/sass/abstracts/mixins";
+
+.side-profile{
+   
+    text-align: center;
+    background-color: $color-white;
+    padding-bottom: 2rem;
+    border-radius: .3rem;
+    box-shadow: 0rem 0.2rem .3rem rgba($color-black, .15);
+
+    .profile_img{
+        position: relative;
+
+        .image{
+            height: 15rem;
+            width: 15rem;
+            border-radius: 50%;
+            display: inline-block;
+        }
+    
+        padding-top: 1.5rem;
+
+        .image-chooser{
+            position: absolute;
+            top:75%;
+            right: 25%;
+            cursor: pointer;
+
+            mat-icon{
+                font-size: 3rem;
+                color: $color-success;
+            }
+        }
+
+    }
+
+    .heading-fourth{
+        color:$color-grey-dark-3;
+    }
+
+    .performance{
+        color:$color-grey-dark-2;
+        margin-top: 2.8rem;
+
+
+        span{
+            &:not(:last-child){
+                margin-right: 2rem;
+            }
+        }
+    }
+    
+}
+
+.desc{
+    padding: 2rem;
+    color:$color-grey-dark-3;
+
+    .heading-fourth{
+        color:$color-primary;
+        text-align: left;
+    }
+
+}
+
+.image-chooser{
+    background-color: transparent;
+    border:none;
+    outline: none;
+}
+
+.paragraph{
+    text-align: left;
+}

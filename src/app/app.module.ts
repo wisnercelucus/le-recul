@@ -71,7 +71,7 @@ const  toolbar = [
     MatProgressBarModule,
     MatListModule,
     SpacialPackagesModule,
-    CookieModule,
+    CookieModule.withOptions(),
 
     QuillModule.forRoot({
       suppressGlobalRegisterWarning: true,

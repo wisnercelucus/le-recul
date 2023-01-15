@@ -1,0 +1,47 @@
+<div class="wrapper">
+    <div class="field-row-wrapper" *ngFor="let item of record | keyvalue; let first = first;">
+        
+        <div class="field-row" *ngIf="fieldIsDisplayaBle(item.key) && !notRichText(item.key)">
+            <mat-divider *ngIf="!first"></mat-divider>
+            <div>
+                <span *ngIf="!valueIsObject(item.value)">{{normalizeTitle(item.key)}}: </span>
+                <span *ngIf="!valueIsObject(item.value) && !valueIsLink(item.value)">{{item.value}}</span>
+                <a class="anchor" *ngIf="!valueIsObject(item.value) && valueIsLink(item.value)" [href]="item.value">{{item.value}}</a>
+                <h4 *ngIf="valueIsObject(item.value)" class="heading-fourth">
+                    {{normalizeTitle(item.key)}}
+                </h4>
+            </div>
+
+            <mat-accordion *ngIf="item.value && valueIsObject(item.value) && !supportNavigation(item.value, item.key)">
+                <mat-expansion-panel clas="display-on-tab-port">
+                    <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Click to reveal
+                    </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="sub-object">
+                    <app-flex-detail [record]="item.value"></app-flex-detail>
+                </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+
+            <a *ngIf="valueIsObject(item.value) && supportNavigation(item.value, item.key)" class="anchor" (click)="navigateTo(item.value)">{{getDisplayLabel(item.value)}}</a>
+        </div>
+
+        <div class="field-row" *ngIf="fieldIsDisplayaBle(item.key) && notRichText(item.key)">
+            <mat-divider *ngIf="!first"></mat-divider>
+            <div>
+                <span *ngIf="!valueIsObject(item.value)">{{normalizeTitle(item.key)}}: </span>
+            </div>
+            <quill-view-html theme="snow" 
+            [content]="getString(item.value)"
+            *ngIf="!valueIsObject(item.value) 
+            && notRichText(item.key)"
+            ></quill-view-html>
+        </div>
+
+
+
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="user-profile">
+    <div class="user-profile__box">
+        <div class="row">
+            <div class="col-1-of-4">
+                <div class="u-center-content">
+                    <app-side-profile *ngIf="profile"  [hasPermission]="hasPermission(profile, loginUser)" [profile]="profile"></app-side-profile>
+                </div>
+            </div>
+            <div class="col-3-of-4" *ngIf="profile">
+                <div class="user-profile__header">
+
+                    <div class="u-center-text">
+                        <h3 class="heading-tertiary">Favorite quote</h3>
+                    </div>
+                    <div>
+                        <p class="paragraph">
+                            <q>
+                                <i>{{profile.quote}}</i>
+                            </q>
+                        </p>
+                        <div class="author">
+                            <span>- {{profile.quote_author}}</span>
+                        </div>
+                    </div>
+
+                </div>
+                <br>
+                <!--<div class="user-profile__body">
+                    User dashborad
+                </div>-->
+            </div>
+        </div>
+
+    </div>
+</div>
