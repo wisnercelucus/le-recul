@@ -1,0 +1,22 @@
+<div class="wrapper">
+    <div class="controls-wapper">
+        <div class="controls">
+            <button  *ngIf="hasAdditionCollumn" class="btn-add" mat-button (click)="addColumn()"> <mat-icon>add</mat-icon> Add column </button>
+            <!--<button class="btn-shuffle" mat-button (click)="shuffle()"><mat-icon>shuffle</mat-icon> Shuffle </button>
+            <button class="btn-remove" mat-button (click)="removeColumn()"> <mat-icon>remove</mat-icon> Remove column </button> -->   
+            <div class="stat">{{totalRecord}} {{tabName}}</div>
+        </div>
+</div>
+
+    <span class="spacer"></span>
+
+    <mat-form-field>
+        <mat-label>Search {{tabName}}</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. community name" #input>
+    </mat-form-field>
+
+    <button *ngIf="!formData && hasEditPermission && !onLookupDataTable"  mat-button class="btn-new" (click)="onLoadForm(model)"><mat-icon>add</mat-icon>New</button>
+    <button *ngIf="!formData && hasEditPermission && onLookupDataTable"  mat-button class="btn-new" (click)="onAddRelatedForm(lookup_field, model, model_id)"><mat-icon>add</mat-icon>New</button>
+    <button *ngIf="formData && !onManyToMany  && !onLookupDataTable"  mat-button class="btn-new" (click)="onCollectData(form_id)"><mat-icon>add</mat-icon>Collect</button>
+</div>
+

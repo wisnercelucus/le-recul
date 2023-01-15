@@ -1,0 +1,11 @@
+<h2 class="heading-secondary u-margin-bottom-small" 
+    [ngClass]="data.isSuccess? 'title-success' : 'title-warn'">
+    <mat-icon>{{data.icon}}</mat-icon> <span>{{data.title}}</span></h2>
+<div mat-dialog-content>
+    {{data.message}}
+</div>
+<div mat-dialog-actions>
+    <br>
+  <button [ngClass]="data.isSuccess? 'btn-success' : 'btn-warn'" 
+  class="btn" mat-dialog-close>Close</button>
+</div>

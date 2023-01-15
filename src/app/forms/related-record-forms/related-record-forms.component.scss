@@ -1,0 +1,40 @@
+@import '../../../settings/sass/abstracts/variables';
+
+.wrapper{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    height: 80vh;
+
+    overflow: hidden;
+    &:hover{
+        overflow-y: auto;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        section{
+            width: 100%;
+        }
+
+        mat-form-field{
+            width: 100%;
+        }
+    }
+}
+.example-margin{
+    margin-right: 10px;
+}
+
+.checkboxes{
+    margin-bottom: 2rem;
+}
+
+.action{
+    display: flex;
+    align-items: center;
+
+    button:not(:last-child){
+        margin-right: 2rem;
+    }
+}

@@ -1,0 +1,36 @@
+<mat-form-field class="example-chip-list">
+  <button type="button" matPrefix mat-icon-button aria-label="Lookup">
+    <mat-icon>search</mat-icon>
+  </button>
+    <mat-label>{{title}}</mat-label>
+    <mat-chip-list #chipList aria-label="lookup selection">
+      <mat-chip
+        *ngFor="let lookup of lookups"
+        (removed)="remove(lookup)">
+        {{lookup}}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+      <input
+        [placeholder]="placeHolder"
+        #lookupInput
+        [formControl]="lookupCtrl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (keyup)="onTypeValue($event)"
+        [required]="field?.is_required"
+        (matChipInputTokenEnd)="add($event)">
+
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let lookup of filteredLookups | async" [value]="lookup">
+        {{lookup}}
+      </mat-option>
+    </mat-autocomplete>
+    
+    <button type="button" *ngIf="allowCasscade(field)" matSuffix mat-icon-button aria-label="Add Lookup" (click)="onCascadeForm(field, model)">
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-form-field>

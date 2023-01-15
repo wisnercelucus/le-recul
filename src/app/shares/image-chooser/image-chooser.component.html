@@ -1,0 +1,44 @@
+<section class="wrapper">
+    <section class="container-fluid">
+        <!--<p class="waring">The page is not yet ready. Please be patient!</p>-->
+        <div class="fields-wraper">
+        <div class="center">
+            <ngx-file-drop [multiple]="multiple" (onFileDrop)="dropped($event)"
+                [accept]="accept"
+                (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                    <button mat-button class="pic-file" type="button" (click)="openFileSelector()">
+                        {{ 'Add images'}}
+                    </button>
+                    <!--{{ 'Drag and drop files' }}-->
+                </ng-template>
+            </ngx-file-drop>
+            <br>
+
+            <!--<div class="live-file-selected">
+                <mat-list class="file-list-wrapper">
+                  <div mat-subheader>{{imagesBlobed.length +  ' images selected'}}</div>
+                  <mat-list-item *ngFor="let file of imagesBlobed; let last = last;">
+                      <mat-icon mat-list-icon>note</mat-icon>
+                      <div mat-line title="Click to view it in a new tab." class="doc_head filename" (click)="debugBase64(file.dataUrl)">{{file.name}}</div>
+                      <mat-icon class="file-icon" (click)="deleteFileLocally(file.name)">delete</mat-icon>
+                  </mat-list-item>
+                </mat-list>
+            </div>-->
+
+            <div class="live-file-selected">
+                <div mat-subheader>{{imagesBlobed.length +  ' images selected'}}</div>
+                <div class="images">
+                  <div class="image" *ngFor="let file of imagesBlobed; let last = last;">
+                    <mat-icon class="file-icon" (click)="deleteFileLocally(file.name)">delete</mat-icon>
+                    <img [src]="file.dataUrl" class="image-selected" title="Click to view it in a new tab." (click)="debugBase64(file.url)">
+                  </div>
+                </div>
+            </div>
+
+
+        </div>
+        </div>
+
+    </section>
+</section>

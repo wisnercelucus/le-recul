@@ -1,0 +1,58 @@
+@import "../../../settings/sass/abstracts/variables";
+@import "../../../settings/sass/abstracts/mixins";
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 .2rem 0.2rem 0.2rem rgba($color-global-bg, .4);
+
+    mat-form-field{
+        margin-right: 3rem;
+        @include respond(phone){
+            width: 15rem;
+            max-width: 50%;
+            margin-right: 1rem;
+            margin-left: 1rem;
+        }
+
+        mat-label, input{
+            font-size: 1.3rem;
+            
+        }
+    }
+
+    .controls{
+        margin-bottom: 1rem;
+    }
+
+    .stat{
+        margin-left: 2rem;
+        color: rgba($color-black, 0.5);
+    }
+    
+    button{
+        font-weight: 700;
+        &:not(:last-child){
+            margin-right: 2rem;
+        }
+    }
+
+    .btn-remove{
+        color: rgba($color-danger, .8);
+    }
+
+    .btn-new{
+        color: $color-primary;
+    }
+
+    .btn-add{
+        color: rgba($color-black, 0.5);
+    }
+
+    .btn-shuffle{
+        color: rgba($color-black, 0.5);
+    }
+}

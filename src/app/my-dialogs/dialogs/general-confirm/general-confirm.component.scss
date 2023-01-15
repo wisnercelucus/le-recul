@@ -1,0 +1,19 @@
+@import '../../../../settings/sass/abstracts/variables';
+
+
+.heading-secondary{
+    font-size: $default-font-size;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    mat-icon{
+        margin-right: 1rem;
+    }
+
+    span{
+        transform: translateY(0.5rem);
+    }
+}
+

@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Dangerous operation</h1>
+<div mat-dialog-content>
+  <p>Are you sure you want to proceed?</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="warn" (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="'yes'" cdkFocusInitial>Ok</button>
+</div>

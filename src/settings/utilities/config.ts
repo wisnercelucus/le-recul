@@ -1,0 +1,1 @@
+export const DATA_ENTRY_PATH_PREFIX = 'admin'

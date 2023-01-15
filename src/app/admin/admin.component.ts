@@ -24,21 +24,20 @@ export class AdminComponent implements OnInit {
 
     {
       routerLink: "/admin/rooms",
-      icon: "fas fa-clipboard-list-check",
+      icon: "fas fa-bed",
       label: "Rooms",
     },
     {
       routerLink: "/admin/customers",
-      icon: "fas fa-clipboard-list-check",
+      icon: "fas fa-user-tie",
       label: "Customers",
     },
 
     {
       routerLink: "/admin/roomservices",
-      icon: "fas fa-clipboard-list-check",
+      icon: "fab fa-hotjar",
       label: "Room Services",
     },
-
 
     {
       routerLink: "/admin/coupons",
@@ -48,13 +47,14 @@ export class AdminComponent implements OnInit {
 
     {
       routerLink: "/admin/specialoffers",
-      icon: "fas fa-clipboard-list-check",
+      icon: "fas fa-money-check-edit",
       label: "Special Offers",
     },
 
+
     {
       routerLink: "/admin/bookings",
-      icon: "fas fa-clipboard-list-check",
+      icon: "far fa-cash-register",
       label: "Bookings",
     }
 

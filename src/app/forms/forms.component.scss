@@ -1,0 +1,35 @@
+@import '../../settings/sass/abstracts/variables';
+
+.wrapper{
+    background-color: $color-global-bg;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+
+    form{
+        display: flex;
+        flex-direction: column;
+
+        section{
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        mat-form-field{
+            width: 100%;
+        }
+    }
+}
+.example-margin{
+    margin-right: 10px;
+}
+
+.checkboxes{
+    margin-bottom: 2rem;
+}
+
+.loading-shade{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem;
+  }

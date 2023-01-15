@@ -2,7 +2,7 @@
   <vn-spacial-packages (closeSpacialPackage)="onCloseSpecialOffer($event)"></vn-spacial-packages>
 </div>
 
-<mat-toolbar class="toolbar">
+<mat-toolbar class="toolbar-nav">
   <div class="nav-brand">
       <button
       type="button"
@@ -17,8 +17,8 @@
   </div>
 
   <div class="nav-actions">
-    <a routerLink="/gallery" class="nav-link"><fa-icon [icon]="faBuilding"></fa-icon> <span class="hide-tab-port"> Gallery</span></a>
-      <a *ngIf="isAuthenticated" routerLink="/admin" class="nav-link"><fa-icon [icon]="faBuilding"></fa-icon> <span class="hide-tab-port"> Admin</span></a>
+    <a routerLink="/gallery" class="nav-link"><fa-icon [icon]="faImages"></fa-icon> <span class="hide-tab-port"> Gallery</span></a>
+      <a *ngIf="isAuthenticated" routerLink="/admin" class="nav-link"><fa-icon [icon]=" faUserShield"></fa-icon> <span class="hide-tab-port"> Admin</span></a>
       <a *ngIf="isAuthenticated" [matMenuTriggerFor]="menu2" class="nav-link">
         <span class="avatar-holder">
           <img class="user-avatar" [src]="getCompleteUrl(userProfile.avatar!)" >

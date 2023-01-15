@@ -7,8 +7,10 @@ const routes: Route[] = [
     {path: '', component: AdminComponent,
         children: [
             {path: '', component: DashboardComponent},
-            {path: 'forms', loadChildren: () => import('../forms/forms.module').then(m => m.MyFormsModule)},
+            //{path: 'forms', loadChildren: () => import('../forms/forms.module').then(m => m.MyFormsModule)},
             {path: ':model', loadChildren: () => import('../data-tables/data-tables.module').then(m => m.DataTablesModule)},
+            {path: ':model/new', loadChildren: () => import('../forms/forms.module').then(m => m.MyFormsModule)},
+            {path: ':model/:model_uuid/edit', loadChildren: () => import('../forms/forms.module').then(m => m.MyFormsModule)},
         ]}
 ]
 

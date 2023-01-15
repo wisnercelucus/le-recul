@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
-import { faBuilding, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faImages, faUser, faUserShield } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'vn-header',
@@ -11,7 +11,8 @@ export class HeaderComponent implements OnInit {
   @Output() toggleSideNav = new EventEmitter();
   offerClosed = true
   isAuthenticated = true
-  faBuilding = faBuilding
+  faImages = faImages
+  faUserShield = faUserShield
   //notAtAmin = false
   faUser = faUser
   userProfile:any = {user: {name: 'Valery Numa', username: 'valnum'}, avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80'}

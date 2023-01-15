@@ -1,1 +1,94 @@
-<p>data-tables works!</p>
+<app-data-table-header [tabName]="tableDesc.name" 
+(filterToTable)="onFilter($event)" 
+[totalRecord]="resultsLength"
+[model]="model"
+[hasAdditionCollumn]="hasAdditionColumn(additionalColumns)"
+[hasEditPermission]="has_permission('add', model)"
+(addColumnToTable)="addColumn()"></app-data-table-header>
+
+<div class="table-container mat-elevation-z8">
+    <div class="loading-shade"
+         *ngIf="isLoadingResults || isRateLimitReached">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+      <div class="rate-limit-reached" *ngIf="isRateLimitReached">
+        {{model}}'s table is either empty or you do not have the permission to see it's contents. If you believe you shoulb see this table content, contact your system admins.
+      </div>
+    </div>
+  
+    <div class="table-wrapper">
+  
+      <table mat-table [dataSource]="dataSource" class="table"
+             matSort matSortActive="id" matSortDisableClear matSortDirection="desc">
+        <!-- Number Column -->
+
+        <ng-container matColumnDef="select" sticky>
+            <th mat-header-cell *matHeaderCellDef class="td-thin">
+              <mat-checkbox (change)="$event ? masterToggle() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                            [aria-label]="checkboxLabel()">
+                            select all
+              </mat-checkbox>
+            </th>
+            <td class="select-td td-thin" mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(row) : null"
+                            [checked]="selection.isSelected(row)"
+                            [aria-label]="checkboxLabel(row)">
+              </mat-checkbox>
+            </td>
+          </ng-container>
+
+          <ng-container
+          *ngFor="let col of columnsFromObject"
+          [matColumnDef]="col"
+        >
+          <th mat-header-cell *matHeaderCellDef>{{ normalizeTitle(col) }}</th>
+          <td mat-cell *matCellDef="let element">
+            <span>{{ getElementFromCol(col, element)}}</span>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="star" stickyEnd>
+            <th mat-header-cell *matHeaderCellDef class="td-thin">Actions</th>
+            <td class="action-td td-thin" mat-cell *matCellDef="let element" class="td-thin">
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button *ngIf="model === 'forms' " mat-menu-item (click)="onCollectData(element._id)">
+                  <mat-icon>dataset</mat-icon>
+                  <span>Collect</span>
+                </button>
+
+                <button *ngIf="has_permission('view', model)" mat-menu-item (click)="onNavigateRecordDetails(element._id)">
+                  <mat-icon>visibility</mat-icon>
+                  <span>View</span>
+                </button>
+                <button *ngIf="has_permission('change', model)" mat-menu-item (click)="onEditRecord(element._id)">
+                  <mat-icon>edit</mat-icon>
+                  <span>Edit</span>
+                </button>
+
+                <button *ngIf="has_permission('delete', model)" mat-menu-item (click)="openDialog(element._id)">
+                  <mat-icon>delete</mat-icon>
+                  <span>Delete</span>
+                </button>
+              </mat-menu>
+            </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  
+    <mat-paginator
+    [pageSizeOptions]="[100]"
+    [length]="paginationData?.count"
+    [pageIndex]="pageNo"
+    #paginator
+    aria-label="Model results."
+  >
+  </mat-paginator>
+  </div>

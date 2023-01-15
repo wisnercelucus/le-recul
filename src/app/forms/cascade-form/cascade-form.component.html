@@ -1,0 +1,75 @@
+<div class="wrapper">
+    <div class="u-center-text u-margin-bottom-medium">
+      <h3 class="heading-tertiary">
+        {{ 'New ' + getModelToQuery( model )}}
+      </h3>
+    </div>
+    <form class="container" (ngSubmit)="onSubmit(f)" *ngIf="fields && fields.length" #f="ngForm">
+    
+        <ng-container *ngFor="let field of fields; let i = index">
+        <section *ngIf="field.description === 'Short text' && !field.choices && canDisplayNameField(model, field.name)" class="section" >
+          <mat-form-field>
+            <mat-label>{{normalizeTitle(field.name)}}</mat-label>
+            <input matInput ngModel name="{{field.name}}" [required]="field.is_required">
+          </mat-form-field>
+        </section>
+  
+      <section *ngIf="field.description === 'Short text' && field.choices" class="section">
+        <mat-form-field>
+          <mat-label>{{normalizeTitle(field.name)}}</mat-label>
+          <mat-select ngModel  name="{{field.name}}"  [required]="field.is_required">
+            <mat-option *ngFor="let opt of field.choices" [value]="opt">{{opt}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </section>
+  
+      <section *ngIf="field.description === 'Integer' " class="section" >
+        <mat-form-field>
+          <mat-label>{{normalizeTitle(field.name)}}</mat-label>
+          <input type="number" matInput ngModel  name="{{field.name}}" [required]="field.is_required">
+        </mat-form-field>
+      </section>
+      
+      <section *ngIf="field.description === 'Float'" class="section" >
+        <mat-form-field>
+          <mat-label>{{normalizeTitle(field.name)}}</mat-label>
+          <input type="number" matInput ngModel  name="{{field.name}}" [required]="field.is_required">
+        </mat-form-field>
+      </section>
+  
+      <section *ngIf="field.description === 'Text'" class="section">
+        <mat-label>{{normalizeTitle(field.name)}}</mat-label>
+        <quill-editor ngModel name="{{field.name}}" [required]="field.is_required" [styles]="{'min-height': '25rem'}" placeholder="Enter some text.."></quill-editor>
+        <br>
+        <br>
+     </section>
+  
+  
+      <section class="section checkboxes" *ngIf="field.description === 'Boolean'">
+        <label class="example-margin">{{normalizeTitle(field.name)}}</label>
+        <mat-checkbox name="{{field.name}}" [required]="field.is_required" class="example-margin" ngModel></mat-checkbox>
+      </section>
+  
+    <section class="section" *ngIf="field.description === 'Date' || field.description === 'DateTime'">
+      <mat-form-field color="accent">
+        <mat-label>{{normalizeTitle(field.name)}}</mat-label>
+        <input matInput [matDatepicker]="picker1" name="{{field.name}}" ngModel   [required]="field.is_required">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+    </section>
+  
+    <section class="section" *ngIf="field.description === 'Lookup field' && field.related_model">
+      <app-lookup-field [field]="field" (lookupAdded)="onLookupSelected($event)"></app-lookup-field>
+    </section>
+  
+    </ng-container>
+  
+    <section class="section action" *ngIf="has_permission('add', model) || has_permission('change', model)">
+        <button mat-raised-button type="button" (click)="cancel()">Cancel</button>
+        <button mat-raised-button type="submit" [disabled]="f.invalid || isSaving">{{isSaving ? 'Saving...' : 'Save'}}</button>
+    </section>
+  </form>
+  </div>
+  
