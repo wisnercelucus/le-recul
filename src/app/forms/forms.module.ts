@@ -15,6 +15,7 @@ import { MyDialogsModule } from '../my-dialogs/my-dialogs.module';
 import { CascadeFormModule } from './cascade-form/cascade-form.module';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MatButtonModule } from '@angular/material/button';
     ImageChooserModule,
     QuillModule,
     MyDialogsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCheckboxModule
   ]
 })
 export class MyFormsModule { }

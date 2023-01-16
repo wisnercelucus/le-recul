@@ -56,6 +56,25 @@ export class AdminComponent implements OnInit {
       routerLink: "/admin/bookings",
       icon: "far fa-cash-register",
       label: "Bookings",
+    },
+
+    {
+      routerLink: "/admin/accounts",
+      icon: "far fa-users",
+      label: "Accounts",
+    },
+
+    {
+      routerLink: "/admin/positions",
+      icon: "far fa-users",
+      label: "Positions",
+    }
+    ,
+
+    {
+      routerLink: "/admin/roles",
+      icon: "far fa-users",
+      label: "User roles",
     }
 
     

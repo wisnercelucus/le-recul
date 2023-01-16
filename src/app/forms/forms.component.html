@@ -67,15 +67,7 @@
       </mat-form-field>
     </section>
   
-    <!--<section class="section" *ngIf="field.description === 'Lookup field' && field.related_model">
-      <mat-form-field>
-        <mat-label>{{normalizeTitle(field.name)}}</mat-label>
-        <mat-select [ngModel]="getValue(record, field.name)" name="{{field.name}}"  [required]="field.is_required" >
-          <mat-option *ngFor="let opt of field.lookups" [value]="opt.id">{{opt.name}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </section>-->
-  
+
     <section class="section" *ngIf="field.description === 'Lookup field' && field.related_model">
       <app-lookup-field [model]="model" [value]="getInputValue(record, field.name)" [field]="field" (lookupAdded)="onLookupSelected($event)"></app-lookup-field>
     </section>
@@ -94,7 +86,7 @@
     </ng-container>
   
     <section class="section" *ngIf="has_permission('add', model) || has_permission('change', model)">
-      <button mat-raised-button type="submit" [disabled]="f.invalid || isSaving">{{isSaving ? 'Saving...' : 'Save'}}</button>
+      <button mat-raised-button type="submit" [disabled]="(f.invalid || isSaving) && model != 'accounts' ">{{isSaving ? 'Saving...' : 'Save'}}</button>
     </section>
   </form>
   </div>

@@ -181,9 +181,29 @@ export class FormsComponent implements OnInit, OnDestroy, OpenConfirmDialog {
 
   getObjectToUpdate(uuid: string): void{
     this.subs.add(
-      this._modelDataService.getObjectToUpdate(this.model, uuid).subscribe(record=> this.record = record)
+      this._modelDataService.getObjectToUpdate(this.model, uuid).subscribe(
+        {
+          next: (data: any) => {
+            if(this.model === 'accounts'){
+              const user = {...data.user}
+          
+              this.record = data;
+              this.record['email'] = user.email
+              this.record['username'] = user.username
+          
+            }else{
+              this.record = data;
+            }
+          },
+          error: (err: HttpErrorResponse) => {
+            console.log(err)
+          }
+        }
+        
+        )
     )
   }
+
 
 
   getInputValue(record: any, field: string): string{
