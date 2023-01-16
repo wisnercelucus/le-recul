@@ -16,11 +16,11 @@ export class AccountsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    /*this.subs.add(
+    this.subs.add(
       this._accountsService
           .getMyProfile()
               .subscribe(res=>console.log(res))
-      )*/
+      )
   }
 
 }

@@ -1,0 +1,52 @@
+<div class="wrapper">
+    <div class="loging-card">
+        <div *ngIf="!loginSuccss" class="u-center-text u-margin-small-bottom-small">
+            <h2 class="heading-secondary">Login</h2>
+        </div>
+        <div class="loading-shade"
+        *ngIf="isLoadingResults">
+          <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+        </div>
+            <form 
+            *ngIf="!loginSuccss"
+            class="login-form" [formGroup]="form"
+            (ngSubmit)="onSubmit()">
+
+            <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput formControlName="email"
+                        placeholder="Ex. wisnercel@example.com">
+                <mat-hint>Please enter your email!</mat-hint>
+                <mat-error *ngIf="form.get('email')!.invalid">
+                    Please enter a valid email address.
+                </mat-error>
+            </mat-form-field>
+
+                  <mat-form-field class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input [type]="hide ? 'password' : 'text'" matInput formControlName="password"
+                           >
+                    <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                    <mat-hint>Please enter your email!</mat-hint>
+
+                  </mat-form-field>
+
+                  <div class="action">
+                    <button type="submit" mat-raised-button color="primary" class="login-btn" 
+                    [disabled]="form.invalid || isLoadingResults">Login</button>
+                  </div>
+
+                  <div class="action-forget-passord">
+                    <button type="buuton" mat-button color="primary" class="forget-password-btn" 
+                    (click)="resetPassword()"
+                    >Forget password?</button>
+                  </div>
+            </form>
+        </div>
+
+</div>
+
+
+

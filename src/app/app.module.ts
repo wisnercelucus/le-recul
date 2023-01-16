@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialsModule } from './materials/materials.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DumyComponentsModule } from './shares/dumy-components/dumy-components.module';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -20,6 +20,7 @@ import { NavigationModule } from './navigation/navigation.module';
 
 import { QuillModule } from 'ngx-quill';
 import { CookieModule } from 'ngx-cookie';
+import { AuthInterceptorService } from './auth/services/auth-interceptor.service';
 
 
 const  toolbar = [
@@ -81,7 +82,7 @@ const  toolbar = [
       }
     }),
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true},],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

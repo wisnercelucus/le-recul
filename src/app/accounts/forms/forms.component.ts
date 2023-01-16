@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { ModelLookupDataService } from 'src/app/model-forms/services/model-lookup-data.service';
 import { RoutingService } from 'src/app/routing.service';
 import { SubSink } from 'subsink';
 import { AccountsService } from '../services/accounts.service';
+import { ModelLookupDataService } from 'src/app/forms/services/model-lookup-data.service';
+import { DATA_ENTRY_PATH_PREFIX } from 'src/settings/utilities/config';
 
 @Component({
   selector: 'app-forms',
@@ -51,7 +52,7 @@ export class FormsComponent implements OnInit, OnDestroy {
       this.subs.add(
         this._accountsService.createUser(data).subscribe(
           res=>{
-            this._routingService.onNavigateRecordDetails('accounts', res._id)
+            this._routingService.onNavigateRecordDetails(DATA_ENTRY_PATH_PREFIX, 'accounts', res._id)
           }
         )
       )
@@ -60,7 +61,7 @@ export class FormsComponent implements OnInit, OnDestroy {
         this.subs.add(
           this._accountsService.updateUser(data, this.record_id).subscribe(
             res=>{
-                this._routingService.onNavigateRecordDetails('accounts', res._id)
+                this._routingService.onNavigateRecordDetails(DATA_ENTRY_PATH_PREFIX, 'accounts', res._id)
             }
           )
         )

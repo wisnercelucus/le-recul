@@ -38,7 +38,8 @@ export class UserProfileComponent implements OnInit {
       if(res){
         this.isLoginUser = this.profile?.id === res?.id;
         this.loginUser = res;
-        this.profile.avatar = res.avatar
+        if(this.profile)
+          this.profile.avatar = res.avatar
       }
     })
     )

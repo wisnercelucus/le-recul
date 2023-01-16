@@ -40,7 +40,13 @@ export class UtilitiesService {
   }
 
   get base_url_no_trail(){
+    //console.log(`${environment.PROTOCOL_ROOT}${environment.API_ROOT_URL}`)
       return `${environment.PROTOCOL_ROOT}${environment.API_ROOT_URL}`
+  }
+
+  get base_url_no_api(){
+    //console.log(`${environment.PROTOCOL_ROOT}${environment.API_ROOT_URL}`)
+      return `${environment.PROTOCOL_ROOT}${environment.PUBLIC_BASE_URL}`
   }
 
   emitModelToFilter(value: string): void{

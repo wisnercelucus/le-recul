@@ -1,0 +1,36 @@
+<div class="image-croper-dialog">
+    <div class="u-center-text u-margin-bottom-small">
+        <h3 class="heading-tertiary">Crop image</h3>
+    </div>
+
+    <div mat-dialog-actions class="u-center-text u-margin-bottom-small">
+        <button class="btn btn-danger" mat-button (click)="onNoClick()">Cancel</button>
+        <button class="btn btn-primary" mat-button [mat-dialog-close]="blobData" cdkFocusInitial>Continue</button>
+    </div>
+    
+    <div class="row">
+        <div class="col-1-of-2">
+            <!--<input type="file" (change)="fileChangeEvent($event)" />-->
+            <div class="image-cropper">
+                <image-cropper
+                [imageChangedEvent]="imageChangedEvent"
+                [aspectRatio]="1 / 1"
+                format="jpeg"
+                (imageCropped)="imageCropped($event)"
+                [cropperMinWidth]="250"
+                [resizeToHeight]="250"
+                [resizeToWidth]="250"
+                [onlyScaleDown]="true"
+                [roundCropper]="true"
+                ></image-cropper>
+            </div>
+        </div>
+    
+        <div class="col-1-of-2">
+            <div class="image-croped">
+                <img [src]="croppedImage" />
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
+import { MyImageCroperModule } from 'src/app/my-image-croper/my-image-croper.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatIconModule,
     RouterModule,
     MatDialogModule,
-    MatDividerModule
+    MatDividerModule,
+    MyImageCroperModule,
   ]
 })
 export class UserProfileModule { }

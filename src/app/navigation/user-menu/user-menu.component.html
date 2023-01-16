@@ -8,7 +8,7 @@
                {{loginUser!.user!.name}}
             </a>
             </h3>
-           <a class="anchor">
+           <a class="anchor" (click)="onGotoProfile(loginUser!.user.username)">
                 <span class="username">@{{loginUser!.user.username ?  loginUser!.user!.username : ''}}</span>
            </a>
             <br>
@@ -26,7 +26,7 @@
 
         <mat-divider></mat-divider>-->
 
-        <a *ngIf="loginUser" class="anchor">
+        <a *ngIf="loginUser" [routerLink]="['/accounts', loginUser!.user!.username, 'settings' ]" class="anchor">
             <mat-list-item>
                 <!--<mat-icon mat-list-icon>folder</mat-icon>-->
                 <mat-icon mat-list-icon>settings</mat-icon>

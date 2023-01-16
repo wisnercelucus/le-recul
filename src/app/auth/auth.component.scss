@@ -1,0 +1,87 @@
+@import "../../settings/sass/abstracts/variables";
+
+
+.wrapper{
+    //background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url("/assets/images/auth-bg.jpg");
+    height: 96vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*.heading-secondary{
+        color: $color-white;
+    }*/
+    .loging-card{
+        width: 100%;
+        max-width: 40rem;
+        background: $color-white;
+        margin: auto;
+        border-radius: .15rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        box-shadow: -1px 1px 6px -1px rgba(0,0,0,0.5);
+        -webkit-box-shadow: -1px 1px 6px -1px rgba(0,0,0,0.5);
+        -moz-box-shadow: -1px 1px 6px -1px rgba(0,0,0,0.5);
+
+        .login-form{
+            margin-top: 4rem;
+            //color: $color-white;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+
+            mat-form-field{
+                width: 100%;
+                margin-bottom: 4rem;
+            }
+        }
+    }
+    .action{
+        width: 100%;
+        
+        button{
+            width: 100%;
+            font-weight: 600;
+        }
+    }
+
+    .action-forget-passord{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 2rem;
+        button{
+            font-weight: 600;
+        }
+        
+    }
+}
+
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
+
+  .loading-shade{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }

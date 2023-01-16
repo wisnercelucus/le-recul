@@ -21,7 +21,7 @@
       <a *ngIf="isAuthenticated" routerLink="/admin" class="nav-link"><fa-icon [icon]=" faUserShield"></fa-icon> <span class="hide-tab-port"> Admin</span></a>
       <a *ngIf="isAuthenticated" [matMenuTriggerFor]="menu2" class="nav-link">
         <span class="avatar-holder">
-          <img class="user-avatar" [src]="getCompleteUrl(userProfile.avatar!)" >
+          <img class="user-avatar" [src]="getCompleteUrl(userProfile?.avatar!)" >
           <span class="hide-tab-port"> {{userProfile?.user?.name}}</span>
         </span>
         <mat-menu #menu2="matMenu">

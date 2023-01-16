@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 @Component({
   selector: 'app-user-menu',
@@ -11,7 +12,7 @@ export class UserMenuComponent implements OnInit {
   @Input() loginUser!: any;
   fullName!:string;
 
-  constructor(private _router:Router) { }
+  constructor(private _router:Router, private _utilitiesService: UtilitiesService) { }
 
   ngOnInit(): void { 
     //console.log(this.loginUser)
@@ -43,7 +44,7 @@ export class UserMenuComponent implements OnInit {
     if(urls.includes('http') || urls.includes('https')){
       return url
     }else{
-      return 'this._utilitiesService.base_url_no_trail + url'
+      return this._utilitiesService.base_url_no_api + url
     }
   }
 

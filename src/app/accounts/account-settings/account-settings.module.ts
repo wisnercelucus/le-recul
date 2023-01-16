@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { AccountFormsModule } from '../forms/account-forms.module';
 import { AccountIdenfificationsFormsModule } from '../forms/account-idenfifications-forms/account-idenfifications-forms.module';
 import { AccountPasswordFormsModule } from '../forms/account-password-forms/account-password-forms.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AccountPasswordFormsModule } from '../forms/account-password-forms/acco
     MatIconModule,
     AccountFormsModule,
     AccountIdenfificationsFormsModule,
-    AccountPasswordFormsModule
+    AccountPasswordFormsModule,
+    MatDialogModule
   ]
 })
 export class AccountSettingsModule { }

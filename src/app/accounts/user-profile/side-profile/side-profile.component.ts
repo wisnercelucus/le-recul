@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { MyImageCroperComponent } from 'src/app/my-image-croper/my-image-croper.component';
-import { UtilitiesService } from 'src/app/utilities.service';
 import { mimeType } from 'src/settings/utilities/mime-type.validators';
 import { SubSink } from 'subsink';
 import { AccountsService, UserProfile } from '../../services/accounts.service';
+import { UtilitiesService } from 'src/app/services/utilities.service';
+import { MyImageCroperComponent } from 'src/app/my-image-croper/my-image-croper.component';
 
 @Component({
   selector: 'app-side-profile',
@@ -62,7 +62,7 @@ export class SideProfileComponent implements OnInit {
     if(urls.includes('http') || urls.includes('https')){
       return url
     }else{
-      return this._utilitiesService.base_url_no_trail + url
+      return this._utilitiesService.base_url_no_api + url
     }
   }
 

@@ -3,6 +3,7 @@ import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Even
 import { SubSink } from 'subsink';
 import * as AOS from 'aos';
 import { isPlatformBrowser } from '@angular/common';
+import { AuthService } from './auth/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,8 @@ export class AppComponent implements OnInit {
   cinema = false;
 
   constructor(
-     @Inject(PLATFORM_ID) private platformId: Object, 
+     @Inject(PLATFORM_ID) private platformId: Object,
+     private _authServive: AuthService, 
      private router: Router){
     this.subs.add(
       this.router.events.subscribe((routerEvent: Event)=>{
@@ -53,6 +55,7 @@ export class AppComponent implements OnInit {
       )
   }
   ngOnInit(): void {
+    this._authServive.autoAuthUser()
     AOS.init();
   }
 }
