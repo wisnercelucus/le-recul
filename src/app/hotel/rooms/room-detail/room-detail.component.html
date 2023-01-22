@@ -28,7 +28,7 @@
                               <input matEndDate placeholder="Date de départ" formControlName="end_on">
                             </mat-date-range-input>
                             <mat-datepicker-toggle matSuffix [for]="bookingDateRangePicker"></mat-datepicker-toggle>
-                            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                            <mat-hint><span class="hint">MM/DD/YYYY – MM/DD/YYYY</span></mat-hint>
                             <mat-date-range-picker #bookingDateRangePicker></mat-date-range-picker>
                           </mat-form-field>
     
@@ -73,7 +73,7 @@
                 <div class="description">
                     <p [innerHTML]="truncateHTML(room.description, 117)">
                     </p>
-                    <a class="btn-text">Read more &rarr;</a>
+                    <a class="btn-text">Read more &searr;</a>
                 </div>
             </div>
             <div class="col-3-of-4">

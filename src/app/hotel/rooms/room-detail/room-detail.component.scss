@@ -36,7 +36,12 @@
                 @include respond(phone){
                     width: 100%;
                 }
-                
+                mat-label{
+                    font-size: 1.5rem;
+                }
+                input{
+                    font-size: 1.5rem;
+                }
             }
         }
 
@@ -124,4 +129,12 @@
 
   .btn-text{
     margin-top: 1rem;
+  }
+
+  .hint{
+    font-size: 1.1rem !important;
+  }
+
+  mat-select{
+    font-size: 1.5rem;
   }
