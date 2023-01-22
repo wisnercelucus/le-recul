@@ -1,11 +1,13 @@
 @import "../../../settings/sass/abstracts/variables";
 @import "../../../settings/sass/abstracts/mixins";
 
+
 .wrapper{
     padding: 6rem 0;
     padding-top: 15rem;
     background-color: rgba($color-accent, .2);
     overflow: hidden;
+    //z-index: 100;
 
     clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
     -webkit-clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);

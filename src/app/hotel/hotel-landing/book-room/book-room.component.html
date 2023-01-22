@@ -1,9 +1,8 @@
-
-    <section class="section-book">
+    <section class="section-book" id="section-book">
         <div class="row">
             <div class="book">
                 <div class="book__form">
-                    <form action="#" class="form">
+                    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit(form)">
                         <div class="u-margin-bottom-medium">
                             <h2 class="heading-secondary">
                                 Réserver une chambre
@@ -12,15 +11,47 @@
 
                         <div class="form__group">
                             <mat-form-field class="full-width" color="accent" appearance="outline">
+                                <mat-label>Nom complet</mat-label>
+                                <input type="text" matInput placeholder="John Doe" formControlName="fullname" required>
+                            </mat-form-field>
+                        </div>
+
+
+                        <div class="form__group">
+                            <mat-form-field class="full-width" color="accent" appearance="outline">
                                 <mat-label>Email</mat-label>
-                                <input type="email" matInput placeholder="someuser@dom.ext">
+                                <input type="email" matInput formControlName="email" placeholder="someuser@dom.ext" required>
                             </mat-form-field>
                         </div>
 
                         <div class="form__group">
+                            <mat-form-field class="full-width" color="accent" appearance="outline">
+                                <mat-label>Telephone</mat-label>
+                                <input type="text" formControlName="phone" matInput placeholder="Ex: +5093350660" required>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form__group">
+                        <mat-form-field class="example-form-field" appearance="outline">
+                            <mat-label>Date d'arrivée - Date de départ</mat-label>
+                            <mat-date-range-input
+                              [rangePicker]="bookingDateRangePicker"
+                              [min]="today"
+                              [comparisonStart]="form.value.start_on"
+                              [comparisonEnd]="form.value.end_on">
+                              <input matStartDate placeholder="Date d'arrivée" formControlName="start_on">
+                              <input matEndDate placeholder="Date de départ" formControlName="end_on">
+                            </mat-date-range-input>
+                            <mat-datepicker-toggle matSuffix [for]="bookingDateRangePicker"></mat-datepicker-toggle>
+                            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                            <mat-date-range-picker #bookingDateRangePicker></mat-date-range-picker>
+                          </mat-form-field>
+                        </div>
+
+                        <!--<div class="form__group">
                             <mat-form-field color="accent" appearance="outline">
                                 <mat-label>Date d'arrivée</mat-label>
-                                <input class="picker" matInput [matDatepicker]="picker1">
+                                <input class="picker" matInput [matDatepicker]="picker1" required>
                                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                                 <mat-datepicker #picker1></mat-datepicker>
                             </mat-form-field>
@@ -29,18 +60,18 @@
                         <div class="form__group">
                             <mat-form-field color="accent" appearance="outline">
                                 <mat-label>Date de départ</mat-label>
-                                <input matInput class="picker" [matDatepicker]="picker2">
+                                <input matInput class="picker" [matDatepicker]="picker2" required>
                                 <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                                 <mat-datepicker #picker2></mat-datepicker>
                             </mat-form-field>
-                        </div>
+                        </div>-->
 
                         <div class="form__group">
                             <mat-form-field color="accent" appearance="outline">
                                 <mat-label>Chambres</mat-label>
-                                <mat-select>
-                                  <mat-option *ngFor="let room of rooms" [value]="room">
-                                    {{room}}
+                                <mat-select formControlName="room" required>
+                                  <mat-option *ngFor="let room of rooms" [value]="room.id">
+                                    {{room.name}}
                                   </mat-option>
                                 </mat-select>
                               </mat-form-field>
@@ -49,71 +80,19 @@
                         <div class="form__group">
                             <mat-form-field color="accent" appearance="outline">
                                 <mat-label># de personnes</mat-label>
-                                    <mat-select>
-                                      <mat-option *ngFor="let mate of roomates" [value]="mate">
-                                        {{mate}}
+                                    <mat-select formControlName="n_roomates" required>
+                                      <mat-option *ngFor="let mate of roomates" [value]="mate.n">
+                                        {{mate.name}}
                                       </mat-option>
                                     </mat-select>
                                 </mat-form-field>
                         </div>
 
                         <div class="form__group">
-                            <button type="button" class="btn btn--accent">Réserver &rarr;</button>
+                            <button type="submit" class="btn btn--accent">Réserver &rarr;</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-
-    <!--<flip-card>
-        <flip-card-front>
-            Front
-        </flip-card-front>
-        <flip-card-back>
-            Back
-        </flip-card-back>
-    </flip-card>-->
-    <!--<vn-drawer [(visible)]="visible" [position]="position" [header]="'Drawer Header'"
-    (onHide)="onDrawerHide()"
-    [showCloseIcon]="true"
-    >
-    <ul class="app-list">
-        <li class="app-list-item">
-            <fa-icon [icon]="faHome" class="app-list-icons"></fa-icon>
-            Home
-        </li>
-
-        <li class="app-list-item">
-            <fa-icon [icon]="faSmile" class="app-list-icons"></fa-icon>
-            Some content
-        </li>
-
-        <li class="app-list-item">
-            <fa-icon [icon]="faSmile" class="app-list-icons"></fa-icon>
-            Some other content
-        </li>
-    </ul>
-    </vn-drawer>
-
-    <div>
-        <button class="app-button mr-5" (click)="setVisibility('left')">Left</button>
-        <button class="app-button mr-5" (click)="setVisibility('right')">Right</button>
-        <button class="app-button mr-5" (click)="setVisibility('top')">Top</button>
-        <button class="app-button mr-5" (click)="setVisibility('bottom')">Bottom</button>
-    </div>
-
-    <div>
-        <button class="app-button mr-5" (click)="toggleVisibility('left')">Toggle Left</button>
-        <button class="app-button mr-5" (click)="toggleVisibility('right')">Toggle Right</button>
-        <button class="app-button mr-5" (click)="toggleVisibility('top')">Toggle Top</button>
-        <button class="app-button mr-5" (click)="toggleVisibility('bottom')">Toggle Bottom</button>
-    </div>
-
-    <app-accordion>
-        <app-accordion-item title="Title">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam ducimus labore accusamus quasi harum aliquid non quaerat minima tempora laborum ad possimus sed esse pariatur expedita eius, deleniti architecto nesciunt.
-        </app-accordion-item>
-    </app-accordion>-->
-
-

@@ -1,22 +1,20 @@
 <div class="wrapper">
+  <br>
     <div class="container">
-        <section class="my-card">
-          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" />
+        <section class="my-card" *ngFor="let room of rooms">
+          <img src="{{getCompleteUrl(room.featured_image)}}" alt="" />
           <div>
-            <h3>Chambre VIP</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod error
-              enim laudantium, animi veniam libero eveniet culpa unde perferendis
-              illo fugit corporis, voluptatibus totam dolorum, maiores magnam
-              officia. Ab, delectus.
+            <h3>{{room.name}}</h3>
+            <p [innerHTML]="room.description">
             </p>
+
             <div class="room-services-icon">
-                <mat-icon title="Cette chambre dispose d'une connexion Wi-Fi gratuite">wifi</mat-icon>
-                <mat-icon title="Cette chambre dispose d'une télévision par câble">live_tv</mat-icon> </div>
-            <a href="#" class="btn btn--accent">Réserver</a>
+                <mat-icon *ngFor="let service of room.services" title="{{service.caption}}">{{service.material_icon_code}}</mat-icon>
+              </div>
+            <a routerLink="/rooms/{{room._id}}/details" class="btn btn--accent">Selectioner</a>
           </div>
         </section>
-  
+  <!--
         <section class="my-card">
           <img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8aG90ZWwlMjByb29tfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" />
           <div>
@@ -43,9 +41,11 @@
               illo fugit corporis, voluptatibus totam dolorum, maiores magnam
               officia. Ab, delectus.
             </p>
-            <div class="room-services-icon"><mat-icon title="Cette chambre dispose d'une connexion Wi-Fi gratuite">wifi</mat-icon>
+            <div class="room-services-icon">
+              <mat-icon title="Cette chambre dispose d'une connexion Wi-Fi gratuite">wifi</mat-icon>
                 <mat-icon title="Cette chambre dispose d'une télévision par câble">live_tv</mat-icon>
-                <mat-icon title="Vous pouvez obtenir une coupe de cheveux gratuite">content_cut</mat-icon> </div>
+                <mat-icon title="Vous pouvez obtenir une coupe de cheveux gratuite">content_cut</mat-icon> 
+              </div>
             <a href="#" class="btn btn--accent">Réserver</a>
           </div>
         </section>
@@ -66,6 +66,10 @@
             <a href="#" class="btn btn--accent">Réserver</a>
           </div>
         </section>
-
+      -->
     </div>
 </div>
+<ng-container *ngIf="displayFooter">
+  <vn-footer></vn-footer>
+</ng-container>
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScrollOnNavigationService } from 'src/settings/utilities/scrollonnavigation';
 
 @Component({
   selector: 'vn-hotel-banner',
@@ -106,9 +107,13 @@ export class HotelBannerComponent implements OnInit {
   ];
 
 
-  constructor() { }
+  constructor(private _scrollOnNavigationService: ScrollOnNavigationService) { }
 
   ngOnInit(): void {
+  }
+
+  onMakeReservation(id: string){
+    this._scrollOnNavigationService.navigateTo(id, '/')
   }
 
 }

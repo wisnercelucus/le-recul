@@ -1,0 +1,86 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="room-title">{{room?.name}}</div>
+        <div class="section-header">
+            
+            <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+                <div class="form-content">
+                    <mat-form-field>
+                        <mat-label>Fullname</mat-label>
+                        <input text="text" matInput placeholder="Ex: John Doe" formControlName="fullname">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input text="email" matInput placeholder="Ex: johndoe123@dom.ext" formControlName="email">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Phone</mat-label>
+                        <input text="text" matInput placeholder="Ex: +5095623412" formControlName="phone">
+                    </mat-form-field>
+                        <mat-form-field class="example-form-field">
+                            <mat-label>Date d'arrivée - Date de départ</mat-label>
+                            <mat-date-range-input
+                              [rangePicker]="bookingDateRangePicker"
+                              [min]="today"
+                              [comparisonStart]="form.value.start_on"
+                              [comparisonEnd]="form.value.end_on">
+                              <input matStartDate placeholder="Date d'arrivée" formControlName="start_on">
+                              <input matEndDate placeholder="Date de départ" formControlName="end_on">
+                            </mat-date-range-input>
+                            <mat-datepicker-toggle matSuffix [for]="bookingDateRangePicker"></mat-datepicker-toggle>
+                            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                            <mat-date-range-picker #bookingDateRangePicker></mat-date-range-picker>
+                          </mat-form-field>
+    
+                            <mat-form-field color="accent">
+                                <mat-label># de personnes</mat-label>
+                                    <mat-select formControlName="n_roomates">
+                                      <mat-option *ngFor="let mate of roomates" [value]="mate.n">
+                                        {{mate.name}}
+                                      </mat-option>
+                                    </mat-select>
+                            </mat-form-field>
+                </div>
+                <div class="form-action">
+                    <button type="submit" [disabled]="form.invalid" mat-raised-button color="accent">Sauvegarder</button>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-1-of-4">
+                <div class="rating">
+                    <span>
+                        Rated {{rating.value}} out of {{rating.max}}
+                      </span>
+
+                    <div [class.dense]="rating.dense" class="rating-position">
+                        <ngx-material-rating [color]="rating.color" [value]="rating.value" [disabled]="rating.disabled!" [dense]="rating.dense!"
+                            [readonly]="rating.readonly!" [max]="rating.max">
+                        </ngx-material-rating>
+                    </div>
+                </div>
+
+                <mat-divider></mat-divider>
+                <div class="services">
+                    <span>
+                        Room services
+                    </span>
+                    <div class="room-services-icon">
+                        <mat-icon *ngFor="let service of room.services" title="{{service.caption}}">{{service.material_icon_code}}</mat-icon>
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+                <div class="description">
+                    <p [innerHTML]="truncateHTML(room.description, 117)">
+                    </p>
+                    <a class="btn-text">Read more &rarr;</a>
+                </div>
+            </div>
+            <div class="col-3-of-4">
+                <img src="{{getCompleteUrl(room.featured_image)}}" alt="" />
+            </div>
+        </div>
+    </div>
+
+</div>
+<vn-footer></vn-footer>

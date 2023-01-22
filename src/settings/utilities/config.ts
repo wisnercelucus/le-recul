@@ -1,1 +1,2 @@
 export const DATA_ENTRY_PATH_PREFIX = 'admin'
+export const ROOMATES = [{n: 1, name: "1 Adulte"}, {n: 2, name: "2 Adultes"}, {n: 3, name: "3 Adultes"}, {n: 4, name: "4 Adultes"}, {n: 5, name: "5 Adultes"}, {n: 6, name: "6 Adultes"},]

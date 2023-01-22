@@ -17,6 +17,7 @@
   </div>
 
   <div class="nav-actions">
+    <a routerLink="/rooms" class="nav-link"><fa-icon [icon]="faBed"></fa-icon> <span class="hide-tab-port"> Rooms</span></a>
     <a routerLink="/gallery" class="nav-link"><fa-icon [icon]="faImages"></fa-icon> <span class="hide-tab-port"> Gallery</span></a>
       <a *ngIf="isAuthenticated" routerLink="/admin" class="nav-link"><fa-icon [icon]=" faUserShield"></fa-icon> <span class="hide-tab-port"> Admin</span></a>
       <a *ngIf="isAuthenticated" [matMenuTriggerFor]="menu2" class="nav-link">
@@ -29,7 +30,7 @@
       </mat-menu>
     </a>
 
-    <a *ngIf="!isAuthenticated" (click)="onNavigate('/auth')" class="btn btn--white"><fa-icon [icon]="faUser"></fa-icon> <span> Login</span> 
+    <a *ngIf="!isAuthenticated" (click)="onMakeReservation('section-book')" class="btn btn--white reserve-btn"> <span> RÉSERVER</span> 
     </a>
 
   </div>

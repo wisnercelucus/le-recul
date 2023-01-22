@@ -29,6 +29,13 @@ export class RecordDetailsService{
     return this._http.get<any>(requestUrl);
   }
 
+  getRecordDetailAnonymously(model:string, uuid: string): Observable<any> {
+    const href = this.getBaseUrl();
+    const requestUrl = `${href}${model}/${uuid}/anonymous/`;
+
+    return this._http.get<any>(requestUrl);
+  }
+
   recordModelManyToManyData(data: any){
     const model = 'modelrelations'
     const href = this.getBaseUrl();

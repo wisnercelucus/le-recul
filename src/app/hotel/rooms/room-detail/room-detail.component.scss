@@ -1,0 +1,127 @@
+@import '../../../../settings/sass/abstracts/variables';
+@import '../../../../settings/sass/abstracts/mixins';
+
+.room-title{
+    margin-top: 3rem;
+    padding: 2rem;
+    box-shadow: 0.063rem 0 3rem 0 #ecebee;
+    background: $color-section-bg-dark;
+    color: white;
+    text-transform: uppercase;
+    font-size: 2.4rem;
+}
+
+.section-header{
+    margin-top: 3rem;
+    background: $color-white;
+    box-shadow: 0.063rem 0 3rem 0 #ecebee;
+    //border-radius: 1rem;
+   //background: rgba($color-accent, 0.1);
+
+    form{
+        padding: 2rem;
+        .form-content{
+            border-radius: 2rem;
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+
+            
+
+            mat-form-field{
+                @include respond(phone){
+                    width: 100%;
+                }
+                
+            }
+        }
+
+    .form-action{
+        padding: 2rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        button{
+            //text-transform: uppercase;
+            font-weight: 550;
+            letter-spacing: .1rem;
+        }
+
+        @include respond(phone){
+            justify-content: center;
+        }
+    }
+
+    }
+}
+
+.row{
+    box-shadow: 0.063rem 0 3rem 0 #ecebee;
+    background: $color-white;
+    margin-top: 3rem;
+    padding: 2rem;
+    margin-bottom: 4rem;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+  }
+  
+  .rating span {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  
+  .dense {
+    margin: 0 0.5rem;
+  }
+
+.services{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    span{
+        text-align: center;
+        font-size: 1.2rem;
+        width: 100%;
+    }
+}
+
+  .room-services-icon{
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+
+  }
+
+  .col-3-of-4{
+    img{
+        width: 100%;
+        height: 45rem;
+        object-fit: cover;
+    }
+  }
+
+  .description{
+    margin-top: 2rem;
+  }
+
+  .btn-text{
+    margin-top: 1rem;
+  }

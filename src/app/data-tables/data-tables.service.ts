@@ -33,6 +33,28 @@ export class DataTablesService {
 
   }
 
+  getDataForForms(model:string, url?: string): Observable<any> {
+    if(!url){
+      const href = this.getBaseUrl();
+      const requestUrl = `${href}${model}/fill/`;
+  
+      return this._httpClient.get<any>(requestUrl);
+    }
+    return this._httpClient.get<any>(url);
+
+  }
+
+  getPublicData(model:string, url?: string): Observable<any> {
+    if(!url){
+      const href = this.getBaseUrl();
+      const requestUrl = `${href}${model}/public/`;
+  
+      return this._httpClient.get<any>(requestUrl);
+    }
+    return this._httpClient.get<any>(url);
+
+  }
+
   getLookuptableData(model: any, uuid: string, target_model: string, url?: string): Observable<any> {
     if(!url){
       const href = this.getBaseUrl();

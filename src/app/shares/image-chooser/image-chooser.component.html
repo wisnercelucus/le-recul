@@ -25,6 +25,14 @@
                   </mat-list-item>
                 </mat-list>
             </div>-->
+            <mat-list class="file-list-wrapper" *ngIf="imageUrl && !imagesBlobed.length">
+                <div mat-subheader>{{'image path from server'}}</div>
+                <div class="images">
+                  <div class="image">
+                    <img [src]="getCompleteUrl(imageUrl)" title="Click to view it in a new tab." class="image-selected" (click)="ondownloadFile(getCompleteUrl(imageUrl))">
+                  </div>
+                </div>
+              </mat-list>
 
             <div class="live-file-selected">
                 <div mat-subheader>{{imagesBlobed.length +  ' images selected'}}</div>

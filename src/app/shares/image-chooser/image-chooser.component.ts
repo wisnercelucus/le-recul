@@ -1,6 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, EventEmitter, Inject, Input, OnInit, Output, PLATFORM_ID } from '@angular/core';
 import { NgxFileDropEntry } from 'ngx-file-drop';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { NgxFileDropEntry } from 'ngx-file-drop';
 export class ImageChooserComponent implements OnInit {
   @Output() imagesAdded: EventEmitter<any> = new EventEmitter()
   @Input() accept = '.png,.jpg,.jpeg,.gif';
+  @Input() imageUrl!: string;
   
   @Input() multiple=true
   @Input() meta_data!: {object_id: number, 
@@ -27,9 +29,11 @@ export class ImageChooserComponent implements OnInit {
 
 
   constructor(
-    @Inject(PLATFORM_ID) private platform_id: Object) { }
+    @Inject(PLATFORM_ID) private platform_id: Object, private _utilitiesService: UtilitiesService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.imageUrl)
+  }
 
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;
@@ -131,6 +135,17 @@ export class ImageChooserComponent implements OnInit {
   debugBase64(base64URL: any){
     let win = window.open();
     win!.document.write('<iframe src="' + base64URL  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
+  }
+
+  getCompleteUrl(url: string): string{
+    if(!url) return ''
+  
+    const urls = url.split(':')
+    if(urls.includes('http') || urls.includes('https')){
+      return url
+    }else{
+      return this._utilitiesService.base_url_no_api + url
+    }
   }
 
 }

@@ -74,7 +74,7 @@
   
     <section class="section" *ngIf="field.description === 'Image'">
       <mat-label>{{normalizeTitle(field.name)}}</mat-label>
-      <app-image-chooser [multiple]="false" [accept]="'.png,.jpg,.jpeg,.gif'" (imagesAdded)="onImageSelected($event, field.name)"></app-image-chooser>
+      <app-image-chooser [imageUrl]="getValue(record, field.name)" [multiple]="false" [accept]="'.png,.jpg,.jpeg,.gif'" (imagesAdded)="onImageSelected($event, field.name)"></app-image-chooser>
     </section>
   
     <!--<section class="section" *ngIf="field.description === 'Many-to-many relationship' && field.related_model">

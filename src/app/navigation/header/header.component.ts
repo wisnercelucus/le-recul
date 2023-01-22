@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
-import { faImages, faUser, faUserShield } from '@fortawesome/free-solid-svg-icons';
+import { faImages, faUser, faUserShield, faBed } from '@fortawesome/free-solid-svg-icons';
 import { AccountsService } from 'src/app/accounts/services/accounts.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
+import { ScrollOnNavigationService } from 'src/settings/utilities/scrollonnavigation';
 import { SubSink } from 'subsink';
 
 @Component({
@@ -17,6 +18,7 @@ export class HeaderComponent implements OnInit {
   isAuthenticated = false
   faImages = faImages
   faUserShield = faUserShield
+  faBed = faBed
   //notAtAmin = false
   faUser = faUser
   subs = new SubSink()
@@ -26,6 +28,7 @@ export class HeaderComponent implements OnInit {
   @Input() cinema = false;
 
   constructor(private _router: Router,
+    private _scrollOnNavigationService: ScrollOnNavigationService,
     private _utilitiesService: UtilitiesService, 
     private _accountsService: AccountsService, private _authServive: AuthService) { }
 
@@ -94,6 +97,9 @@ export class HeaderComponent implements OnInit {
     return seg.includes(target)
   }
 
+  onMakeReservation(id: string){
+    this._scrollOnNavigationService.navigateTo(id, '/')
+  }
 
 
 }
