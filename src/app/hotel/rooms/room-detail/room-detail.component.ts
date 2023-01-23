@@ -8,6 +8,8 @@ import { BookRoomService } from '../../hotel-landing/book-room/book-room.service
 import { ActivatedRoute } from '@angular/router';
 import { RecordDetailsService } from 'src/app/record-details/services/record-details.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
+import { openAnimatedSwalDialog } from 'src/settings/utilities/functions';
+import { ErrorHandlerService } from 'src/app/error-handler.service';
 
 const today = new Date();
 
@@ -29,6 +31,7 @@ type Rating = {
 })
 export class RoomDetailComponent implements OnInit {
   subs = new SubSink()
+  openAnimatedSwalDialog = openAnimatedSwalDialog
   
   today = today
   form: FormGroup = new FormGroup({
@@ -46,7 +49,11 @@ export class RoomDetailComponent implements OnInit {
 
   roomates = ROOMATES
   
-  constructor(private _bookRoomService: BookRoomService, private _utilitiesService: UtilitiesService, private _recordDetailsService: RecordDetailsService, private _route: ActivatedRoute) { }
+  constructor(private _bookRoomService: BookRoomService, 
+    private _errorHandlerService: ErrorHandlerService,
+    private _utilitiesService: UtilitiesService, 
+    private _recordDetailsService: RecordDetailsService, 
+    private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.record_id = this._route.snapshot.paramMap.get('room_uuid')!
@@ -81,16 +88,18 @@ export class RoomDetailComponent implements OnInit {
     data['room'] = this.room.id
     this.subs.add(this._bookRoomService.doPost('home', data).subscribe({
       next: (res: any) =>{
-        //console.log(res)
+        this.openAnimatedSwalDialog('Saved with success', 'We have received your reservation. Please visit your mail box for the confirmation.', 'success')
         f.reset()
         Object.keys(f.controls).forEach(key =>{
           f.controls[key].setErrors(null)
        });
       },
       error: (err: HttpErrorResponse)=>{
-        console.log(err.error)
+        const errorMessage = this._errorHandlerService.getErrorMessage(err)
+        this.openAnimatedSwalDialog('Ooops...', errorMessage, 'error')
       }
-    }))
+    })
+    )
     
   }
 

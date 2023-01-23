@@ -6,10 +6,11 @@ import { BookRoomService } from './book-room.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DataTablesService } from 'src/app/data-tables/data-tables.service';
 import { ROOMATES } from 'src/settings/utilities/config';
+import { openAnimatedSwalDialog } from 'src/settings/utilities/functions';
+import { ErrorHandlerService } from 'src/app/error-handler.service';
 
 const today = new Date();
-const month = today.getMonth();
-const year = today.getFullYear();
+
 
 @Component({
   selector: 'vn-book-room',
@@ -28,6 +29,7 @@ export class BookRoomComponent implements OnInit, OnDestroy {
     end_on: new FormControl(),
   });
 
+  openAnimatedSwalDialog = openAnimatedSwalDialog
 
   faHome = faHome;
   faSmile = faSmile;
@@ -43,7 +45,9 @@ export class BookRoomComponent implements OnInit, OnDestroy {
   position = ""
   visible = false
   
-  constructor(private _bookRoomService: BookRoomService, private _datatableService: DataTablesService) { }
+  constructor(private _bookRoomService: BookRoomService,
+    private _errorHandlerService: ErrorHandlerService,
+    private _datatableService: DataTablesService) { }
   ngOnDestroy(): void {
     this.subs.unsubscribe()
   }
@@ -83,16 +87,19 @@ export class BookRoomComponent implements OnInit, OnDestroy {
     //console.log(data)
     this.subs.add(this._bookRoomService.doPost('home', data).subscribe({
       next: (res: any) =>{
-        //console.log(res)
+        this.openAnimatedSwalDialog('Saved with success', 'We have received your reservation. Please visit your mail box for the confirmation.', 'success')
         f.reset()
         Object.keys(f.controls).forEach(key =>{
           f.controls[key].setErrors(null)
        });
       },
       error: (err: HttpErrorResponse)=>{
-        console.log(err.error)
+        const errorMessage = this._errorHandlerService.getErrorMessage(err)
+        this.openAnimatedSwalDialog('Ooops...', errorMessage, 'error')
       }
-    }))
+    })
+    
+    )
     
   }
 
