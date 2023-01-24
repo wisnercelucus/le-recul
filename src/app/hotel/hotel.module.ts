@@ -22,6 +22,11 @@ import { FlashSlideModule } from '../flash-slide/flash-slide.module';
 import { SharedGlobalModule } from '../shares/shared-global/shared-global.module';
 import { BookRoomModule } from './hotel-landing/book-room/book-room.module';
 import { QuillModule } from 'ngx-quill';
+import { ContactComponent } from './hotel-landing/contact/contact.component';
+import { SocialLinksComponent } from './hotel-landing/social-links/social-links.component';
+import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -36,6 +41,8 @@ import { QuillModule } from 'ngx-quill';
     RestaurantComponent,
     ServicesComponent,
     SafeHtmlPipe,
+    ContactComponent,
+    SocialLinksComponent
   ],
   imports: [
     CommonModule,
@@ -52,7 +59,10 @@ import { QuillModule } from 'ngx-quill';
     SharedGlobalModule,
     FlashSlideModule,
     BookRoomModule,
-    QuillModule
+    QuillModule,
+    FormsModule,
+    MatDialogModule,
+    MatButtonModule
   ],
 })
 export class HotelModule {}

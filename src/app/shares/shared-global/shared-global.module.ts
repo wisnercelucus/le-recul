@@ -4,6 +4,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { MatIconModule } from "@angular/material/icon";
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   exports: [FooterComponent, SignupFormComponent]
 })

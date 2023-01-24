@@ -10,6 +10,7 @@ import { RecordDetailsService } from 'src/app/record-details/services/record-det
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { openAnimatedSwalDialog } from 'src/settings/utilities/functions';
 import { ErrorHandlerService } from 'src/app/error-handler.service';
+import { ScrollOnNavigationService } from 'src/settings/utilities/scrollonnavigation';
 
 const today = new Date();
 
@@ -51,6 +52,7 @@ export class RoomDetailComponent implements OnInit {
   
   constructor(private _bookRoomService: BookRoomService, 
     private _errorHandlerService: ErrorHandlerService,
+    private _scrollOnNavigationService: ScrollOnNavigationService,
     private _utilitiesService: UtilitiesService, 
     private _recordDetailsService: RecordDetailsService, 
     private _route: ActivatedRoute) { }
@@ -128,4 +130,7 @@ getCompleteUrl(url: string): string{
   }
 }
 
+onMakeReservation(id: string, r_uuid:string){
+  this._scrollOnNavigationService.navigateTo(id, `/rooms/${r_uuid}/details`)
+}
 }

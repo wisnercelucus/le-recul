@@ -66,19 +66,23 @@
                         Room services
                     </span>
                     <div class="room-services-icon">
-                        <mat-icon *ngFor="let service of room.services" title="{{service.caption}}">{{service.material_icon_code}}</mat-icon>
+                        <mat-icon *ngFor="let service of room?.services" title="{{service.caption}}">{{service.material_icon_code}}</mat-icon>
                     </div>
                 </div>
                 <mat-divider></mat-divider>
                 <div class="description">
-                    <p [innerHTML]="truncateHTML(room.description, 117)">
+                    <p [innerHTML]="truncateHTML(room?.description, 117)">
                     </p>
-                    <a class="btn-text">Read more &searr;</a>
+                    <a class="btn-text" (click)="onMakeReservation('room-full-detail', room?._id)">Read more &searr;</a>
                 </div>
             </div>
             <div class="col-3-of-4">
-                <img src="{{getCompleteUrl(room.featured_image)}}" alt="" />
+                <img src="{{getCompleteUrl(room?.featured_image)}}" alt="" />
             </div>
+        </div>
+        <div class="row" id="room-full-detail">
+            <p [innerHTML]="truncateHTML(room?.description, 117)">
+            </p>
         </div>
     </div>
 

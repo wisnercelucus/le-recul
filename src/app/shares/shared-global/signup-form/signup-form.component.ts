@@ -1,5 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorHandlerService } from 'src/app/error-handler.service';
+import { HomeService } from 'src/app/hotel/home.service';
+import { GeneralConfirmComponent } from 'src/app/my-dialogs/dialogs/general-confirm/general-confirm.component';
 import { SubSink } from 'subsink';
 
 @Component({
@@ -14,7 +19,7 @@ export class SignupFormComponent implements OnInit {
   errorMessage:string='';
   successMessage = '';
 
-  constructor(/*private welcomeService:WelcomeService, private dialog:MatDialog*/) { }
+  constructor(private _homeService: HomeService, private _errorHandler: ErrorHandlerService, private dialog:MatDialog) { }
 
   ngOnDestroy(): void {
     this.subs.unsubscribe();
@@ -23,19 +28,35 @@ export class SignupFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openDialog(success:boolean, context: any){
+    this.dialog.open(GeneralConfirmComponent,
+      {data: this._errorHandler.getDialogContext(success, context)});
+  }
+
   onSubmit(f:NgForm){
-    console.log(f.value)
-   /* const data = f.value;
+    //console.log(f.value)
+    const context = this._errorHandler.getDialogDataWithDefaultIcon('Operation succeeded', 'Operation failed', 
+    'Contact message sent successfully.', 
+    'We faield to send your contact message. Please try again.'
+    )
+
+
+    const data = f.value;
     this.isLoading=true;
-    this.subs.add(this.welcomeService.onSubscribe(data).subscribe(res=>{
-      this.isLoading=false;
-      this.openDialog(true, "");
-    },
-    (err:HttpErrorResponse)=>{
-      this.isLoading=false;
-      this.cathError(err);
-      this.openDialog(false, this.errorMessage);
-    }))*/
+    this.subs.add(this._homeService.onSubscribe(data).subscribe(
+      {
+        next: res=>{
+          this.openDialog(true, context);
+          f.resetForm()
+        },
+        error: (err: HttpErrorResponse)=>{
+          //console.log(err)
+          const detail = this._errorHandler.getErrorMessage(err)
+          context.errorMessage = detail
+          this.openDialog(false, context);
+        }
+      })
+    )
   }
 
   /*openDialog(success:boolean, errorMessage:string){

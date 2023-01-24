@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScrollOnNavigationService } from 'src/settings/utilities/scrollonnavigation';
 
 @Component({
   selector: 'vn-footer',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
   y = new Date().getFullYear()
   
-  constructor() { }
+  constructor(private _scrollOnNavigationService: ScrollOnNavigationService) { }
 
   ngOnInit(): void {
   }
 
+
+  onNavigateTo(id: string, path: string){
+    this._scrollOnNavigationService.navigateTo(id, path)
+  }
 }

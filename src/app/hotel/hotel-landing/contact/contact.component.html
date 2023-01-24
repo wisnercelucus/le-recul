@@ -1,0 +1,54 @@
+<section id="contact" class="wrapper" id="contact">
+    <div class="container">
+        <div class="u-center-text u-margin-bottom-medium">
+            <h3 class="heading-tertiary">Contact Us</h3>
+        </div>
+      <div class="row">
+        <div class="col-1-of-2 contact-img-container">
+            <img class="contact-img" src="assets/contact-us.png">
+        </div>
+        <div class="col-1-of-2">
+          <div class="card-panel grey lighten-3">
+            
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form">
+                <mat-form-field>
+                    <mat-label>Your Name</mat-label>
+                    <input required matInput type="text" placeholder="Your Name" ngModel name="name">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Your Email</mat-label>
+                    <input required matInput type="email" name="email" placeholder="Your Email" ngModel>
+                </mat-form-field>
+
+                <mat-form-field *ngIf="countries">
+                    <mat-label>Country</mat-label>
+                    <mat-select ngModel name="country" required (selectionChange)="onSelectionChange($event)">
+                      <mat-option *ngFor="let country of countries" [value]="country.name.common" >{{country.name.common}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                  <mat-form-field class="full-width">
+                    <mat-label>Telephone</mat-label>
+                    <span id="countryCode" *ngIf="selectedCountry" matPrefix>{{selectedCountry?.idd.root}}{{selectedCountry?.idd.suffixes ? selectedCountry?.idd.suffixes.length > 1 ? '' :  selectedCountry?.idd.suffixes[0] : ''}} &nbsp;</span>
+                    <input ngModel type="tel" name="phone" matInput placeholder="555-555-1234">
+                  </mat-form-field>
+                
+                  <mat-form-field class="full-width">
+                    <mat-label>Subject</mat-label>
+                    <input required ngModel type="text" name="subject" matInput placeholder="Greetings...">
+                  </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Your Message</mat-label>
+                    <textarea required matInput class="materialize-textarea" ngModel name="message" placeholder="Enter Message"></textarea>
+                </mat-form-field>
+                <div class="actions">
+                    <button [disabled]="f.invalid" type="submit" mat-raised-button color="primary">Send</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

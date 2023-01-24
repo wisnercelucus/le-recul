@@ -10,11 +10,13 @@
             <div class="col-1-of-2">
                 <div class="footer__navigation">
                     <ul class="footer__list">
-                        <li class="footer__item"><a href="javascript:void(0)" class="footer__link">Accueil</a></li>
-                        <li class="footer__item"><a href="javascript:void(0)" class="footer__link">Emmissions</a></li>
-                        <li class="footer__item"><a href="javascript:void(0)" class="footer__link">Blog</a></li>
-                        <li class="footer__item"><a href="javascript:void(0)" class="footer__link">Entrepreneuriat</a></li>
-                        <li class="footer__item"><a href="javascript:void(0)" class="footer__link">Confidentialite</a></li>
+                        <li class="footer__item"><a routerLink="/" class="footer__link">Accueil</a></li>
+                        <li class="footer__item"><a routerLink="/rooms" class="footer__link">Chambres</a></li>
+                        <li class="footer__item"><a (click)="onNavigateTo('section-book', '/')" class="footer__link">Réserver</a></li>
+                        <li class="footer__item"><a routerLink="/gallery" class="footer__link">Gallerie</a></li>
+                        <li class="footer__item"><a (click)="onNavigateTo('contact', '/')" class="footer__link">Contactez-nous</a></li>
+                        <li class="footer__item"><a (click)="onNavigateTo('social-links', '/')" class="footer__link">Suivez-nous</a></li>
+                        <li class="footer__item"><a href="javascript:void(0)" class="footer__link">Confidentialité</a></li>
                     </ul>
                 </div>
             </div>
@@ -28,7 +30,7 @@
                         
             <div class="col-1-of-2">
                 <h3 class="heading-tertiary text-accent">S'abonner</h3> 
-                <p class="paragraph">Abonnez vous pour les derniers infos.</p>
+                <p class="paragraph">Abonnez-vous pour les derniers infos.</p>
                 <vn-signup-form></vn-signup-form>
                 
             </div>
@@ -38,7 +40,7 @@
 
         <div class="u-center-text">
             <p class="footer-rights">
-                &copy; {{y}} &middot; Valery Numa &middot; Tous droits reserves.
+                &copy; {{y}} &middot; Le Recul Hotel &middot; Tous droits reservés.
             </p>
             <span class="spacer"></span>
             <p class="footer-rights builder">Proudly built by <a href="https://twitter.com/wicel89" target="blank" class="footer__link">@wicel89</a></p>

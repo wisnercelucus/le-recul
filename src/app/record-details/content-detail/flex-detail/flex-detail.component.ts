@@ -172,6 +172,8 @@ export class FlexDetailComponent implements OnInit, OnDestroy {
       'goal', 
       'content',
       'excerpt',
+      'excerpt1',
+      'excerpt2',
       'what_happened',
       'what_went_well',
       'what_can_we_learn_from_this',

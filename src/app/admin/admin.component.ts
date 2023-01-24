@@ -75,8 +75,41 @@ export class AdminComponent implements OnInit {
       routerLink: "/admin/roles",
       icon: "far fa-users",
       label: "User roles",
-    }
+    },
 
+
+    {
+      routerLink: "/admin/banners",
+      icon: "far fa-users",
+      label: "Banner Texts",
+    }
+    ,
+    {
+      routerLink: "/admin/activities",
+      icon: "far fa-users",
+      label: "Nos Activites",
+    },
+
+    {
+      routerLink: "/admin/strengths",
+      icon: "far fa-users",
+      label: "Nos Forces",
+    },
+    {
+      routerLink: "/admin/gallery",
+      icon: "far fa-users",
+      label: "Gallery",
+    },
+    {
+      routerLink: "/admin/services",
+      icon: "far fa-users",
+      label: "Nos Services",
+    },
+    {
+      routerLink: "/admin/kitchen",
+      icon: "far fa-users",
+      label: "La Cuisine",
+    }
     
 ]
 
