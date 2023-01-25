@@ -7,7 +7,7 @@ import { PasswordResetComponent } from "./password-reset/password-reset.componen
 const routes: Routes = [
     {path: '', component: AuthComponent},
     {path: 'password-reset', component: PasswordResetComponent},
-    {path: 'password-reset/:tenant/:token', component: PasswordResetConfirmComponent},
+    {path: 'password-reset/:token', component: PasswordResetConfirmComponent},
 ]
 
 @NgModule({

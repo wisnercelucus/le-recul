@@ -17,7 +17,7 @@ export class PasswordResetConfirmComponent implements OnInit, OpenConfirmDialog 
 
 
   form!: FormGroup;
-  tenant!: string;
+  //tenant!: string;
   subs = new SubSink();
   tokeIsvalid = false;
   token = ''
@@ -42,13 +42,12 @@ export class PasswordResetConfirmComponent implements OnInit, OpenConfirmDialog 
   }
 
   ngOnInit(): void {
-    this.tenant = this._route.snapshot.paramMap.get('tenant')!
     this.token = this._route.snapshot.paramMap.get('token')!
 
     this.initiateLoginForm();
 
-    if(this.tenant && this.token)
-        this.onValidateToken(this.tenant, this.token)
+    if(this.token)
+        this.onValidateToken(this.token)
   }
 
   initiateLoginForm(){
@@ -82,7 +81,7 @@ export class PasswordResetConfirmComponent implements OnInit, OpenConfirmDialog 
                     'We were not able to change your password. Please contact your admin.'
     )
     this.subs.add(
-      this._authService.resetPasswordConfirm(this.token, this.tenant, password).subscribe(
+      this._authService.resetPasswordConfirm(this.token, password).subscribe(
         {
           next: (res)=> {
             this.openDialog(true, context);
@@ -99,7 +98,7 @@ export class PasswordResetConfirmComponent implements OnInit, OpenConfirmDialog 
     )
   }
 
-  onValidateToken(tenant:string, token:string){
+  onValidateToken(token:string){
     const context = this._errorhandler.getDialogDataWithDefaultIcon(
       'Operation succeeded', 'Operation fail', 
     '', 
@@ -107,7 +106,7 @@ export class PasswordResetConfirmComponent implements OnInit, OpenConfirmDialog 
 )
     if(token){
       this.subs.add(
-        this._authService.validateToken(tenant, token).subscribe({
+        this._authService.validateToken(token).subscribe({
           next: (res: any) => {
             this.tokeIsvalid = true
             //this.openDialog(true, context);

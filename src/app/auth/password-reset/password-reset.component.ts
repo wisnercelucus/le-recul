@@ -7,7 +7,7 @@ import { ErrorHandlerService, OpenConfirmDialog } from 'src/app/error-handler.se
 import { GeneralConfirmComponent } from 'src/app/my-dialogs/dialogs/general-confirm/general-confirm.component';
 import { SubSink } from 'subsink';
 import { AuthService } from '../services/auth.service';
-import { UtilitiesService } from 'src/app/services/utilities.service';
+
 
 @Component({
   selector: 'app-password-reset',
@@ -17,14 +17,12 @@ import { UtilitiesService } from 'src/app/services/utilities.service';
 export class PasswordResetComponent implements OnInit, OpenConfirmDialog {
 
   form!: FormGroup;
-  tenant!: string;
   subs = new SubSink();
 
   constructor(private _authService: AuthService, 
     private _router: Router,
     private _dialog:MatDialog,
-    private _errorHandler: ErrorHandlerService,
-    private _utilitiesService:UtilitiesService) { }
+    private _errorHandler: ErrorHandlerService) { }
 
   openDialog(success: boolean, context: any): void {
     this._dialog.open(GeneralConfirmComponent,
@@ -55,7 +53,7 @@ export class PasswordResetComponent implements OnInit, OpenConfirmDialog {
 )
     this._authService.passwordResetRequest(this.form.value).subscribe(
       {next: (res)=>{
-        this._router.navigate(['/home'])
+        this._router.navigate(['/admin'])
         this.openDialog(true, context);
       },
       error: (err: HttpErrorResponse)=>{

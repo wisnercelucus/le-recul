@@ -66,19 +66,19 @@ export class AuthService implements OnDestroy {
   }
 
   passwordResetRequest(data:any){
-    const href = `${environment.PROTOCOL_ROOT}${data.tenant}${this.BASE_URL}password_reset/`
+    const href = `${environment.PROTOCOL_ROOT}${this.BASE_URL}password_reset/`
     return this.http.post(href, data, {headers: this.headers});
   }
 
-  validateToken(tenant:string, token: string){
+  validateToken(token: string){
     const data = {token: token}
-    const href = `${environment.PROTOCOL_ROOT}${tenant}${this.BASE_URL}validate_token/`
+    const href = `${environment.PROTOCOL_ROOT}${this.BASE_URL}validate_token/`
     return this.http.post(href, data, {headers: this.headers});
   }
 
-  resetPasswordConfirm(token:string, tenant:string, password:string){
+  resetPasswordConfirm(token:string, password:string){
       const data = {'token': token, 'password': password};
-      const href = `${environment.PROTOCOL_ROOT}${tenant}${this.BASE_URL}password_reset/confirm/`
+      const href = `${environment.PROTOCOL_ROOT}${this.BASE_URL}password_reset/confirm/`
       return this.http.post(href, data, {headers: this.headers})
   }
 
