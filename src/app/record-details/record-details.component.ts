@@ -168,9 +168,8 @@ export class RecordDetailsComponent implements OnInit, OnDestroy {
 
 
 
-
-
-
-
+  supportImages(model: string){
+    return ['banners', 'kitchen', 'gallery', 'activities', 'services', 'strengths', 'rooms',].includes(model)
+  }
 
 }

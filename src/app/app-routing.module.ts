@@ -8,6 +8,7 @@ const routes: Routes = [
   {path: 'auth', canActivate:[UnAuthGuard], loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule)},
   {path: 'accounts', canActivate:[AuthGuard], loadChildren: () => import("./accounts/accounts.module").then(m => m.AccountsModule)},
   {path: 'admin', canActivate:[AuthGuard], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
+  {path: 'admin/:model/:record-id/associated/:lookup_name', canActivate:[AuthGuard,], loadChildren: () => import("./record-lookups/record-lookups.module").then(m => m.RecordLookupsModule)},
   //{path: ':model', loadChildren: () => import('./data-tables/data-tables.module').then(m => m.DataTablesModule)},
 ];
 

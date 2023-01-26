@@ -161,7 +161,12 @@ export class FormsComponent implements OnInit, OnDestroy, OpenConfirmDialog {
         {
           next: (data:any) =>{
             this.isSaving = false
+            if(this.model === 'accounts'){
+              this.onNavigateRecordDetails(data['user']['uuid'])
+            }else{
               this.onNavigateRecordDetails(data['uuid'])
+            }
+              
           },
           error: (err: HttpErrorResponse) => {
             this.isSaving = false

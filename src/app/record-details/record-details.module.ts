@@ -38,6 +38,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { QuillModule } from 'ngx-quill';
 import { RelatedRecordFormsModule } from '../forms/related-record-forms/related-record-forms.module';
+import { RecordImageChooserModule } from '../record-image-chooser/record-image-chooser.module';
 
 //import { FormSettingsModule } from '../forms/form-settings/form-settings.module';
 
@@ -82,6 +83,7 @@ import { RelatedRecordFormsModule } from '../forms/related-record-forms/related-
     MatInputModule,
     QuillModule,
     RelatedRecordFormsModule,
+    RecordImageChooserModule
   ],
   exports: [  RecordDetailsComponent,
     ContentDetailComponent,

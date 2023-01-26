@@ -1,0 +1,54 @@
+@import "../../settings/sass/abstracts/variables";
+
+.table-wrapper{
+  overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    max-width: 150rem;
+
+    th{
+      font-size: 1.4rem;
+      color: rgba($color-black, .8);
+      font-weight: 600;
+    }
+
+    th, td{
+      min-width: 14rem;
+    }
+
+
+}
+  
+button {
+    margin: 16px 8px;
+}
+
+.mat-elevation-z8{
+  box-shadow: 0px 2px 3px 2px rgba($color-global-bg, 0.4);
+}
+
+.loading-shade{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep{
+  .mat-menu-content{
+    overflow: hidden;
+  }
+}
+
+.action-td{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
+.td-thin{
+  width: 14rem;
+  min-width: 10px !important;
+}

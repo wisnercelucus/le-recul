@@ -33,8 +33,14 @@ export class RoutingService {
     this._router.navigate([path])
   }
 
+
+  onNavigateRecordDetailsNoPrefix(prefix: string, model: string, uuid: string): void{
+    const path = `/${model}/${uuid}/details`
+    this._router.navigate([path])
+  }
+
   onNavigateRecordLooups(prefix: string, model: string, _id: string, lookup_name: string): void{
-    const path = `/${model}/${_id}/associated/${lookup_name}`
+    const path = `/${prefix}/${model}/${_id}/associated/${lookup_name}`
     this._router.navigate([path])
   }
 

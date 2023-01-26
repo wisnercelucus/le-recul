@@ -61,6 +61,20 @@
 
                 ></app-record-documents>
     </mat-tab>
+
+    <mat-tab *ngIf="supportImages(model)">
+      <ng-template mat-tab-label>
+        <mat-icon class="tab-icon">file_present</mat-icon>
+        Images
+      </ng-template>
+      <br>
+      <vn-record-image-chooser 
+                *ngIf="meta_data" 
+                [meta_data]="meta_data"
+                ></vn-record-image-chooser>
+    </mat-tab>
+
+
   </mat-tab-group>
   
 <div class="loading-shade"
