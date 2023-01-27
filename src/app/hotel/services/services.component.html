@@ -10,14 +10,13 @@
             <ng-template class="slide" carouselSlide [id]="slide.id">
                 <div class="service-card">
                     <div class="img-container">
-                        <img [src]="slide.url" [alt]="slide.alt" [title]="slide.id" [title]="slide.name">
+                        <img [src]="getCompleteUrl(slide.featured_image)" [alt]="slide.image_alt" [title]="slide.id" [title]="slide.name">
                     </div>
 
                     <div class="service-title">
-                        <h5 class="heading-fifth"><mat-icon>{{slide.icon}}</mat-icon> {{slide.name}}</h5>
+                        <h5 class="heading-fifth"><mat-icon>{{slide.material_icon_code}}</mat-icon> {{slide.name}}</h5>
                     </div>
-                    <p class="paragraph">
-                        {{slide.desc}}
+                    <p class="paragraph" [innerHTML]="slide.description">
                     </p>
                     
                 </div>

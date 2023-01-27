@@ -54,7 +54,7 @@
   
       <section class="section checkboxes" *ngIf="field.description === 'Boolean'">
         <label class="example-margin">{{normalizeTitle(field.name)}}</label>
-        <mat-checkbox name="{{field.name}}" [required]="field.is_required" class="example-margin" [ngModel]="getValue(record, field.name)"></mat-checkbox>
+        <mat-checkbox name="{{field.name}}" class="example-margin" [ngModel]="getValue(record, field.name)"></mat-checkbox>
       </section>
   
     <section class="section" *ngIf="field.description === 'Date' || field.description === 'DateTime'">

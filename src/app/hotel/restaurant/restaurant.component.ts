@@ -1,12 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Item } from 'src/app/reusable-components/img-galery/img-galery.component';
+import { HomeBannerService } from '../hotel-landing/hotel-banner/home-banner.service';
+import { SubSink } from 'subsink';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'vn-restaurant',
   templateUrl: './restaurant.component.html',
   styleUrls: ['./restaurant.component.scss']
 })
-export class RestaurantComponent implements OnInit {
+export class RestaurantComponent implements OnInit, OnDestroy {
+  subs = new SubSink()
+  kitchen: any;
+  sub = ' Nous servons le petit-déjeuner dans votre chambre si vous voulez vous accorder plus d’intimité ou de romantisme. Vous avez la possibilité de composer le menu de votre petit-déjeuner selon vos goûts.'
+
   data: Item[] = [
     {
       imageSrc: 'https://media.istockphoto.com/photos/potato-salad-with-beets-picture-id469082272?k=20&m=469082272&s=612x612&w=0&h=eGtsrcRBl0tm37JUzlg7KYarhv1hxn_k0z-f75D3i6g=',
@@ -45,9 +52,26 @@ export class RestaurantComponent implements OnInit {
 
   
   ]
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private _homeBannerService: HomeBannerService) { }
+  ngOnDestroy(): void {
+    this.subs.unsubscribe()
   }
 
+  ngOnInit(): void {
+    this.getKitchenHomeDetails('kitchen')
+  }
+
+
+  getKitchenHomeDetails(model: string){
+    this.subs.add(this._homeBannerService.getHomeBannerDetails(model).subscribe({
+      next: (res: any)=>{
+        this.kitchen = res
+        this.data = [...res.kitchen_images]
+        
+      },
+      error: (err: HttpErrorResponse) => {
+        console.log(err)
+      }
+    }))
+  }
 }

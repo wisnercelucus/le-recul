@@ -10,21 +10,18 @@
 
         <div class="u-center-text u-margin-bottom-big">
             <h2 class="heading-secondary">
-                Soyez inspire
+                {{gallery?.title ? gallery?.title : 'Soyez inspire'}}
             </h2>
         </div>
     
         <div class="row">
             <div class="col-1-of-2">
-                <h3 class="heading-tertiary u-margin-bottom-small">Le Sud volera votre coeur</h3>
-                <p class="paragraph">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur libero repellat quis consequatur
-                    ducimus quam nisi exercitationem omnis earum qui.
+                <h3 class="heading-tertiary u-margin-bottom-small">{{gallery?.excerpt1_title ? gallery?.excerpt1_title :  'Le Sud volera votre coeur'}}</h3>
+                <p class="paragraph" [innerHTML]="gallery?.excerpt1">
                 </p>
     
-                <h3 class="heading-tertiary u-margin-bottom-small">Venez creer des moments dont vous souviendrez</h3>
-                <p class="paragraph">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores nulla deserunt voluptatum nam.
+                <h3 class="heading-tertiary u-margin-bottom-small"> {{gallery?.excerpt2_title ? gallery?.excerpt2_title : 'Venez creer des moments dont vous souviendrez'}}</h3>
+                <p class="paragraph" [innerHTML]="gallery?.excerpt2">
                 </p>
     
                 <a routerLink="/gallery" class="btn-text">Voir la gallerie &rarr;</a>
@@ -33,24 +30,12 @@
             <div class="col-1-of-2">
                 <div class="composition">
     
-                    <img srcset="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80 300w, https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80 1000w"
+                    <img *ngFor="let photo of gallery?.gallery_images; let i = index;" srcset="{{ getCompleteUrl(photo.image) }} 1000w"
                          sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
                          alt="Photo 1"
-                         class="composition__photo composition__photo--p1"
-                         src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80">
-    
-                    <img srcset="https://images.unsplash.com/photo-1642670310920-6f4e3a3adee3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80 300w, https://images.unsplash.com/photo-1642670310920-6f4e3a3adee3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80 1000w"
-                         sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
-                         alt="Photo 2"
-                         class="composition__photo composition__photo--p2"
-                         src="https://images.unsplash.com/photo-1642670310920-6f4e3a3adee3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80">
-    
-                    <img srcset="https://images.unsplash.com/photo-1642649149963-0ef6779df6c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80 300w, https://images.unsplash.com/photo-1642649149963-0ef6779df6c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80 1000w"
-                         sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
-                         alt="Photo 3"
-                         class="composition__photo composition__photo--p3"
-                         src="https://images.unsplash.com/photo-1642649149963-0ef6779df6c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80">
-    
+                         class="composition__photo composition__photo--p{{i+1}}"
+                         src="{{ getCompleteUrl(photo.image) }}">
+
                 </div>
             </div>
         </div>

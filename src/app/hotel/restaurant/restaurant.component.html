@@ -1,14 +1,16 @@
-<div class="wrapper">
-    <div class="container">
-        <div class="u-center-text u-margin-bottom-medium">
-            <h2 class="heading-secondary">Goûtez la cuisine du Sud</h2>
+
+    <div class="wrapper">
+        <div class="container">
+            <div class="u-center-text u-margin-bottom-medium">
+                <h2 class="heading-secondary">{{kitchen?.title ? kitchen?.title : 'Goûtez la cuisine du Sud'}}</h2>
+            </div>
+    
+            <p class="paragraph" [innerHTML]="kitchen?.excerpt ? kitchen?.excerpt : sub">
+            </p>
+    
         </div>
-
-        <p class="paragraph">
-            Nous servons le petit-déjeuner dans votre chambre si vous voulez vous accorder plus d’intimité ou de romantisme. Vous avez la possibilité de composer le menu de votre petit-déjeuner selon vos goûts.
-        </p>
-
+        <vn-img-galery [galleryData]="data" [showCount]="true"></vn-img-galery>
     </div>
-    <vn-img-galery [galleryData]="data" [showCount]="true"></vn-img-galery>
-</div>
+    
+
 

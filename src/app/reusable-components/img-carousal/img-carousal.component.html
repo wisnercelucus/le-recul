@@ -1,8 +1,8 @@
 <div *ngIf="images && images.length > 0" class="carousel-conatainer" [ngStyle]="getContainerStyle()">
   <img
     *ngFor="let image of images; let i = index"
-    [src]="image.imageSrc"
-    [alt]="image.imageAlt"
+    [src]="image.image? getCompleteUrl(image.image) : image.imageSrc"
+    [alt]="image.image? image.name : image.imageAlt"
     [ngStyle]="getCustomImgaStyle()"
     [ngClass]="{ 'image-active': selectedIndex === i }"
     class="fade"

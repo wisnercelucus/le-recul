@@ -9,9 +9,8 @@
             <ng-template class="slide" carouselSlide [id]="slide.id">
                 <div class="service-card">
                     <div class="img-container">
-                        <img [src]="slide.url" 
-                                [alt]="slide.alt" 
-                                [title]="slide.id" 
+                        <img [src]="getCompleteUrl(slide.featured_image)" 
+                                [alt]="slide.name"  
                                 [title]="slide.name">
                     </div>                    
                 </div>

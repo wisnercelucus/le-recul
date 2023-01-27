@@ -4,10 +4,15 @@ import {
   faArrowAltCircleLeft,
   faArrowAltCircleRight,
 } from '@fortawesome/free-solid-svg-icons';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 export interface CarouselImage {
   imageSrc: string;
   imageAlt: string;
+  id?: number;
+  _id?: string;
+  image?: string;
+  name?: string
 }
 
 @Component({
@@ -36,9 +41,10 @@ export class ImgCarousalComponent implements OnInit {
   faArrowAltCircleLeft = faArrowAltCircleLeft;
   faArrowAltCircleRight = faArrowAltCircleRight;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private _utilitiesService: UtilitiesService) {}
 
   ngOnInit(): void {
+    //console.log(this.images)
     this.autoSlideImage();
   }
 
@@ -86,8 +92,20 @@ export class ImgCarousalComponent implements OnInit {
   onNext() {
     this.selectedIndex = this.selectedIndex + 1;
 
-    if (this.selectedIndex === this.images.length) {
+    if (this.selectedIndex === this.images?.length) {
       this.selectedIndex = 0;
     }
   }
+
+  getCompleteUrl(url: string): string{
+    if(!url) return ''
+  
+    const urls = url.split(':')
+    if(urls.includes('http') || urls.includes('https')){
+      return url
+    }else{
+      return this._utilitiesService.base_url_no_api + url
+    }
+  }
+
 }

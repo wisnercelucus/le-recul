@@ -7,18 +7,18 @@
     <div class="banner__box">
         <div class="banner__box-left">
             <h1 class="heading-primary">
-                <span class="heading-primary--main">Le Recul Hotel</span>
-                <span class="heading-primary--sub">YON TI KOTE APA!</span>
+                <span class="heading-primary--main">{{banner_content? banner_content.title : 'Le Recul Hotel'}}</span>
+                <span class="heading-primary--sub slogan">{{ banner_content? banner_content.slogan : 'YON TI KOTE APA!'}}</span>
             </h1>
             <button class="btn btn--accent btn-book-room" (click)="onMakeReservation('section-book')">
                 Réserver &darr;
             </button>
         </div>
         <div class="banner__box-right">
-            <div>
+            <div *ngIf="images && images.length">
                 <vn-flash-slide [images]="images" [slideTitle]="'Nos activités'"></vn-flash-slide>
             </div>
-            <div>
+            <div *ngIf="imagesPointForm && imagesPointForm.length">
                 <vn-flash-slide [images]="imagesPointForm" [slideTitle]="'Nos points forts'"></vn-flash-slide>
             </div>
         </div>

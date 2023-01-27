@@ -1,14 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ScrollOnNavigationService } from 'src/settings/utilities/scrollonnavigation';
+import { HomeBannerService } from './home-banner.service';
+import { SubSink } from 'subsink';
+import { HttpErrorResponse } from '@angular/common/http';
+import { CarouselImage } from 'src/app/reusable-components/img-carousal/img-carousal.component';
 
 @Component({
   selector: 'vn-hotel-banner',
   templateUrl: './hotel-banner.component.html',
   styleUrls: ['./hotel-banner.component.scss']
 })
-export class HotelBannerComponent implements OnInit {
+export class HotelBannerComponent implements OnInit, OnDestroy {
+  subs = new SubSink()
+  banner_content: any;
 
-  sliderImages = [
+  sliderImages: CarouselImage[] = [
     {
       imageSrc:
         'https://images.unsplash.com/photo-1460627390041-532a28402358?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
@@ -33,87 +39,44 @@ export class HotelBannerComponent implements OnInit {
 
 
 
-  images = [
-    {
-      id: new Date().getTime().toString(),
-      name: 'Wifi',
-      url: 'https://images.unsplash.com/photo-1534612899740-55c821a90129?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-      alt: 'Internet sans fil gratuit',
-      desc: `À l’Hôtel Le Recul, on connaît l’importance d’une bonne connexion Internet.`,
-      icon: 'wifi'
-    },
-    {
-      id: new Date().getTime().toString(),
-      name: 'Piscine',
-      url: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-      alt: 'Piscine',
-      desc: `La piscine bénéficie d’un ensoleillement exceptionnel et d’un calme absolu.`,
-      icon: 'pool'
-    },
-    {
-      id: new Date().getTime().toString(),
-      name: 'Transport',
-      url: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-      alt: 'Transport',
-      desc: 'Réservations de taxis, transferts aéroports, restaurants, spectacles, visites touristiques...',
-      icon: 'airport_shuttle'
-    },
+  images: any[] = [
 
-    {
-      id: new Date().getTime().toString(),
-      name: 'Parking Gratuit',
-      url: 'assets/services/parking_lerecul-768x512.jpg',
-      alt: 'Parking Gratuit',
-      desc: `Nous mettons à votre disposition gratuitement notre parking dans l’hôtel.`,
-      icon: 'local_parking'
-    },
   ];
 
 
-  imagesPointForm = [
-    {
-      id: new Date().getTime().toString(),
-      name: 'Wifi',
-      url: 'assets/services/Internetsansfil-768x512.jpg',
-      alt: 'Internet sans fil gratuit',
-      desc: `À l’Hôtel Le Recul, on connaît l’importance d’une bonne connexion Internet.`,
-      icon: 'wifi'
-    },
-    {
-      id: new Date().getTime().toString(),
-      name: 'Piscine',
-      url: 'assets/services/Piscine_lerecul-768x512.jpg',
-      alt: 'Piscine',
-      desc: `La piscine bénéficie d’un ensoleillement exceptionnel et d’un calme absolu.`,
-      icon: 'pool'
-    },
-    {
-      id: new Date().getTime().toString(),
-      name: 'Transport',
-      url: 'assets/services/transport_lerecul-768x512.jpg',
-      alt: 'Transport',
-      desc: 'Réservations de taxis, transferts aéroports, restaurants, spectacles, visites touristiques...',
-      icon: 'airport_shuttle'
-    },
+  imagesPointForm: any[] = [
 
-    {
-      id: new Date().getTime().toString(),
-      name: 'Parking Gratuit',
-      url: 'assets/services/parking_lerecul-768x512.jpg',
-      alt: 'Parking Gratuit',
-      desc: `Nous mettons à votre disposition gratuitement notre parking dans l’hôtel.`,
-      icon: 'local_parking'
-    },
+
   ];
 
 
-  constructor(private _scrollOnNavigationService: ScrollOnNavigationService) { }
+  constructor(private _scrollOnNavigationService: ScrollOnNavigationService, private _homeBannerService: HomeBannerService) { }
+  
+  ngOnDestroy(): void {
+    this.subs.unsubscribe()
+  }
 
   ngOnInit(): void {
+    this.getBannerHomeDetails('banners')
   }
 
   onMakeReservation(id: string){
     this._scrollOnNavigationService.navigateTo(id, '/')
+  }
+
+
+  getBannerHomeDetails(model: string){
+    this.subs.add(this._homeBannerService.getHomeBannerDetails(model).subscribe({
+      next: (res: any)=>{
+        this.banner_content = res
+        this.sliderImages = [...res.banner_images]
+        this.images = [...res['activities']]
+        this.imagesPointForm = [...res['strengths']]
+      },
+      error: (err: HttpErrorResponse) => {
+        console.log(err)
+      }
+    }))
   }
 
 }

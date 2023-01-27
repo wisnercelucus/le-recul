@@ -170,7 +170,7 @@ export class FormsComponent implements OnInit, OnDestroy, OpenConfirmDialog {
           },
           error: (err: HttpErrorResponse) => {
             this.isSaving = false
-           // console.log(err)
+            console.log(err)
             const detail = this._errorHandler.getErrorMessage(err)
             context.errorMessage = detail
             this.openDialog(false, context);

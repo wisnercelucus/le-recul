@@ -1,13 +1,16 @@
 import { animate, style, transition, trigger, AnimationEvent } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { faTimes, faArrowAltCircleLeft, faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 
 
 export interface Item {
   imageSrc: string;
   imageAlt: string;
-
+  id?: number;
+  name?: string;
+  image?: string;
 }
 
 @Component({
@@ -50,7 +53,7 @@ export class ImgGaleryComponent implements OnInit {
   controls = true;
   totalImageCount = 0;
 
-  constructor() { }
+  constructor(private _utilitiesService: UtilitiesService) { }
 
   ngOnInit(): void {
     this.totalImageCount = this.galleryData.length;
@@ -90,5 +93,16 @@ export class ImgGaleryComponent implements OnInit {
     }
 
     this.currentLightboxImage = this.galleryData[this.currentIndex];
+  }
+
+  getCompleteUrl(url: string): string{
+    if(!url) return ''
+  
+    const urls = url.split(':')
+    if(urls.includes('http') || urls.includes('https')){
+      return url
+    }else{
+      return this._utilitiesService.base_url_no_api + url
+    }
   }
 }
