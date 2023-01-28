@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
+ */
+import '@angular/localize/init';
 import 'zone.js/dist/zone-node';
 
 import { ngExpressEngine } from '@nguniversal/express-engine';
@@ -7,6 +11,11 @@ import { join } from 'path';
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
+import { REQUEST, RESPONSE } from '@nguniversal/express-engine/tokens'
+import { LOCALE_ID } from '@angular/core';
+import { environment } from 'src/environments/environment';
+//import { LOCALE_ID } from '@angular/core';
+//import { environment } from 'src/environments/environment';
 
 const domino = require('domino');
 
@@ -22,9 +31,9 @@ const HTMLAnchorElement = domino.impl.HTMLAnchorElement;
 const Element = domino.impl.Element;
 
 // The Express app is exported so that it can be used by serverless Functions.
-export function app(): express.Express {
+export function app(lang: string): express.Express {
   const server = express();
-  const distFolder = join(process.cwd(), 'dist/valerynuma/browser');
+  const distFolder = join(process.cwd(), `dist/valerynuma/browser/${lang}`);
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
   const win = domino.createWindow(indexHtml.toString());
@@ -39,10 +48,17 @@ export function app(): express.Express {
   global['DOMTokenList'] = win.DOMTokenList;
 
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
-  server.engine('html', ngExpressEngine({
-    bootstrap: AppServerModule,
-  }));
 
+
+  server.engine(
+    'html',
+    ngExpressEngine({
+      bootstrap: AppServerModule,
+      extraProviders: [{ provide: LOCALE_ID, useValue: lang }],
+    } as any)
+  );
+
+  //Commented from issue on github
   server.set('view engine', 'html');
   server.set('views', distFolder);
 
@@ -54,20 +70,32 @@ export function app(): express.Express {
   }));
 
   // All regular routes use the Universal engine
+  
   server.get('*', (req, res) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl },
-      {provide: Request, useValue: req},
-      {provide: Response, useValue: res}] });
+      {provide: REQUEST, useValue: req},
+      {provide: RESPONSE, useValue: res}] });
   });
 
   return server;
 }
 
 function run(): void {
-  const port = process.env['PORT'] || 4000;
+  const port = process.env['PORT'] || 4002;
+
+  const appFr = app('fr');
+  const appEn = app('en');
+  const appEs = app('es');
 
   // Start up the Node server
-  const server = app();
+  const server = express();
+
+  server.use('/fr', appFr);
+  server.use('/en', appEn);
+  server.use('/es', appEs);
+
+  server.use('', appEn);
+
   server.listen(port, () => {
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
@@ -79,8 +107,13 @@ function run(): void {
 declare const __non_webpack_require__: NodeRequire;
 const mainModule = __non_webpack_require__.main;
 const moduleFilename = mainModule && mainModule.filename || '';
-if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
+if (
+  (!environment.production && moduleFilename === __filename) ||
+  moduleFilename.includes('iisnode')
+) {
   run();
 }
 
 export * from './src/main.server';
+
+

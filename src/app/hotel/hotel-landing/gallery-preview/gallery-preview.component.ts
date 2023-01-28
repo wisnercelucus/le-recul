@@ -26,7 +26,7 @@ export class GalleryPreviewComponent implements OnInit, OnDestroy {
     this.subs.add(this._homeBannerService.getHomeBannerDetails(model).subscribe({
       next: (res: any)=>{
         this.gallery = res
-        console.log(res)
+        //console.log(res)
         
       },
       error: (err: HttpErrorResponse) => {

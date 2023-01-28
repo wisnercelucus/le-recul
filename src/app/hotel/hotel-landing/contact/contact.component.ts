@@ -26,8 +26,14 @@ export class ContactComponent implements OnInit, OnDestroy, AfterViewInit, OpenC
     private _errorHandler:ErrorHandlerService,
     private dialog: MatDialog,
     @Inject(PLATFORM_ID) private platformId: Object) { }
-  ngAfterViewInit(): void {
 
+
+  ngAfterViewInit(): void {
+    if(isPlatformBrowser(this.platformId)){
+      setTimeout(()=>{
+        this.getCountries();
+      }, 700)
+    }
   }
 
   openDialog(success:boolean, context: any){
@@ -40,8 +46,6 @@ export class ContactComponent implements OnInit, OnDestroy, AfterViewInit, OpenC
   }
 
   ngOnInit(): void {
-
-    this.getCountries();
 
   }
 

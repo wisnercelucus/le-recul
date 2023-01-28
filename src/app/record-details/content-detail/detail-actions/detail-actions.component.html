@@ -4,7 +4,7 @@
     <mat-accordion>
         <mat-expansion-panel clas="display-on-tab-port">
           <mat-expansion-panel-header>
-            <mat-panel-title>
+            <mat-panel-title i18n>
               Actions
             </mat-panel-title>
           </mat-expansion-panel-header>
@@ -17,20 +17,20 @@
             <button *ngIf="supportApprovalProcess(model) && record?.approval && isSubmitted(record?.approval)" disabled mat-button color="success">Submitted</button>
             <button *ngIf="supportApprovalProcess(model) && record?.approval && isReviewed(record?.approval)" disabled mat-button color="success">Reviewed</button>
             <button *ngIf="supportApprovalProcess(model) && record?.approval && isApproved(record?.approval)" disabled mat-button color="success">Approved</button>
-            <button *ngIf="supportApprovalProcess(model) && !record?.approval && hasPermissionSubmitApprovalRequests" mat-button color="primary" (click)="openApprovalDialog(record)">Submit for approval</button>
-            <button *ngIf="supportApprovalProcess(model) && record?.approval && !record?.approval.is_owned && canBeApprovedOrRjected(record?.approval!) && hasPermissionApproveApproval && hasPermissionApproveRecord" mat-button color="primary" (click)="onApproveRecord(record.approval.id)">Approve</button>
-            <button *ngIf="supportApprovalProcess(model) && record?.approval && !record?.approval.is_owned && canBeApprovedOrRjected(record?.approval!) && hasPermissionApproveApproval && hasPermissionRejectApprovalRequests && hasPermissionApproveRecord" mat-button color="warn" (click)="onRejectRecord(record.approval.id)">Reject</button>
+            <button *ngIf="supportApprovalProcess(model) && !record?.approval && hasPermissionSubmitApprovalRequests" mat-button color="primary" (click)="openApprovalDialog(record)" i18n>Submit for approval</button>
+            <button *ngIf="supportApprovalProcess(model) && record?.approval && !record?.approval.is_owned && canBeApprovedOrRjected(record?.approval!) && hasPermissionApproveApproval && hasPermissionApproveRecord" mat-button color="primary" (click)="onApproveRecord(record.approval.id)" i18n>Approve</button>
+            <button *ngIf="supportApprovalProcess(model) && record?.approval && !record?.approval.is_owned && canBeApprovedOrRjected(record?.approval!) && hasPermissionApproveApproval && hasPermissionRejectApprovalRequests && hasPermissionApproveRecord" mat-button color="warn" (click)="onRejectRecord(record.approval.id)" i18n>Reject</button>
             <button mat-button color="primary" *ngIf="model === 'forms'" (click)="onCollectData(record_id)">Collect</button>
             
-            <button *ngIf="canFetchTasks(model) && hasEditPermission && !isApproved(record?.approval, 'edit') && !isSubmitted(record?.approval) && !isReviewed(record?.approval)" mat-button color="primary" (click)="onEditRecord(record_id)">Edit</button>
-            <button *ngIf="canFetchTasks(model) && hasDeletePermission && !isSubmitted(record?.approval) && !isReviewed(record?.approval)" mat-button color="warn" (click)="openDialog(record_id)">Delete</button>
+            <button *ngIf="canFetchTasks(model) && hasEditPermission && !isApproved(record?.approval, 'edit') && !isSubmitted(record?.approval) && !isReviewed(record?.approval)" mat-button color="primary" (click)="onEditRecord(record_id)" i18n>Edit</button>
+            <button *ngIf="canFetchTasks(model) && hasDeletePermission && !isSubmitted(record?.approval) && !isReviewed(record?.approval)" mat-button color="warn" (click)="openDialog(record_id)" i18n>Delete</button>
             
             <button *ngIf="ifSupportStatus(model)" disabled mat-button color="success">{{formatStatus(record?.status)}}</button>
             
-            <button *ngIf="ifSupportRelatedOpbject(model)" mat-button color="primary" (click)="onNavigateToTaskRelatedObject(record)">Related object</button>
+            <button *ngIf="ifSupportRelatedOpbject(model)" mat-button color="primary" (click)="onNavigateToTaskRelatedObject(record)" i18n>Related object</button>
         
-            <button *ngIf="ifSupportStatus(model) && isInProgressAble(record?.status)" mat-button color="primary" (click)="putTaskInProgress(record?._id)">In progress</button>
-            <button *ngIf="ifSupportStatus(model) && isCompletable(record?.status)" mat-button color="primary" (click)="openCompleteTask(record?._id)">Complete</button>
+            <button *ngIf="ifSupportStatus(model) && isInProgressAble(record?.status)" mat-button color="primary" (click)="putTaskInProgress(record?._id)" i18n>In progress</button>
+            <button *ngIf="ifSupportStatus(model) && isCompletable(record?.status)" mat-button color="primary" (click)="openCompleteTask(record?._id)" i18n>Complete</button>
 
           </div>
 
@@ -45,23 +45,23 @@
         
         </ng-container>
         
-        <button *ngIf="supportApprovalProcess(model) && record?.approval && isSubmitted(record?.approval)" disabled mat-button color="success">Submitted</button>
-        <button *ngIf="supportApprovalProcess(model) && record?.approval && isReviewed(record?.approval)" disabled mat-button color="success">Reviewed</button>
-        <button *ngIf="supportApprovalProcess(model) && record?.approval && isApproved(record?.approval)" disabled mat-button color="success">Approved</button>
-        <button *ngIf="supportApprovalProcess(model) && !record?.approval && hasPermissionSubmitApprovalRequests" mat-button color="primary" (click)="openApprovalDialog(record)">Submit for approval</button>
-        <button *ngIf="supportApprovalProcess(model) && record?.approval && !record?.approval.is_owned && canBeApprovedOrRjected(record?.approval!) && hasPermissionApproveApproval && hasPermissionApproveRecord" mat-button color="primary" (click)="onApproveRecord(record.approval.id)">Approve</button>
-        <button *ngIf="supportApprovalProcess(model) && record?.approval && !record?.approval.is_owned && canBeApprovedOrRjected(record?.approval!) && hasPermissionApproveApproval && hasPermissionRejectApprovalRequests && hasPermissionApproveRecord" mat-button color="warn" (click)="onRejectRecord(record.approval.id)">Reject</button>
+        <button *ngIf="supportApprovalProcess(model) && record?.approval && isSubmitted(record?.approval)" disabled mat-button color="success" i18n>Submitted</button>
+        <button *ngIf="supportApprovalProcess(model) && record?.approval && isReviewed(record?.approval)" disabled mat-button color="success" i18n>Reviewed</button>
+        <button *ngIf="supportApprovalProcess(model) && record?.approval && isApproved(record?.approval)" disabled mat-button color="success" i18n>Approved</button>
+        <button *ngIf="supportApprovalProcess(model) && !record?.approval && hasPermissionSubmitApprovalRequests" mat-button color="primary" (click)="openApprovalDialog(record)" i18n>Submit for approval</button>
+        <button *ngIf="supportApprovalProcess(model) && record?.approval && !record?.approval.is_owned && canBeApprovedOrRjected(record?.approval!) && hasPermissionApproveApproval && hasPermissionApproveRecord" mat-button color="primary" (click)="onApproveRecord(record.approval.id)" i18n>Approve</button>
+        <button *ngIf="supportApprovalProcess(model) && record?.approval && !record?.approval.is_owned && canBeApprovedOrRjected(record?.approval!) && hasPermissionApproveApproval && hasPermissionRejectApprovalRequests && hasPermissionApproveRecord" mat-button color="warn" (click)="onRejectRecord(record.approval.id)" i18n>Reject</button>
         <button mat-button color="primary" *ngIf="model === 'forms'" (click)="onCollectData(record_id)">Collect</button>
         
-        <button *ngIf="canFetchTasks(model) && hasEditPermission && !isApproved(record?.approval, 'edit') && !isSubmitted(record?.approval) && !isReviewed(record?.approval)" mat-button color="primary" (click)="onEditRecord(record_id)">Edit</button>
-        <button *ngIf="canFetchTasks(model) && hasDeletePermission && !isSubmitted(record?.approval) && !isReviewed(record?.approval)" mat-button color="warn" (click)="openDialog(record_id)">Delete</button>
+        <button *ngIf="canFetchTasks(model) && hasEditPermission && !isApproved(record?.approval, 'edit') && !isSubmitted(record?.approval) && !isReviewed(record?.approval)" mat-button color="primary" (click)="onEditRecord(record_id)" i18n>Edit</button>
+        <button *ngIf="canFetchTasks(model) && hasDeletePermission && !isSubmitted(record?.approval) && !isReviewed(record?.approval)" mat-button color="warn" (click)="openDialog(record_id)" i18n>Delete</button>
         
         <button *ngIf="ifSupportStatus(model)" disabled mat-button color="success">{{formatStatus(record?.status)}}</button>
         
-        <button *ngIf="ifSupportRelatedOpbject(model)" mat-button color="primary" (click)="onNavigateToTaskRelatedObject(record)">Related object</button>
+        <button *ngIf="ifSupportRelatedOpbject(model)" mat-button color="primary" (click)="onNavigateToTaskRelatedObject(record)" i18n>Related object</button>
     
-        <button *ngIf="ifSupportStatus(model) && isInProgressAble(record?.status)" mat-button color="primary" (click)="putTaskInProgress(record?._id)">In progress</button>
-        <button *ngIf="ifSupportStatus(model) && isCompletable(record?.status)" mat-button color="primary" (click)="openCompleteTask(record?._id)">Complete</button>
+        <button *ngIf="ifSupportStatus(model) && isInProgressAble(record?.status)" mat-button color="primary" (click)="putTaskInProgress(record?._id)" i18n>In progress</button>
+        <button *ngIf="ifSupportStatus(model) && isCompletable(record?.status)" mat-button color="primary" (click)="openCompleteTask(record?._id)" i18n>Complete</button>
     
     </div>
     

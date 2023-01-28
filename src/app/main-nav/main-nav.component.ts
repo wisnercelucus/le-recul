@@ -14,7 +14,6 @@ export class MainNavComponent implements OnInit, OnDestroy {
   //subs = new SubSink()
 
   @Input() hotel = false;
-  @Input() cinema = false;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

@@ -17,9 +17,20 @@
   </div>
 
   <div class="nav-actions">
-    <a routerLink="/rooms" class="nav-link"><fa-icon [icon]="faBed"></fa-icon> <span class="hide-tab-port"> Rooms</span></a>
-    <a routerLink="/gallery" class="nav-link"><fa-icon [icon]="faImages"></fa-icon> <span class="hide-tab-port"> Gallery</span></a>
-      <a *ngIf="isAuthenticated" routerLink="/admin" class="nav-link"><fa-icon [icon]=" faUserShield"></fa-icon> <span class="hide-tab-port"> Admin</span></a>
+    <a class="nav-link" >
+      <div class="custom-select">
+      <label>
+        <span i18n>Language</span>
+        <select #langSelect (change)="onChangeLang(langSelect.value)">
+          <option *ngFor="let lang of languages" [value]="lang.code" [selected]="lang.code === appService.lang">{{ lang.label }}</option>
+        </select>
+      </label>
+      </div>
+    </a>
+
+    <a routerLink="/rooms" class="nav-link"><fa-icon [icon]="faBed"></fa-icon> <span class="hide-tab-port" i18n> Rooms</span></a>
+    <a routerLink="/gallery" class="nav-link"><fa-icon [icon]="faImages"></fa-icon> <span class="hide-tab-port" i18n> Gallery</span></a>
+      <a *ngIf="isAuthenticated" routerLink="/admin" class="nav-link"><fa-icon [icon]=" faUserShield"></fa-icon> <span class="hide-tab-port" i18n> Admin</span></a>
       <a *ngIf="isAuthenticated" [matMenuTriggerFor]="menu2" class="nav-link">
         <span class="avatar-holder">
           <img class="user-avatar" [src]="getCompleteUrl(userProfile?.avatar!)" >
@@ -30,7 +41,7 @@
       </mat-menu>
     </a>
 
-    <a *ngIf="!isAuthenticated" (click)="onMakeReservation('section-book')" class="btn btn--white reserve-btn"> <span> RÉSERVER</span> 
+    <a *ngIf="!isAuthenticated" (click)="onMakeReservation('section-book')" class="btn btn--white reserve-btn"> <span i18n> BOOK</span> 
     </a>
 
   </div>

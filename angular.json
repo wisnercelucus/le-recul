@@ -4,6 +4,22 @@
   "newProjectRoot": "projects",
   "projects": {
     "valerynuma": {
+      "i18n":{
+        "sourceLocale":{
+          "code": "en",
+          "baseHref": "/"
+        },
+        "locales": {
+          "fr": {
+            "translation": "src/locale/messages.fr.xlf",
+            "baseHref": "fr/"
+          },
+          "es":{
+            "translation":"src/locale/messages.es.xlf",
+            "baseHref": "es/"
+          } 
+      }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,6 +36,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize":true,
             "outputPath": "dist/valerynuma/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -28,7 +45,8 @@
             "inlineStyleLanguage": "scss",
             "allowedCommonJsDependencies": [
               "aos",
-              "quill"
+              "quill",
+              "sweetalert2"
            ],
             "assets": [
               "src/favicon.ico",
@@ -49,7 +67,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1mb",
+                  "maximumWarning": "2mb",
                   "maximumError": "3mb"
                 },
                 {
@@ -90,9 +108,15 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",
           "options": {
-            "browserTarget": "valerynuma:build"
+            "browserTarget": "valerynuma:build",
+            "format": "xlf",
+            "outputPath": "src/locale",
+            "targetFiles": [
+              "messages.fr.xlf",
+              "messages.es.xlf"
+            ]
           }
         },
         "test": {
@@ -117,6 +141,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
+            
             "outputPath": "dist/valerynuma/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
@@ -125,6 +150,7 @@
           "configurations": {
             "production": {
               "outputHashing": "media",
+              "localize":true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",

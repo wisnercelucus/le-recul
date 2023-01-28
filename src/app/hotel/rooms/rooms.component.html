@@ -2,7 +2,7 @@
   <br>
     <div class="container">
         <section class="my-card" *ngFor="let room of rooms">
-          <img src="{{getCompleteUrl(room.featured_image)}}" alt="" />
+          <img src="{{getCompleteUrl(room.featured_image)}}" i18n-alt alt="room image" />
           <div>
             <h3>{{room.name}}</h3>
             <p [innerHTML]="room.description">
@@ -11,7 +11,7 @@
             <div class="room-services-icon">
                 <mat-icon *ngFor="let service of room.services" title="{{service.caption}}">{{service.material_icon_code}}</mat-icon>
               </div>
-            <a routerLink="/rooms/{{room._id}}/details" class="btn btn--accent">Selectioner</a>
+            <a routerLink="/rooms/{{room._id}}/details" class="btn btn--accent" i18n>Select</a>
           </div>
         </section>
 

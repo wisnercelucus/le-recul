@@ -6,26 +6,26 @@
             <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
                 <div class="form-content">
                     <mat-form-field>
-                        <mat-label>Fullname</mat-label>
+                        <mat-label i18n>Fullname</mat-label>
                         <input text="text" matInput placeholder="Ex: John Doe" formControlName="fullname">
                     </mat-form-field>
                     <mat-form-field>
-                        <mat-label>Email</mat-label>
+                        <mat-label i18n>Email</mat-label>
                         <input text="email" matInput placeholder="Ex: johndoe123@dom.ext" formControlName="email">
                     </mat-form-field>
                     <mat-form-field>
-                        <mat-label>Phone</mat-label>
+                        <mat-label i18n>Phone</mat-label>
                         <input text="text" matInput placeholder="Ex: +5095623412" formControlName="phone">
                     </mat-form-field>
                         <mat-form-field class="example-form-field">
-                            <mat-label>Date d'arrivée - Date de départ</mat-label>
+                            <mat-label i18n>Arrival - Departure</mat-label>
                             <mat-date-range-input
                               [rangePicker]="bookingDateRangePicker"
                               [min]="today"
                               [comparisonStart]="form.value.start_on"
                               [comparisonEnd]="form.value.end_on">
-                              <input matStartDate placeholder="Date d'arrivée" formControlName="start_on">
-                              <input matEndDate placeholder="Date de départ" formControlName="end_on">
+                              <input matStartDate i18n-placeholder placeholder="Arrival date" formControlName="start_on">
+                              <input matEndDate i18n-placeholder placeholder="Departure date" formControlName="end_on">
                             </mat-date-range-input>
                             <mat-datepicker-toggle matSuffix [for]="bookingDateRangePicker"></mat-datepicker-toggle>
                             <mat-hint><span class="hint">MM/DD/YYYY – MM/DD/YYYY</span></mat-hint>
@@ -33,7 +33,7 @@
                           </mat-form-field>
     
                             <mat-form-field color="accent">
-                                <mat-label># de personnes</mat-label>
+                                <mat-label i18n># of people</mat-label>
                                     <mat-select formControlName="n_roomates">
                                       <mat-option *ngFor="let mate of roomates" [value]="mate.n">
                                         {{mate.name}}
@@ -42,7 +42,7 @@
                             </mat-form-field>
                 </div>
                 <div class="form-action">
-                    <button type="submit" [disabled]="form.invalid" mat-raised-button color="accent">Sauvegarder</button>
+                    <button type="submit" [disabled]="form.invalid" mat-raised-button color="accent" i18n>Save</button>
                 </div>
             </form>
         </div>
@@ -62,7 +62,7 @@
 
                 <mat-divider></mat-divider>
                 <div class="services">
-                    <span>
+                    <span i18n>
                         Room services
                     </span>
                     <div class="room-services-icon">
@@ -73,7 +73,7 @@
                 <div class="description">
                     <p [innerHTML]="truncateHTML(room?.description, 117)">
                     </p>
-                    <a class="btn-text" (click)="onMakeReservation('room-full-detail', room?._id)">Read more &searr;</a>
+                    <a class="btn-text" (click)="onMakeReservation('room-full-detail', room?._id)" i18n>Read more &searr;</a>
                 </div>
             </div>
             <div class="col-3-of-4">

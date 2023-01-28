@@ -7,8 +7,9 @@
           ngModel
           required
           name="email"
-          placeholder="Saisissez votre addresse e-mail" required #searchQuery="ngModel">
-        <label for="email" class="form__label">Saisissez votre addresse e-mail</label>
+          i18n-placeholder
+          placeholder="Type your email to subscribe" required #searchQuery="ngModel">
+        <label for="email" class="form__label" i18n>Type your email to subscribe</label>
         <button class="form__submit"[disabled]="f.invalid || isLoading" ><mat-icon>send</mat-icon></button>
     </div>  
 </form>

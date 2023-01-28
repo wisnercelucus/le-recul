@@ -1,9 +1,9 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" fixedInViewport  mode="over" >
-       <vn-sidebar (sidenavClose)="drawer.toggle()" [hotel]="hotel" [cinema]="cinema"></vn-sidebar>
+       <vn-sidebar (sidenavClose)="drawer.toggle()" [hotel]="hotel"></vn-sidebar>
     </mat-sidenav>
     <mat-sidenav-content>
-      <vn-header (toggleSideNav)="drawer.toggle()" [hotel]="hotel" [cinema]="cinema"></vn-header>
+      <vn-header (toggleSideNav)="drawer.toggle()" [hotel]="hotel"></vn-header>
       <ng-content></ng-content>
     </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,9 +1,11 @@
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Event, Router } from '@angular/router';
 import { SubSink } from 'subsink';
-import * as AOS from 'aos';
+//import * as AOS from 'aos';
 import { isPlatformBrowser } from '@angular/common';
 import { AuthService } from './auth/services/auth.service';
+import { CookieService } from 'ngx-cookie';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +16,12 @@ export class AppComponent implements OnInit {
   subs = new SubSink()
   isLoading = false;
   hotel = false;
-  cinema = false;
 
   constructor(
      @Inject(PLATFORM_ID) private platformId: Object,
      private _authServive: AuthService, 
+     private cookie: CookieService,
+     private appService: AppService,
      private router: Router){
     this.subs.add(
       this.router.events.subscribe((routerEvent: Event)=>{
@@ -28,7 +31,6 @@ export class AppComponent implements OnInit {
         if(routerEvent instanceof NavigationEnd){
           if(isPlatformBrowser(this.platformId)){
             this.hotel = location.pathname.split('/').includes('hotel');
-            this.cinema = location.pathname.split('/').includes('cinema');
           
           }
           this.isLoading=false;
@@ -56,6 +58,19 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     this._authServive.autoAuthUser()
-    AOS.init();
+    
+    if(isPlatformBrowser(this.platformId)){
+      const userLang = navigator.language
+      let locale = this.cookie.get("lang") || userLang || 'en';
+      this.appService.setLanguages(locale);
+      this.appService.setLang(locale)
+    }
+
+   
+
+    //translate.use(locale.match(/en|fr|es/) ? locale : 'en');
+    
+
+    //AOS.init();
   }
 }

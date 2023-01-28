@@ -9,6 +9,12 @@ const routes: Routes = [
   {path: 'accounts', canActivate:[AuthGuard], loadChildren: () => import("./accounts/accounts.module").then(m => m.AccountsModule)},
   {path: 'admin', canActivate:[AuthGuard], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
   {path: 'admin/:model/:record-id/associated/:lookup_name', canActivate:[AuthGuard,], loadChildren: () => import("./record-lookups/record-lookups.module").then(m => m.RecordLookupsModule)},
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full'
+  }
+  
   //{path: ':model', loadChildren: () => import('./data-tables/data-tables.module').then(m => m.DataTablesModule)},
 ];
 

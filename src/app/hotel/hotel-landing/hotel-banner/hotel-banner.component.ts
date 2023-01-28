@@ -13,6 +13,8 @@ import { CarouselImage } from 'src/app/reusable-components/img-carousal/img-caro
 export class HotelBannerComponent implements OnInit, OnDestroy {
   subs = new SubSink()
   banner_content: any;
+  activitiyTitle = 'Nos activités'
+  strengthTitle = 'Nos forces'
 
   sliderImages: CarouselImage[] = [
     {

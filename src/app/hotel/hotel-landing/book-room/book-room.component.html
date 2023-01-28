@@ -4,14 +4,14 @@
                 <div class="book__form">
                     <form class="form" [formGroup]="form" (ngSubmit)="onSubmit(form)">
                         <div class="u-margin-bottom-medium">
-                            <h2 class="heading-secondary">
-                                Réserver une chambre
+                            <h2 class="heading-secondary" i18n>
+                                Book a room
                             </h2>
                         </div>
 
                         <div class="form__group">
                             <mat-form-field class="full-width" color="accent" appearance="outline">
-                                <mat-label>Nom complet</mat-label>
+                                <mat-label i18n>Name</mat-label>
                                 <input type="text" matInput placeholder="John Doe" formControlName="fullname" required>
                             </mat-form-field>
                         </div>
@@ -19,21 +19,21 @@
 
                         <div class="form__group">
                             <mat-form-field class="full-width" color="accent" appearance="outline">
-                                <mat-label>Email</mat-label>
+                                <mat-label i18n>Email</mat-label>
                                 <input type="email" matInput formControlName="email" placeholder="someuser@dom.ext" required>
                             </mat-form-field>
                         </div>
 
                         <div class="form__group">
                             <mat-form-field class="full-width" color="accent" appearance="outline">
-                                <mat-label>Telephone</mat-label>
+                                <mat-label i18n>Phone</mat-label>
                                 <input type="text" formControlName="phone" matInput placeholder="Ex: +5093350660" required>
                             </mat-form-field>
                         </div>
 
                         <div class="form__group">
                         <mat-form-field class="example-form-field" appearance="outline">
-                            <mat-label>Date d'arrivée - Date de départ</mat-label>
+                            <mat-label i18n>Arrival - Departure</mat-label>
                             <mat-date-range-input
                               [rangePicker]="bookingDateRangePicker"
                               [min]="today"
@@ -68,7 +68,7 @@
 
                         <div class="form__group">
                             <mat-form-field color="accent" appearance="outline">
-                                <mat-label>Chambres</mat-label>
+                                <mat-label i18n>Select a room type</mat-label>
                                 <mat-select formControlName="room" required>
                                   <mat-option *ngFor="let room of rooms" [value]="room.id">
                                     {{room.name}}
@@ -79,7 +79,7 @@
 
                         <div class="form__group">
                             <mat-form-field color="accent" appearance="outline">
-                                <mat-label># de personnes</mat-label>
+                                <mat-label i18n># de people</mat-label>
                                     <mat-select formControlName="n_roomates" required>
                                       <mat-option *ngFor="let mate of roomates" [value]="mate.n">
                                         {{mate.name}}
@@ -89,7 +89,7 @@
                         </div>
 
                         <div class="form__group">
-                            <button type="submit" class="btn btn--accent">Réserver &rarr;</button>
+                            <button type="submit" class="btn btn--accent" i18n>Book &rarr;</button>
                         </div>
                     </form>
                 </div>

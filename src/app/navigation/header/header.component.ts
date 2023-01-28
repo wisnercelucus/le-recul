@@ -1,7 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, EventEmitter, Inject, Input, OnInit, Output, PLATFORM_ID } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { faImages, faUser, faUserShield, faBed } from '@fortawesome/free-solid-svg-icons';
+import { CookieService } from 'ngx-cookie';
 import { AccountsService } from 'src/app/accounts/services/accounts.service';
+import { AppService } from 'src/app/app.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { ScrollOnNavigationService } from 'src/settings/utilities/scrollonnavigation';
@@ -20,6 +23,7 @@ export class HeaderComponent implements OnInit {
   faUserShield = faUserShield
   faBed = faBed
   //notAtAmin = false
+  languages: any[] = []
   faUser = faUser
   subs = new SubSink()
   userProfile:any = {user: {name: 'Valery Numa', username: 'valnum'}, avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80'}
@@ -28,11 +32,16 @@ export class HeaderComponent implements OnInit {
   @Input() cinema = false;
 
   constructor(private _router: Router,
+    private cookie: CookieService,
+    
     private _scrollOnNavigationService: ScrollOnNavigationService,
     private _utilitiesService: UtilitiesService, 
+    @Inject(PLATFORM_ID) private plateformId: Object,
+    public appService: AppService,
     private _accountsService: AccountsService, private _authServive: AuthService) { }
 
   ngOnInit(): void {
+    this.languages = this.appService.LANGUAGES;
         
     this._router.routeReuseStrategy.shouldReuseRoute = (future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean => {
       return false;
@@ -100,6 +109,15 @@ export class HeaderComponent implements OnInit {
   onMakeReservation(id: string){
     this._scrollOnNavigationService.navigateTo(id, '/')
   }
+
+  onChangeLang(value:string){
+    this.cookie.put("lang", value);
+    if(isPlatformBrowser(this.plateformId)){
+      window.location.reload();
+    }
+    
+  }
+
 
 
 }

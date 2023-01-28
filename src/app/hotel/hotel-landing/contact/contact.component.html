@@ -1,7 +1,7 @@
 <section id="contact" class="wrapper" id="contact">
     <div class="container">
         <div class="u-center-text u-margin-bottom-medium">
-            <h3 class="heading-tertiary">Contact Us</h3>
+            <h3 class="heading-tertiary" i18n>Contact Us</h3>
         </div>
       <div class="row">
         <div class="col-1-of-2 contact-img-container">
@@ -12,39 +12,39 @@
             
             <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form">
                 <mat-form-field>
-                    <mat-label>Your Name</mat-label>
-                    <input required matInput type="text" placeholder="Your Name" ngModel name="name">
+                    <mat-label i18n>Your Name</mat-label>
+                    <input required matInput type="text" i18n-placeholder placeholder="Your Name" ngModel name="name">
                 </mat-form-field>
 
                 <mat-form-field>
-                    <mat-label>Your Email</mat-label>
-                    <input required matInput type="email" name="email" placeholder="Your Email" ngModel>
+                    <mat-label i18n>Your Email</mat-label>
+                    <input required matInput type="email" name="email" i18n-placeholder placeholder="Your Email" ngModel>
                 </mat-form-field>
 
                 <mat-form-field *ngIf="countries">
-                    <mat-label>Country</mat-label>
+                    <mat-label i18n>Country</mat-label>
                     <mat-select ngModel name="country" required (selectionChange)="onSelectionChange($event)">
                       <mat-option *ngFor="let country of countries" [value]="country.name.common" >{{country.name.common}}</mat-option>
                     </mat-select>
                   </mat-form-field>
 
                   <mat-form-field class="full-width">
-                    <mat-label>Telephone</mat-label>
+                    <mat-label i18n>Telephone</mat-label>
                     <span id="countryCode" *ngIf="selectedCountry" matPrefix>{{selectedCountry?.idd.root}}{{selectedCountry?.idd.suffixes ? selectedCountry?.idd.suffixes.length > 1 ? '' :  selectedCountry?.idd.suffixes[0] : ''}} &nbsp;</span>
                     <input ngModel type="tel" name="phone" matInput placeholder="555-555-1234">
                   </mat-form-field>
                 
                   <mat-form-field class="full-width">
-                    <mat-label>Subject</mat-label>
+                    <mat-label i18n>Subject</mat-label>
                     <input required ngModel type="text" name="subject" matInput placeholder="Greetings...">
                   </mat-form-field>
 
                 <mat-form-field>
-                    <mat-label>Your Message</mat-label>
-                    <textarea required matInput class="materialize-textarea" ngModel name="message" placeholder="Enter Message"></textarea>
+                    <mat-label i18n>Your Message</mat-label>
+                    <textarea required matInput class="materialize-textarea" ngModel name="message" i18n-placeholder placeholder="Enter Message"></textarea>
                 </mat-form-field>
                 <div class="actions">
-                    <button [disabled]="f.invalid" type="submit" mat-raised-button color="primary">Send</button>
+                    <button [disabled]="f.invalid" type="submit" mat-raised-button color="primary" i18n>Send</button>
                 </div>
             </form>
           </div>

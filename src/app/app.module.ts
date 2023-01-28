@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +21,8 @@ import { NavigationModule } from './navigation/navigation.module';
 import { QuillModule } from 'ngx-quill';
 import { CookieModule } from 'ngx-cookie';
 import { AuthInterceptorService } from './auth/services/auth-interceptor.service';
+import { LanguangeInterceptorService } from './language.interceptor';
+import { LocaleService } from './locale.service';
 
 
 const  toolbar = [
@@ -82,7 +84,21 @@ const  toolbar = [
       }
     }),
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true},],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true},  
+    {
+      provide: LOCALE_ID,
+      useFactory: (localeService: LocaleService) => {
+        console.log('locale ID', localeService.getLanguage());
+        return localeService.getLanguage();
+      },
+      deps: [LocaleService]
+    },  
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: LanguangeInterceptorService,
+    multi: true,
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

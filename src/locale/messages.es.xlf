@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="4247748459703909637" datatype="html">
+        <source>Contact information</source>
+        <target>Información del contacto</target>
+      </trans-unit>
+      <trans-unit id="4768749765465246664" datatype="html">
+        <source>Email</source>
+        <target>Correo electrónico</target>
+      </trans-unit>
+      <trans-unit id="5248717555542428023" datatype="html">
+        <source>Username</source>
+        <target>Nombre de usuario</target>
+      </trans-unit>
+      <trans-unit id="6309828574111583895" datatype="html">
+        <source>Change password</source>
+        <target>Cambia la contraseña</target>
+      </trans-unit>
+      <trans-unit id="5340498030552368470" datatype="html">
+        <source>Current password</source>
+        <target>Contraseña actual</target>
+      </trans-unit>
+      <trans-unit id="1431416938026210429" datatype="html">
+        <source>Password</source>
+        <target>Contraseña</target>
+      </trans-unit>
+      <trans-unit id="5226481922546439029" datatype="html">
+        <source>Password confirm</source>
+        <target>Contraseña confirmada</target>
+      </trans-unit>
+      <trans-unit id="208417461251028549" datatype="html">
+        <source>User details</source>
+        <target>Detalles de usuario</target>
+      </trans-unit>
+      <trans-unit id="6028371114637047813" datatype="html">
+        <source>First Name</source>
+        <target>Primer nombre</target>
+      </trans-unit>
+      <trans-unit id="4407559560004943843" datatype="html">
+        <source>Last Name</source>
+        <target>Apellido</target>
+      </trans-unit>
+      <trans-unit id="2742532852742169962" datatype="html">
+        <source>Sex</source>
+        <target>Sexo</target>
+      </trans-unit>
+      <trans-unit id="9022391343105663744" datatype="html">
+        <source>Birth date</source>
+        <target>Fecha de nacimiento</target>
+      </trans-unit>
+      <trans-unit id="6304432362546770951" datatype="html">
+        <source>Address</source>
+        <target>Dirección</target>
+      </trans-unit>
+      <trans-unit id="8890415502920144925" datatype="html">
+        <source>Apartment number</source>
+        <target>Número de apartamento</target>
+      </trans-unit>
+      <trans-unit id="1847047605496409443" datatype="html">
+        <source>Street</source>
+        <target>Calle</target>
+      </trans-unit>
+      <trans-unit id="2314075913167237221" datatype="html">
+        <source>City</source>
+        <target>Ciudad</target>
+      </trans-unit>
+      <trans-unit id="1200737650075932684" datatype="html">
+        <source>Zip code</source>
+        <target>Código postal</target>
+      </trans-unit>
+      <trans-unit id="3168719620443347445" datatype="html">
+        <source>Phone - work</source>
+        <target>Teléfono - trabajo</target>
+      </trans-unit>
+      <trans-unit id="3471128663439145051" datatype="html">
+        <source>Phone - mobile</source>
+        <target>Teléfono - móvil</target>
+      </trans-unit>
+      <trans-unit id="737317322349301571" datatype="html">
+        <source>Phone - home</source>
+        <target>Teléfono de casa</target>
+      </trans-unit>
+      <trans-unit id="463281817138523773" datatype="html">
+        <source>Hiring datails</source>
+        <target>Detalles de contratación</target>
+      </trans-unit>
+      <trans-unit id="1961478094854662761" datatype="html">
+        <source>Joined on</source>
+        <target>Se unió el</target>
+      </trans-unit>
+      <trans-unit id="4825308732867391208" datatype="html">
+        <source>About details</source>
+        <target>Acerca de los detalles</target>
+      </trans-unit>
+      <trans-unit id="6533587442392819898" datatype="html">
+        <source>Favorite quote</source>
+        <target>Cita Favorita</target>
+      </trans-unit>
+      <trans-unit id="5736071025931963956" datatype="html">
+        <source>Quote author</source>
+        <target>Citar autora</target>
+      </trans-unit>
+      <trans-unit id="2702820418990327385" datatype="html">
+        <source>Moto</source>
+        <target>Eslogan</target>
+      </trans-unit>
+      <trans-unit id="6769219112239702582" datatype="html">
+        <source>Bio</source>
+        <target>Bio</target>
+      </trans-unit>
+      <trans-unit id="5810423724951000799" datatype="html">
+        <source>Social media links</source>
+        <target>Enlaces de redes sociales</target>
+      </trans-unit>
+      <trans-unit id="5951971156511488420" datatype="html">
+        <source>Linkedin profile link</source>
+        <target>Enlace de perfil de Linkedin</target>
+      </trans-unit>
+      <trans-unit id="3558391588605499747" datatype="html">
+        <source>Facebook profile link</source>
+        <target>Enlace de perfil de Facebook</target>
+      </trans-unit>
+      <trans-unit id="6356204986130769868" datatype="html">
+        <source>Twitter profile link</source>
+        <target>Enlace de perfil de Twitter</target>
+      </trans-unit>
+      <trans-unit id="3341114596829853076" datatype="html">
+        <source>Instagram profile link</source>
+        <target>Enlace de perfil de Instagram</target>
+      </trans-unit>
+      <trans-unit id="900324389150530054" datatype="html">
+        <source>Quora profile link</source>
+        <target>Enlace de perfil de Quora</target>
+      </trans-unit>
+      <trans-unit id="2821805036348416008" datatype="html">
+        <source>Github profile link</source>
+        <target>Enlace de perfil de Github</target>
+      </trans-unit>
+      <trans-unit id="3405583414140015991" datatype="html">
+        <source>Reddit profile link</source>
+        <target>Enlace de perfil de Reddit</target>
+      </trans-unit>
+      <trans-unit id="2454050363478003966" datatype="html">
+        <source>Login</source>
+        <target>Acceso</target>
+      </trans-unit>
+      <trans-unit id="2602541612633302965" datatype="html">
+        <source>Please enter your email!</source>
+        <target>Por favor introduzca su correo electrónico !</target>
+      </trans-unit>
+      <trans-unit id="1686212905795661329" datatype="html">
+        <source> Please enter a valid email address. </source>
+        <target> Por favor, introduce una dirección de correo electrónico válida. </target>
+      </trans-unit>
+      <trans-unit id="5718175480442607327" datatype="html">
+        <source>Forget password?</source>
+        <target>¿Contraseña olvidada?</target>
+      </trans-unit>
+      <trans-unit id="3588415639242079458" datatype="html">
+        <source>New password</source>
+        <target>Nueva contraseña</target>
+      </trans-unit>
+      <trans-unit id="4258725926918875621" datatype="html">
+        <source> Please your new password. </source>
+        <target> Por favor, su nueva contraseña. </target>
+      </trans-unit>
+      <trans-unit id="8502975828203924749" datatype="html">
+        <source> Please confirm your password by retyping it. </source>
+        <target> Por favor, confirme su contraseña volviendo a escribirla. </target>
+      </trans-unit>
+      <trans-unit id="935187492052582731" datatype="html">
+        <source>Submit</source>
+        <target>Entregar</target>
+      </trans-unit>
+      <trans-unit id="1636934520301910285" datatype="html">
+        <source>Reset password</source>
+        <target>Restablecer la contraseña</target>
+      </trans-unit>
+      <trans-unit id="7739316720308978308" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{model}}"/>&apos;s table is either empty or you do not have the permission to see it&apos;s contents. If you believe you shoulb see this table content, contact your system admins. </source>
+      </trans-unit>
+      <trans-unit id="9048736766677625542" datatype="html">
+        <source> select all </source>
+        <target> seleccionar todo </target>
+      </trans-unit>
+      <trans-unit id="3193976279273491157" datatype="html">
+        <source>Actions</source>
+        <target>Acciones</target>
+      </trans-unit>
+      <trans-unit id="1802940742070670899" datatype="html">
+        <source> Book a room </source>
+        <target> Reservar una habitación </target>
+      </trans-unit>
+      <trans-unit id="8953033926734869941" datatype="html">
+        <source>Name</source>
+        <target>Nombre</target>
+      </trans-unit>
+      <trans-unit id="3262236020277300799" datatype="html">
+        <source>Phone</source>
+        <target>Teléfono</target>
+      </trans-unit>
+      <trans-unit id="7224823594579987486" datatype="html">
+        <source>Arrival - Departure</source>
+        <target>Llegada - Salida</target>
+      </trans-unit>
+      <trans-unit id="985535896884080635" datatype="html">
+        <source>Select a room type</source>
+        <target>Seleccione un tipo de habitación</target>
+      </trans-unit>
+      <trans-unit id="2718503130810201026" datatype="html">
+        <source># de people</source>
+        <target># de personas</target>
+      </trans-unit>
+      <trans-unit id="3444749667971989831" datatype="html">
+        <source>Book →</source>
+        <target>Reservar →</target>
+      </trans-unit>
+      <trans-unit id="759687838251957893" datatype="html">
+        <source>Contact Us</source>
+        <target>Contacta con nosotros</target>
+      </trans-unit>
+      <trans-unit id="2297688463310993102" datatype="html">
+        <source>Your Name</source>
+        <target>Tu Nombre</target>
+      </trans-unit>
+      <trans-unit id="204562474612147063" datatype="html">
+        <source>Your Email</source>
+        <target>Tu correo electrónico</target>
+      </trans-unit>
+      <trans-unit id="516176798986294299" datatype="html">
+        <source>Country</source>
+        <target>País</target>
+      </trans-unit>
+      <trans-unit id="2458848059908306406" datatype="html">
+        <source>Telephone</source>
+        <target>Teléfono</target>
+      </trans-unit>
+      <trans-unit id="9127604588498960753" datatype="html">
+        <source>Subject</source>
+        <target>Sujeto</target>
+      </trans-unit>
+      <trans-unit id="3901848700381049273" datatype="html">
+        <source>Your Message</source>
+        <target>Tu mensaje</target>
+      </trans-unit>
+      <trans-unit id="7000694294523796622" datatype="html">
+        <source>Enter Message</source>
+        <target state="new">Introducir mensaje</target>
+      </trans-unit>
+      <trans-unit id="6490688569532630280" datatype="html">
+        <source>Send</source>
+        <target>Enviar</target>
+      </trans-unit>
+      <trans-unit id="66889124423938629" datatype="html">
+        <source>Follow Us</source>
+        <target>Síganos</target>
+      </trans-unit>
+      <trans-unit id="1390339180070224741" datatype="html">
+        <source>Follow Le Recul Hotel on social media for latest updates and offers!</source>
+        <target>¡Siga a Le Recul Hotel en las redes sociales para conocer las últimas actualizaciones y ofertas!</target>
+      </trans-unit>
+      <trans-unit id="717122309969742251" datatype="html">
+        <source>Fullname</source>
+        <target>Nombre completo</target>
+      </trans-unit>
+      <trans-unit id="755671219531580371" datatype="html">
+        <source>Arrival date</source>
+        <target>Fecha de llegada</target>
+      </trans-unit>
+      <trans-unit id="7917723851542871054" datatype="html">
+        <source>Departure date</source>
+        <target>Fecha de salida</target>
+      </trans-unit>
+      <trans-unit id="8634354274072379499" datatype="html">
+        <source># of people</source>
+        <target># de personas</target>
+      </trans-unit>
+      <trans-unit id="3768927257183755959" datatype="html">
+        <source>Save</source>
+        <target>Salvar</target>
+      </trans-unit>
+      <trans-unit id="3363343376971293674" datatype="html">
+        <source> Room services </source>
+        <target> Servicios de habitaciones </target>
+      </trans-unit>
+      <trans-unit id="813912361055477076" datatype="html">
+        <source>Read more ↘</source>
+        <target>Lee mas ↘</target>
+      </trans-unit>
+      <trans-unit id="2235319724834137313" datatype="html">
+        <source>room image</source>
+        <target>imagen de la habitación</target>
+      </trans-unit>
+      <trans-unit id="3797570084942068182" datatype="html">
+        <source>Select</source>
+        <target>Seleccionar</target>
+      </trans-unit>
+      <trans-unit id="2826581353496868063" datatype="html">
+        <source>Language</source>
+        <target>Idioma</target>
+      </trans-unit>
+      <trans-unit id="8143349905528377479" datatype="html">
+        <source> Rooms</source>
+        <target> Habitaciones</target>
+      </trans-unit>
+      <trans-unit id="3134441195233449095" datatype="html">
+        <source> Gallery</source>
+        <target> Galería</target>
+      </trans-unit>
+      <trans-unit id="2141100987551963270" datatype="html">
+        <source> Admin</source>
+        <target> Admin</target>
+      </trans-unit>
+      <trans-unit id="2181154762165715522" datatype="html">
+        <source>Gallery</source>
+        <target state="new">Galería</target>
+      </trans-unit>
+      <trans-unit id="5041354590769758251" datatype="html">
+        <source>Admin</source>
+        <target>Admin</target>
+      </trans-unit>
+      <trans-unit id="4335548177977692221" datatype="html">
+        <source>Book</source>
+        <target state="new">Reservar</target>
+      </trans-unit>
+      <trans-unit id="4930506384627295710" datatype="html">
+        <source>Settings</source>
+        <target>Ajustes</target>
+      </trans-unit>
+      <trans-unit id="3797778920049399855" datatype="html">
+        <source>Logout</source>
+        <target state="new">Desconexión</target>
+      </trans-unit>
+      <trans-unit id="4360239040231802726" datatype="html">
+        <source> Actions </source>
+        <target> Acciones </target>
+      </trans-unit>
+      <trans-unit id="355243687075646489" datatype="html">
+        <source>Submit for approval</source>
+        <target>Someter para aprobacion</target>
+      </trans-unit>
+      <trans-unit id="3821661153451769620" datatype="html">
+        <source>Approve</source>
+        <target>Aprobar</target>
+      </trans-unit>
+      <trans-unit id="7378878529334768232" datatype="html">
+        <source>Reject</source>
+        <target>Rechazar</target>
+      </trans-unit>
+      <trans-unit id="7585826646011739428" datatype="html">
+        <source>Edit</source>
+        <target>Editar</target>
+      </trans-unit>
+      <trans-unit id="7022070615528435141" datatype="html">
+        <source>Delete</source>
+        <target>Borrar</target>
+      </trans-unit>
+      <trans-unit id="8721841181163040327" datatype="html">
+        <source>Related object</source>
+        <target>Objeto relacionado</target>
+      </trans-unit>
+      <trans-unit id="3307214558906712688" datatype="html">
+        <source>In progress</source>
+        <target>En progreso</target>
+      </trans-unit>
+      <trans-unit id="8384225360105280028" datatype="html">
+        <source>Complete</source>
+        <target>Completar</target>
+      </trans-unit>
+      <trans-unit id="1612722476211621614" datatype="html">
+        <source>Submitted</source>
+        <target>Presentado</target>
+      </trans-unit>
+      <trans-unit id="4467880638322247833" datatype="html">
+        <source>Reviewed</source>
+        <target>Revisado</target>
+      </trans-unit>
+      <trans-unit id="5906272961955453157" datatype="html">
+        <source>Approved</source>
+        <target>Aprobado</target>
+      </trans-unit>
+      <trans-unit id="8016374078662299052" datatype="html">
+        <source> Click to reveal </source>
+        <target> Haga clic para revelar </target>
+      </trans-unit>
+      <trans-unit id="8806818702637110258" datatype="html">
+        <source>Owner: </source>
+        <target>Propietario: </target>
+      </trans-unit>
+      <trans-unit id="5072005280623265579" datatype="html">
+        <source>Created on: </source>
+        <target>Creado en: </target>
+      </trans-unit>
+      <trans-unit id="7200035278692334096" datatype="html">
+        <source>Modified by: </source>
+        <target>Modificado por: </target>
+      </trans-unit>
+      <trans-unit id="5556931004849256491" datatype="html">
+        <source>Modified at: </source>
+        <target>Modificado en: </target>
+      </trans-unit>
+      <trans-unit id="2496709377661156681" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon class=&quot;tab-icon&quot;&gt;"/>notes<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/> Details </source>
+        <target><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon class=&quot;tab-icon&quot;&gt;"/>notes<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/> Detalles </target>
+      </trans-unit>
+      <trans-unit id="1466374165955251999" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon class=&quot;tab-icon&quot;&gt;"/>file_present<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/> Images </source>
+        <target><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon class=&quot;tab-icon&quot;&gt;"/>file_present<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;/mat-icon&gt;"/> Imágenes </target>
+      </trans-unit>
+      <trans-unit id="7371859717789596845" datatype="html">
+        <source>See the gallery →</source>
+        <target state="new">Ver la galería →</target>
+      </trans-unit>
+      <trans-unit id="3592020218844498775" datatype="html">
+        <source> Book ↓ </source>
+        <target state="new"> Reservar ↓ </target>
+      </trans-unit>
+      <trans-unit id="2821179408673282599" datatype="html">
+        <source>Home</source>
+        <target state="new">Bienvenida</target>
+      </trans-unit>
+      <trans-unit id="6318077128670918892" datatype="html">
+        <source>Rooms</source>
+        <target state="new">Habitaciones</target>
+      </trans-unit>
+      <trans-unit id="1005688696462832660" datatype="html">
+        <source>Confidentiality</source>
+        <target state="new">Confidencialidad</target>
+      </trans-unit>
+      <trans-unit id="1144407473317535723" datatype="html">
+        <source>Subscribe</source>
+        <target state="new">Suscribir</target>
+      </trans-unit>
+      <trans-unit id="160302299810660486" datatype="html">
+        <source>Subscribe for the latest news</source>
+        <target state="new">Suscríbete para las últimas noticias</target>
+      </trans-unit>
+      <trans-unit id="6582931901691338340" datatype="html">
+        <source> © <x id="INTERPOLATION" equiv-text="{{y}}"/> · Le Recul Hotel · All rights reserved. </source>
+        <target state="new"> © <x id="INTERPOLATION" equiv-text="{{y}}"/> · Hotel Le Recul · Todos los derechos reservados. </target>
+      </trans-unit>
+      <trans-unit id="6791048438332126271" datatype="html">
+        <source>Proudly built by <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://twitter.com/wicel89&quot; target=&quot;blank&quot; class=&quot;footer__link&quot;&gt;"/>@wicel89<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></source>
+        <target state="new">Orgullosamente construido por <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://twitter.com/wicel89&quot; target=&quot;blank&quot; class=&quot;footer__link&quot;&gt;"/>@wicel89<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="7372946659351281792" datatype="html">
+        <source>Type your email to subscribe</source>
+        <target state="new">Escriba su correo electrónico para suscribirse</target>
+      </trans-unit>
+      <trans-unit id="4732794130095928766" datatype="html">
+        <source> BOOK</source>
+        <target state="new"> RESERVAR</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

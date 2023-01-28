@@ -9,12 +9,12 @@
 
     <ng-container>
       <section class="u-margin-top-bottom-small">
-        <h4 class="heading-fourth">Contact information</h4>
+        <h4 class="heading-fourth" i18n>Contact information</h4>
       </section>
 
       <ng-container>
         <mat-form-field >
-          <mat-label>Email</mat-label>
+          <mat-label i18n>Email</mat-label>
           <input required [ngModel]="record?.user?.email" name="email" matInput type="email">
         </mat-form-field>
       </ng-container>
@@ -22,7 +22,7 @@
 
       <ng-container>
         <mat-form-field >
-          <mat-label>Username</mat-label>
+          <mat-label i18n>Username</mat-label>
           <input required [ngModel]="record?.user?.username" matInput type="text" name="username">
         </mat-form-field>
       </ng-container>

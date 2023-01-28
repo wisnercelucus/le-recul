@@ -1,17 +1,17 @@
 <div class="wrapper">
     <div class="field-row-wrapper">
         <div class="field-row">
-            <span>Owner: </span><a (click)="onNavigateToUser(record_meta.owner.username)" class="anchor">{{record_meta.owner.name}}</a>
+            <span i18n>Owner: </span><a (click)="onNavigateToUser(record_meta.owner.username)" class="anchor">{{record_meta.owner.name}}</a>
         </div>
         <mat-divider></mat-divider>
         <div class="field-row">
-            <span>Created on: </span><span>{{record_meta.created_at}}</span>
+            <span i18n>Created on: </span><span>{{record_meta.created_at}}</span>
         </div>
 
     <mat-divider></mat-divider>
 
-        <div class="field-row"><span>Modified by: </span><a (click)="onNavigateToUser(record_meta.owner.username)" class="anchor">{{record_meta.updated_by.name}}</a></div>
+        <div class="field-row"><span i18n>Modified by: </span><a (click)="onNavigateToUser(record_meta.owner.username)" class="anchor">{{record_meta.updated_by.name}}</a></div>
         <mat-divider></mat-divider>
-        <div class="field-row"><span>Modified at: </span><span>{{record_meta.updated_at}}</span></div>
+        <div class="field-row"><span i18n>Modified at: </span><span>{{record_meta.updated_at}}</span></div>
     </div>
 </div>
