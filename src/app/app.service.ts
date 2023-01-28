@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie';
 
 @Injectable({
     providedIn:'root'
 })
 export class AppService{
-    _lang: string = 'en';
+    _lang: string = '';
 
     LANGUAGES = [
         {code:"en", label_f:"English", label:"Eng"},
@@ -14,7 +15,7 @@ export class AppService{
 
 
 
-    constructor(){
+    constructor(private cookie: CookieService){
        
     }
 
@@ -43,6 +44,7 @@ export class AppService{
 
     setLang(lang: string){
         this._lang = lang
+        //this.cookie.put('lang', lang)
     }
 
     get lang(){

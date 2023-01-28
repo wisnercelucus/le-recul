@@ -1,12 +1,14 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, EventEmitter, Inject, Input, OnInit, Output, PLATFORM_ID } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, LOCALE_ID, OnInit, Output, PLATFORM_ID } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { faImages, faUser, faUserShield, faBed } from '@fortawesome/free-solid-svg-icons';
 import { CookieService } from 'ngx-cookie';
 import { AccountsService } from 'src/app/accounts/services/accounts.service';
 import { AppService } from 'src/app/app.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { LocaleService } from 'src/app/locale.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
+import { environment } from 'src/environments/environment';
 import { ScrollOnNavigationService } from 'src/settings/utilities/scrollonnavigation';
 import { SubSink } from 'subsink';
 
@@ -22,6 +24,7 @@ export class HeaderComponent implements OnInit {
   faImages = faImages
   faUserShield = faUserShield
   faBed = faBed
+  prevLang = ''
   //notAtAmin = false
   languages: any[] = []
   faUser = faUser
@@ -32,15 +35,19 @@ export class HeaderComponent implements OnInit {
   @Input() cinema = false;
 
   constructor(private _router: Router,
+    public localeService: LocaleService,
     private cookie: CookieService,
     
     private _scrollOnNavigationService: ScrollOnNavigationService,
     private _utilitiesService: UtilitiesService, 
     @Inject(PLATFORM_ID) private plateformId: Object,
+    @Inject(LOCALE_ID) public languageId: Object,
+
     public appService: AppService,
     private _accountsService: AccountsService, private _authServive: AuthService) { }
 
   ngOnInit(): void {
+    this.appService.setLanguages(this.languageId.toString())
     this.languages = this.appService.LANGUAGES;
         
     this._router.routeReuseStrategy.shouldReuseRoute = (future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean => {
@@ -111,12 +118,32 @@ export class HeaderComponent implements OnInit {
   }
 
   onChangeLang(value:string){
-    this.cookie.put("lang", value);
     if(isPlatformBrowser(this.plateformId)){
-      window.location.reload();
+      const rootUrl = environment.FRONTEND_BASE_URL
+      let url = this._router.url
+      if(value === 'en'){
+        url =`${rootUrl}${url}`
+        window.location.href = url
+    }else if(!url.split('/').includes('en')){
+      if(['es', 'fr'].includes(value)){
+          if(url === '/'){
+            url = ['', value].join('/')
+          }else{
+            const urlParts = url.split('/')
+            const constrituedUrl = ['', value, ...url.split('/')].join('/')
+            if(urlParts[urlParts.length -1] === '/'){
+              url = constrituedUrl.substring(0, constrituedUrl.length-1);
+            }else{
+              url = constrituedUrl
+            }
+          }
+          url =`${rootUrl}${url}`
+          window.location.href = url
+      }
     }
-    
-  }
+   }
+    this.cookie.put('lang',value)
+ }
 
 
 

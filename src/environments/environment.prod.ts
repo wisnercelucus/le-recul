@@ -1,6 +1,7 @@
 export const environment = {
   production: true,
   PROTOCOL_ROOT: 'http://',
+  FRONTEND_BASE_URL: 'http://localhost:4002',
   API_ROOT_URL: 'localhost:8000/api',
   API_BASE_URL: 'localhost:8000/api',
   PUBLIC_BASE_URL: 'localhost:8000',

@@ -22,7 +22,8 @@
       <label>
         <span i18n>Language</span>
         <select #langSelect (change)="onChangeLang(langSelect.value)">
-          <option *ngFor="let lang of languages" [value]="lang.code" [selected]="lang.code === appService.lang">{{ lang.label }}</option>
+          <option></option>
+          <option *ngFor="let lang of languages" [value]="lang.code" [selected]="lang.code === languageId">{{ lang.label_f }}</option>
         </select>
       </label>
       </div>

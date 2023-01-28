@@ -27,7 +27,12 @@ export class HomeService {
       return this._http.post<any>(requestUrl, data, {headers: this.headers});
   }
 
-  
+  getPrimaryContact(){
+    const href = this.getPublicBaseUrl();
+    const requestUrl = `${href}api/primary_contact/`;
+    return this._http.get<any>(requestUrl);
+}
+
   onSubscribe(data: any){
       const href = this.getPublicBaseUrl();
       const requestUrl = `${href}api/home/create/`;

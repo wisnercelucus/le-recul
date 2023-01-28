@@ -341,6 +341,9 @@
       <trans-unit id="4732794130095928766" datatype="html">
         <source> BOOK</source>
       </trans-unit>
+      <trans-unit id="352931323560404528" datatype="html">
+        <source>You can reach out by <x id="START_LINK" ctype="x-a" equiv-text="&lt;a class=&quot;anchor&quot; href=&quot;mailto:{{primaryContact?.email}}&quot;&gt;"/>email<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> using the contact form or by phone: </source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

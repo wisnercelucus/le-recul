@@ -20,6 +20,7 @@ export class ContactComponent implements OnInit, OnDestroy, AfterViewInit, OpenC
   subs = new SubSink()
   countries: any;
   selectedCountry: any;
+  primaryContact: any;
 
   constructor(private _countriesService: CountriesService, 
     private _homeService: HomeService,
@@ -46,7 +47,7 @@ export class ContactComponent implements OnInit, OnDestroy, AfterViewInit, OpenC
   }
 
   ngOnInit(): void {
-
+    this.getPrimaryContact()
   }
 
   onSubmit(f: NgForm){
@@ -110,8 +111,17 @@ export class ContactComponent implements OnInit, OnDestroy, AfterViewInit, OpenC
     if(index !== -1){
       this.selectedCountry = this.countries[index]
     }
+  }
 
-
+  getPrimaryContact(){
+    this.subs.add(
+      this._homeService.getPrimaryContact().subscribe({
+        next: (res: any)=>{
+          this.primaryContact = {...res}
+          //console.log(res)
+        }
+      })
+    )
   }
 
 }

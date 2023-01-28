@@ -1,3 +1,7 @@
+@import '../../../../settings/sass/abstracts/mixins';
+@import '../../../../settings/sass/abstracts/variables';
+
+
 .wrapper{
     background: #fff;
     padding: 6rem 0;
@@ -27,4 +31,14 @@
     .heading-tertiary{
         font-size: 2.5rem;
     }
+}
+
+.primary_contact_info{
+    background-color: rgba($color-accent, 0.1);
+    padding: 2rem;
+    //box-shadow: 0 1px 3px 0 rgba($color-black, 0.54);
+    text-align: center;
+    margin-bottom: 4rem;
+    border-radius: 8px;
+    font-size: 1.9rem;
 }

@@ -3,6 +3,13 @@
         <div class="u-center-text u-margin-bottom-medium">
             <h3 class="heading-tertiary" i18n>Contact Us</h3>
         </div>
+        <div class="primary_contact_info" *ngIf="primaryContact">
+          <p i18n>You can reach out by <a class="anchor" href="mailto:{{primaryContact?.email}}">email</a> using the contact form or by phone: </p>
+          <p *ngIf="primaryContact?.phone_work || primaryContact?.phone_mobile">
+            <span *ngIf="primaryContact?.phone_work">{{primaryContact?.phone_work}}</span>
+            <span *ngIf="primaryContact?.phone_work && primaryContact?.phone_mobile"> / {{primaryContact?.phone_mobile}}</span>
+          </p>
+        </div>
       <div class="row">
         <div class="col-1-of-2 contact-img-container">
             <img class="contact-img" src="assets/contact-us.png">

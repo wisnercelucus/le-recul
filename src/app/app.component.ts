@@ -58,7 +58,6 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     this._authServive.autoAuthUser()
-    
     if(isPlatformBrowser(this.platformId)){
       const userLang = navigator.language
       let locale = this.cookie.get("lang") || userLang || 'en';
