@@ -33,7 +33,7 @@ const Element = domino.impl.Element;
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(lang: string): express.Express {
   const server = express();
-  const distFolder = join(process.cwd(), `dist/valerynuma/browser/${lang}`);
+  const distFolder = join(process.cwd(), `dist/browser/${lang}`);
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
   const win = domino.createWindow(indexHtml.toString());
@@ -81,7 +81,7 @@ export function app(lang: string): express.Express {
 }
 
 function run(): void {
-  const port = process.env['PORT'] || 4002;
+  const port = process.env['PORT'] || 4003;
 
   const appFr = app('fr');
   const appEn = app('en');

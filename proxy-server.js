@@ -4,14 +4,14 @@ const path = require("path");
 const getTranslatedServer = (lang) => {
   const distFolder = path.join(
     process.cwd(),
-    `dist/valerynuma/server/${lang}`
+    `dist/server/${lang}`
   );
   const server = require(`${distFolder}/main.js`);
   return server.app(lang);
 };
 
 function run() {
-  const port = process.env.PORT || 4002;
+  const port = process.env.PORT || 4003;
 
   // Start up the Node server
   const appFr = getTranslatedServer("fr");
