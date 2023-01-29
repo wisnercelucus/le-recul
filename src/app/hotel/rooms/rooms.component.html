@@ -5,7 +5,7 @@
           <img src="{{getCompleteUrl(room.featured_image)}}" i18n-alt alt="room image" />
           <div>
             <h3>{{room.name}}</h3>
-            <p [innerHTML]="room.description">
+            <p [innerHTML]="truncateHTML(room.description, 120)">
             </p>
 
             <div class="room-services-icon">

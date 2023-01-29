@@ -2,6 +2,7 @@ import { Component, Input, OnDestroy, OnInit, Pipe, PipeTransform, ViewEncapsula
 import { DomSanitizer } from '@angular/platform-browser';
 import { DataTablesService } from 'src/app/data-tables/data-tables.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
+import { truncateHTML } from 'src/settings/utilities/functions';
 import { SubSink } from 'subsink';
 
 @Component({
@@ -14,6 +15,8 @@ export class RoomsComponent implements OnInit, OnDestroy {
   rooms: any[] = []
   subs = new SubSink()
   @Input() displayFooter=true
+  truncateHTML = truncateHTML
+
   constructor(private _datatableService: DataTablesService,
     private _sanitizer: DomSanitizer,
      private _utilitiesService: UtilitiesService) { }

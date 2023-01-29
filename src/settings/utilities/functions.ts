@@ -75,3 +75,17 @@ export function normalizeTitle(value:any){
       }
     })*/
   }
+
+  export function truncateHTML(text: string, length: number): string {
+
+    let charlimit = length;
+    if(!text || text.length <= charlimit )
+    {
+        return text;
+    }
+
+
+  let without_html = text.replace(/<(?:.|\n)*?>/gm, '');
+  let shortened = without_html.substring(0, charlimit) + "...";
+  return shortened;
+}
