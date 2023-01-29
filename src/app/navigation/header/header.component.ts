@@ -130,11 +130,11 @@ export class HeaderComponent implements OnInit {
             url = ['', value].join('/')
           }else{
             const urlParts = url.split('/')
-            const constrituedUrl = ['', value, ...url.split('/')].join('/')
+            const tempUrl = ['', value, ...url.split('/')].join('/')
             if(urlParts[urlParts.length -1] === '/'){
-              url = constrituedUrl.substring(0, constrituedUrl.length-1);
+              url = tempUrl.substring(0, tempUrl.length-1);
             }else{
-              url = constrituedUrl
+              url = tempUrl
             }
           }
           url =`${rootUrl}${url}`

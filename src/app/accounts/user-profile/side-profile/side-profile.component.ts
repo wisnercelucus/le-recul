@@ -96,6 +96,7 @@ export class SideProfileComponent implements OnInit {
       err=>{
         this.imagePreview = "";
         //this.openDialog1(false);
+        console.log(err)
         dialogRef.close();
       }
      ))
