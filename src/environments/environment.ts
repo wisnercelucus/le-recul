@@ -10,7 +10,7 @@ export const environment = {
   API_BASE_URL: 'localhost:8000/api',
   PUBLIC_BASE_URL: 'localhost:8000',
   PUBLIC_API_BASE_URL: 'localhost:8000/api',
-  GOOGLE_MAP_API_KEY: 'AIzaSyDtoe5t6M0ZRPNMUjQuOPBs45-mxUKcucU',
+  GOOGLE_MAP_API_KEY: '',
   COUNTRIES_API_ROOT_URL: 'https://restcountries.com/v3.1',
 };
 

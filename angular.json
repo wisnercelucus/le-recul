@@ -4,6 +4,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "valerynuma": {
+      
       "i18n":{
         "sourceLocale":{
           "code": "en",
