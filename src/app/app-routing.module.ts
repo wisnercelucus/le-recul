@@ -13,7 +13,8 @@ const routes: Routes = [
     path: '',
     redirectTo: '',
     pathMatch: 'full'
-  }
+  },
+  {path:"**", loadChildren: () => import('./hotel/hotel.module').then(m => m.HotelModule)},
   
   //{path: ':model', loadChildren: () => import('./data-tables/data-tables.module').then(m => m.DataTablesModule)},
 ];
